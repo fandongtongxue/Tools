@@ -1,16 +1,22 @@
 PODS:
+  - GCDWebServer/Core (3.5.4)
+  - GCDWebServer/WebUploader (3.5.4):
+    - GCDWebServer/Core
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - GCDWebServer/WebUploader (~> 3.0)
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
+    - GCDWebServer
     - SnapKit
 
 SPEC CHECKSUMS:
+  GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 103ea4787f7d203d49f8a3f69442e0ff7bddc728
+PODFILE CHECKSUM: 25bfef639d66cf01e5cfa2ebd107722561d52c66
 
 COCOAPODS: 1.10.1

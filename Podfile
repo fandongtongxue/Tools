@@ -6,5 +6,4 @@ target 'Tools' do
   use_frameworks!
   # Pods for Tools
   pod 'SnapKit', '~> 5.0.0'
-  pod "GCDWebServer/WebUploader", "~> 3.0"
 end

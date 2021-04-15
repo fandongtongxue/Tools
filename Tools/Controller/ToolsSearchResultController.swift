@@ -50,7 +50,8 @@ extension ToolsSearchResultController : UITableViewDelegate,UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(ToolListCell.classForCoder()), for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(ToolListCell.classForCoder()), for: indexPath) as! ToolListCell
+        cell.model = resultArray[indexPath.row]
         return cell
     }
     
@@ -63,6 +64,12 @@ extension ToolsSearchResultController : UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         let inputStr = searchController.searchBar.text
         resultArray.removeAll()
+        for subModel in dataArray {
+            if subModel.name.contains(inputStr ?? "") {
+                resultArray.append(subModel)
+            }
+        }
+        tableView.reloadData()
     }
 }
 

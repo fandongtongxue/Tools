@@ -6,4 +6,7 @@ target 'Tools' do
   use_frameworks!
   # Pods for Tools
   pod 'SnapKit', '~> 5.0.0'
+  pod 'Hue'
+  pod 'HandyJSON', '~> 5.0.2'
+
 end

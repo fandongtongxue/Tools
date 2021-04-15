@@ -7,6 +7,7 @@
 
 import UIKit
 
-class ToolModel: NSObject {
-    var title = ""
+class ToolModel: BaseModel {
+    var name = ""
+    var backgroundColorHex = ""
 }

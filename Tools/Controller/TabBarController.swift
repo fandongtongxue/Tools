@@ -15,12 +15,12 @@ class TabBarController: UITabBarController {
         // Do any additional setup after loading the view.
         let myVC = MyToolsViewController()
         let myNav = BaseNavigationController(rootViewController: myVC)
-        let myItem = UITabBarItem(title: "我的工具", image: #imageLiteral(resourceName: "tab_my_tool"), selectedImage: #imageLiteral(resourceName: "tab_my_tool"))
+        let myItem = UITabBarItem(title: "我的工具", image: UIImage(systemName: "rectangle.grid.2x2.fill"), selectedImage: UIImage(systemName: "rectangle.grid.2x2.fill"))
         myNav.tabBarItem = myItem
         
         let toolsVC = ToolsViewController()
         let toolsNav = BaseNavigationController(rootViewController: toolsVC)
-        let toolsItem = UITabBarItem(title: "工具中心", image: #imageLiteral(resourceName: "tab_my_tool"), selectedImage: #imageLiteral(resourceName: "tab_my_tool"))
+        let toolsItem = UITabBarItem(title: "工具中心", image: UIImage(systemName: "rectangle.grid.2x2.fill"), selectedImage: UIImage(systemName: "rectangle.grid.2x2.fill"))
         toolsNav.tabBarItem = toolsItem
         
         viewControllers = [myNav,toolsNav]

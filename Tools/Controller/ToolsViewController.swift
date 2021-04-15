@@ -104,6 +104,32 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 15
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = ToolDetailViewController()
+        detailVC.model = dataArray[indexPath.item]
+        detailVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: String(indexPath.item) as NSCopying) { () -> UIViewController? in
+            let detailVC = ToolDetailViewController()
+            detailVC.model = self.dataArray[indexPath.item]
+            return detailVC
+        } actionProvider: { (element) -> UIMenu? in
+            let addAction = UIAction(title: "添加", image: UIImage(systemName: "add"), state: .off) { (action) in
+                print("点击了添加")
+            }
+            return UIMenu(title: "", children: [addAction])
+        }
+
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
+        let detailVC = ToolDetailViewController()
+        show(detailVC, sender: nil)
+    }
 }
 
 extension ToolsViewController : UISearchControllerDelegate{

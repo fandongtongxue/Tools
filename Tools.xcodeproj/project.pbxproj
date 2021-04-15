@@ -24,6 +24,8 @@
 		04A93D072627C658006C9773 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A93D062627C658006C9773 /* tools.json */; };
 		04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF02627E781006C9773 /* ToolItemCell.swift */; };
 		04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF82627E9F0006C9773 /* BaseModel.swift */; };
+		04A93ED8262818F4006C9773 /* ToolDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */; };
+		04A93F0126283D16006C9773 /* RPReplay_Final1618477631.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 04A93F0026283D16006C9773 /* RPReplay_Final1618477631.MP4 */; };
 		8B3A2194BDA724F19F7DC8D4 /* Pods_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7A5A17F50E9D36BED15AE2 /* Pods_Tools.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		04A93D062627C658006C9773 /* tools.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
 		04A93DF02627E781006C9773 /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
 		04A93DF82627E9F0006C9773 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolDetailViewController.swift; sourceTree = "<group>"; };
+		04A93F0026283D16006C9773 /* RPReplay_Final1618477631.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = RPReplay_Final1618477631.MP4; sourceTree = "<group>"; };
 		3A91064668C4DE3440D969AD /* Pods-Tools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.debug.xcconfig"; path = "Target Support Files/Pods-Tools/Pods-Tools.debug.xcconfig"; sourceTree = "<group>"; };
 		8E7A5A17F50E9D36BED15AE2 /* Pods_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5EF2C540199B83CDEE38334 /* Pods-Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.release.xcconfig"; path = "Target Support Files/Pods-Tools/Pods-Tools.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,10 +120,12 @@
 		04A93DFC2627EFF2006C9773 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04A93ED52628186B006C9773 /* Tools */,
 				048D59712625240A00628F78 /* TabBarController.swift */,
 				048D5978262524C600628F78 /* MyToolsViewController.swift */,
 				048D597B262524D200628F78 /* ToolsViewController.swift */,
 				048D598C2625298000628F78 /* ToolsSearchResultController.swift */,
+				04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -136,10 +142,18 @@
 		04A93DFE2627F027006C9773 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04A93F0026283D16006C9773 /* RPReplay_Final1618477631.MP4 */,
 				04A93D062627C658006C9773 /* tools.json */,
 				048D599C26256CB300628F78 /* ToolModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		04A93ED52628186B006C9773 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		0C4E14621A7E90492C3451EA /* Pods */ = {
@@ -220,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				048D596326251F8200628F78 /* LaunchScreen.storyboard in Resources */,
+				04A93F0126283D16006C9773 /* RPReplay_Final1618477631.MP4 in Resources */,
 				048D596026251F8200628F78 /* Assets.xcassets in Resources */,
 				048D595E26251F8100628F78 /* Main.storyboard in Resources */,
 				04A93D072627C658006C9773 /* tools.json in Resources */,
@@ -276,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				048D59852625272500628F78 /* BaseNavigationController.swift in Sources */,
+				04A93ED8262818F4006C9773 /* ToolDetailViewController.swift in Sources */,
 				048D597C262524D200628F78 /* ToolsViewController.swift in Sources */,
 				048D595B26251F8100628F78 /* ViewController.swift in Sources */,
 				04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */,
@@ -441,7 +457,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210413;
+				CURRENT_PROJECT_VERSION = 20210415;
 				DEVELOPMENT_TEAM = 37R27U9WSN;
 				INFOPLIST_FILE = Tools/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -465,7 +481,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210413;
+				CURRENT_PROJECT_VERSION = 20210415;
 				DEVELOPMENT_TEAM = 37R27U9WSN;
 				INFOPLIST_FILE = Tools/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

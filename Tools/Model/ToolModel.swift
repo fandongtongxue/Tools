@@ -10,4 +10,6 @@ import UIKit
 class ToolModel: BaseModel {
     var name = ""
     var backgroundColorHex = ""
+    var desc = ""
+    var icon = ""
 }

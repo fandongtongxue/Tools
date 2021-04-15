@@ -1,24 +1,32 @@
 PODS:
   - HandyJSON (5.0.2)
   - Hue (5.0.0)
+  - MarkdownView (1.7.1)
   - SnapKit (5.0.1)
+  - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
   - HandyJSON (~> 5.0.2)
   - Hue
+  - MarkdownView
   - SnapKit (~> 5.0.0)
+  - Toast-Swift (~> 5.0.1)
 
 SPEC REPOS:
   trunk:
     - HandyJSON
     - Hue
+    - MarkdownView
     - SnapKit
+    - Toast-Swift
 
 SPEC CHECKSUMS:
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
+  MarkdownView: cf30a97ab39b2bce04406adce541972c882363bd
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 888086d01d6f6d1e1a2050897370ac930b1a8545
+PODFILE CHECKSUM: c4ff4dc0c13322ec05460e336433d3b321d49730
 
 COCOAPODS: 1.10.1

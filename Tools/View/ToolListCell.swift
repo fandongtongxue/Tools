@@ -20,7 +20,7 @@ class ToolListCell: UITableViewCell {
     
     lazy var nameLabel : UILabel = {
         let nameLabel = UILabel(frame: .zero)
-        nameLabel.textColor = .darkText
+        nameLabel.textColor = .systemGray
         nameLabel.textAlignment = .left
         nameLabel.font = .systemFont(ofSize: 17, weight: .medium)
         nameLabel.numberOfLines = 0

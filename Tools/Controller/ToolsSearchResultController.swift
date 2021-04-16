@@ -11,6 +11,7 @@ class ToolsSearchResultController: BaseViewController {
     
     var dataArray = [ToolModel]()
     var resultArray = [ToolModel]()
+    var nav : BaseNavigationController?
     
     lazy var tableView : UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -57,6 +58,13 @@ extension ToolsSearchResultController : UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = ToolDetailViewController()
+        detailVC.model = resultArray[indexPath.row]
+        detailVC.hidesBottomBarWhenPushed = true
+        nav?.pushViewController(detailVC, animated: true)
     }
 }
 

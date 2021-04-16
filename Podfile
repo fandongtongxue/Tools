@@ -8,6 +8,5 @@ target 'Tools' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'Hue'
   pod 'HandyJSON', '~> 5.0.2'
-  pod 'MarkdownView'
   pod 'Toast-Swift', '~> 5.0.1'
 end

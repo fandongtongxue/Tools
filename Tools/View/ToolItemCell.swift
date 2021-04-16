@@ -10,8 +10,6 @@ import UIKit
 class ToolItemCell: UICollectionViewCell {
     lazy var colorBgView : UIView = {
         let colorBgView = UIView(frame: .zero)
-        colorBgView.layer.cornerRadius = 10
-        colorBgView.clipsToBounds = true
         return colorBgView
     }()
     
@@ -25,6 +23,8 @@ class ToolItemCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        layer.cornerRadius = 10
+        clipsToBounds = true
         contentView.addSubview(colorBgView)
         colorBgView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()

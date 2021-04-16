@@ -12,6 +12,7 @@ class ToolsViewController: BaseViewController {
     
     lazy var searchRC : ToolsSearchResultController = {
         let searchRC = ToolsSearchResultController()
+        searchRC.nav = navigationController as! BaseNavigationController
         return searchRC
     }()
     
@@ -118,16 +119,59 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
             detailVC.model = self.dataArray[indexPath.item]
             return detailVC
         } actionProvider: { (element) -> UIMenu? in
-            let addAction = UIAction(title: "添加", image: UIImage(systemName: "add"), state: .off) { (action) in
-                print("点击了添加")
+            
+            let storageObject = UserDefaults.standard.array(forKey: MyToolSaveKey)
+            var ret = false
+            if storageObject != nil{
+                let storageArray = storageObject as! [[String : Any]]
+                for subObject in storageArray{
+                    let model = ToolModel.deserialize(from: subObject)
+                    if model?.id == self.dataArray[indexPath.item].id {
+                        ret = true
+                    }
+                }
             }
-            return UIMenu(title: "", children: [addAction])
+            if ret {
+                let removeAction = UIAction(title: "移除", image: UIImage(systemName: "minus.square"), state: .off) { (action) in
+                    print("点击了移除")
+                    var storageArray = UserDefaults.standard.array(forKey: MyToolSaveKey) as! [[String : Any]]
+                    for i in 0...storageArray.count - 1{
+                        let subObject = storageArray[i]
+                        let model = ToolModel.deserialize(from: subObject)
+                        if model?.id == self.dataArray[indexPath.item].id {
+                            storageArray.remove(at: i)
+                            UserDefaults.standard.setValue(storageArray, forKey: MyToolSaveKey)
+                            UserDefaults.standard.synchronize()
+                            break
+                        }
+                    }
+                }
+                return UIMenu(title: "", children: [removeAction])
+            }else{
+                let addAction = UIAction(title: "添加", image: UIImage(systemName: "plus.app"), state: .off) { (action) in
+                    print("点击了添加")
+                    let storageObject = UserDefaults.standard.array(forKey: MyToolSaveKey)
+                    if storageObject != nil {
+                        var storageArray = storageObject as! [[String : Any]]
+                        storageArray.append(self.dataArray[indexPath.item].toJSON()!)
+                        UserDefaults.standard.setValue(storageArray, forKey: MyToolSaveKey)
+                    }else{
+                        UserDefaults.standard.setValue([self.dataArray[indexPath.item].toJSON()], forKey: MyToolSaveKey)
+                    }
+                    UserDefaults.standard.synchronize()
+                }
+                return UIMenu(title: "", children: [addAction])
+            }
+            
+            
         }
 
     }
     
     func collectionView(_ collectionView: UICollectionView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
+        let item = Int(configuration.identifier as! String) ?? 0
         let detailVC = ToolDetailViewController()
+        detailVC.model = dataArray[item]
         show(detailVC, sender: nil)
     }
 }

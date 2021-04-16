@@ -6,11 +6,17 @@
 //
 
 import UIKit
-import MarkdownView
+import WebKit
 import AVKit
 
 class ToolDetailViewController: BaseViewController {
     var model = ToolModel()
+    
+    lazy var webView : WKWebView = {
+        let config = WKWebViewConfiguration()
+        let webView = WKWebView(frame: .zero, configuration: config)
+        return webView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,23 +24,13 @@ class ToolDetailViewController: BaseViewController {
         // Do any additional setup after loading the view.
         title = model.name
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playVideo))
         
-        let mdView = MarkdownView()
-        view.addSubview(mdView)
-        mdView.snp.makeConstraints { (make) in
+        view.addSubview(webView)
+        webView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
-        mdView.load(markdown: model.desc, enableImage: true)
+        webView.load(URLRequest(url: URL(string: model.desc_url)!))
         
-    }
-    
-    @objc func playVideo(){
-        let playerVC = AVPlayerViewController()
-        let player = AVPlayer(url: URL.init(fileURLWithPath: Bundle.main.path(forResource: "RPReplay_Final1618477631", ofType: "MP4")!))
-        playerVC.player = player
-        player.play()
-        present(playerVC, animated: true, completion: nil)
     }
     
 

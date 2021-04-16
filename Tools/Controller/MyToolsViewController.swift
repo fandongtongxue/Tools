@@ -95,10 +95,9 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = ToolDetailViewController()
-        detailVC.model = dataArray[indexPath.item]
-        detailVC.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(detailVC, animated: true)
+        let toolVC = ParseShortVideoController()
+        toolVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(toolVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {

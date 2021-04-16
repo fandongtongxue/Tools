@@ -9,4 +9,6 @@ target 'Tools' do
   pod 'Hue'
   pod 'HandyJSON', '~> 5.0.2'
   pod 'Toast-Swift', '~> 5.0.1'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
 end

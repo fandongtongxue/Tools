@@ -25,6 +25,9 @@
 		04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF02627E781006C9773 /* ToolItemCell.swift */; };
 		04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF82627E9F0006C9773 /* BaseModel.swift */; };
 		04A93ED8262818F4006C9773 /* ToolDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */; };
+		04B1C83426296BE5005EDBCB /* ParseShortVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C83326296BE5005EDBCB /* ParseShortVideoController.swift */; };
+		04B1C846262974E9005EDBCB /* FDNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C845262974E9005EDBCB /* FDNetwork.swift */; };
+		04B1C8492629765B005EDBCB /* ParseShortVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */; };
 		8B3A2194BDA724F19F7DC8D4 /* Pods_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7A5A17F50E9D36BED15AE2 /* Pods_Tools.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,9 @@
 		04A93DF02627E781006C9773 /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
 		04A93DF82627E9F0006C9773 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolDetailViewController.swift; sourceTree = "<group>"; };
+		04B1C83326296BE5005EDBCB /* ParseShortVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseShortVideoController.swift; sourceTree = "<group>"; };
+		04B1C845262974E9005EDBCB /* FDNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDNetwork.swift; sourceTree = "<group>"; };
+		04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseShortVideoModel.swift; sourceTree = "<group>"; };
 		3A91064668C4DE3440D969AD /* Pods-Tools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.debug.xcconfig"; path = "Target Support Files/Pods-Tools/Pods-Tools.debug.xcconfig"; sourceTree = "<group>"; };
 		8E7A5A17F50E9D36BED15AE2 /* Pods_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5EF2C540199B83CDEE38334 /* Pods-Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.release.xcconfig"; path = "Target Support Files/Pods-Tools/Pods-Tools.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 				04A93DFD2627F004006C9773 /* View */,
 				04A93DFE2627F027006C9773 /* Model */,
 				04A93DFB2627EFE1006C9773 /* Base */,
+				04B1C837262970E9005EDBCB /* FD */,
 				048D595426251F8100628F78 /* Products */,
 			);
 			path = Tools;
@@ -142,6 +149,7 @@
 			children = (
 				04A93D062627C658006C9773 /* tools.json */,
 				048D599C26256CB300628F78 /* ToolModel.swift */,
+				04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,8 +157,17 @@
 		04A93ED52628186B006C9773 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				04B1C83326296BE5005EDBCB /* ParseShortVideoController.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		04B1C837262970E9005EDBCB /* FD */ = {
+			isa = PBXGroup;
+			children = (
+				04B1C845262974E9005EDBCB /* FDNetwork.swift */,
+			);
+			path = FD;
 			sourceTree = "<group>";
 		};
 		0C4E14621A7E90492C3451EA /* Pods */ = {
@@ -291,6 +308,7 @@
 				048D597C262524D200628F78 /* ToolsViewController.swift in Sources */,
 				048D595B26251F8100628F78 /* ViewController.swift in Sources */,
 				04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */,
+				04B1C8492629765B005EDBCB /* ParseShortVideoModel.swift in Sources */,
 				048D59722625240A00628F78 /* TabBarController.swift in Sources */,
 				048D599D26256CB300628F78 /* ToolModel.swift in Sources */,
 				048D595726251F8100628F78 /* AppDelegate.swift in Sources */,
@@ -299,6 +317,8 @@
 				048D599026253A3600628F78 /* ToolListCell.swift in Sources */,
 				048D59822625266700628F78 /* BaseViewController.swift in Sources */,
 				04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */,
+				04B1C83426296BE5005EDBCB /* ParseShortVideoController.swift in Sources */,
+				04B1C846262974E9005EDBCB /* FDNetwork.swift in Sources */,
 				048D5979262524C600628F78 /* MyToolsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

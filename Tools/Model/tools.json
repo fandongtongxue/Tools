@@ -1,10 +1,10 @@
 {
     "data":[
         {
-            "name":"网页截图",
+            "id":1,
+            "name":"去除水印",
             "icon":"",
-            "video_url":"http://img.app.xiaobingkj.com/RPReplay_Final1618477631.MP4",
-            "desc_url":"http://xiaobingkj.com/index.php/archives/6.html",
+            "desc_url":"https://raw.githubusercontent.com/5ime/video_spider/master/README.md",
             "backgroundColorHex":"22c232"
         }
     ]

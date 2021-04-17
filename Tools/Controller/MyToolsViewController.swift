@@ -75,6 +75,7 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(ToolItemCell.classForCoder()), for: indexPath) as! ToolItemCell
         cell.model = dataArray[indexPath.item]
+        cell.delegate = self
         return cell
     }
     
@@ -130,6 +131,15 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
         let item = Int(configuration.identifier as! String) ?? 0
         let detailVC = ToolDetailViewController()
         detailVC.model = dataArray[item]
+        show(detailVC, sender: nil)
+    }
+}
+
+extension MyToolsViewController : ToolItemCellDelegate{
+    func itemCell(itemCell: ToolItemCell, didClickInfoBtn: UIButton) {
+        let detailVC = ToolDetailViewController()
+        detailVC.model = itemCell.model
+        detailVC.hidesBottomBarWhenPushed = true
         show(detailVC, sender: nil)
     }
 }

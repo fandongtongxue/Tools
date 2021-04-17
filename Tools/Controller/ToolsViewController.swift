@@ -87,6 +87,7 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(ToolItemCell.classForCoder()), for: indexPath) as! ToolItemCell
         cell.model = dataArray[indexPath.item]
+        cell.delegate = self
         return cell
     }
     
@@ -178,4 +179,13 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
 
 extension ToolsViewController : UISearchControllerDelegate{
     
+}
+
+extension ToolsViewController : ToolItemCellDelegate{
+    func itemCell(itemCell: ToolItemCell, didClickInfoBtn: UIButton) {
+        let detailVC = ToolDetailViewController()
+        detailVC.model = itemCell.model
+        detailVC.hidesBottomBarWhenPushed = true
+        show(detailVC, sender: nil)
+    }
 }

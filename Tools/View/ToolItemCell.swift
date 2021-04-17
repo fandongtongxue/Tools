@@ -6,20 +6,15 @@
 //
 
 import UIKit
+import Kingfisher
+
+protocol ToolItemCellDelegate {
+    func itemCell(itemCell :ToolItemCell, didClickInfoBtn: UIButton)
+}
 
 class ToolItemCell: UICollectionViewCell {
-    lazy var colorBgView : UIView = {
-        let colorBgView = UIView(frame: .zero)
-        return colorBgView
-    }()
     
-    lazy var nameLabel : UILabel = {
-        let nameLabel = UILabel(frame: .zero)
-        nameLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        nameLabel.textAlignment = .center
-        nameLabel.font = .systemFont(ofSize: 17, weight: .medium)
-        return nameLabel
-    }()
+    var delegate : ToolItemCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,12 +24,55 @@ class ToolItemCell: UICollectionViewCell {
         colorBgView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
-        contentView.addSubview(nameLabel)
+        colorBgView.addSubview(iconImageView)
+        iconImageView.snp.makeConstraints { (make) in
+            make.left.top.equalToSuperview().offset(15)
+            make.size.equalTo(CGSize(width: 40, height: 40))
+        }
+        colorBgView.addSubview(infoBtn)
+        infoBtn.snp.makeConstraints { (make) in
+            make.right.equalToSuperview().offset(-10)
+            make.top.equalToSuperview().offset(10)
+            make.size.equalTo(CGSize(width: 40, height: 40))
+        }
+        colorBgView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-15)
+            make.left.equalToSuperview().offset(15)
+            make.right.equalToSuperview().offset(-15)
         }
     }
+    
+    @objc func infoBtnAction(sender :UIButton){
+        if delegate != nil {
+            delegate?.itemCell(itemCell: self, didClickInfoBtn: sender)
+        }
+    }
+    
+    lazy var colorBgView : UIView = {
+        let colorBgView = UIView(frame: .zero)
+        return colorBgView
+    }()
+    
+    lazy var iconImageView : UIImageView = {
+        let iconImageView = UIImageView(frame: .zero)
+        return iconImageView
+    }()
+    
+    lazy var infoBtn : UIButton = {
+        let infoBtn = UIButton(frame: .zero)
+        infoBtn.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+        infoBtn.tintColor = .systemBackground
+        infoBtn.addTarget(self, action: #selector(infoBtnAction(sender:)), for: .touchUpInside)
+        return infoBtn
+    }()
+    
+    lazy var nameLabel : UILabel = {
+        let nameLabel = UILabel(frame: .zero)
+        nameLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        nameLabel.font = .systemFont(ofSize: 17, weight: .medium)
+        return nameLabel
+    }()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -47,6 +85,7 @@ class ToolItemCell: UICollectionViewCell {
             //设置数据
             colorBgView.backgroundColor = UIColor(hex: newValue.backgroundColorHex)
             nameLabel.text = newValue.name
+            iconImageView.kf.setImage(with: URL(string: newValue.icon))
         }
         get{
             return _model

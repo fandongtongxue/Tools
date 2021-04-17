@@ -2,8 +2,8 @@
     "data":[
         {
             "id":1,
-            "name":"去除水印",
-            "icon":"",
+            "name":"去除短视频水印",
+            "icon":"http://img.app.xiaobingkj.com/%E5%8E%BB%E6%B0%B4%E5%8D%B0.png",
             "desc_url":"https://github.com/5ime/video_spider",
             "backgroundColorHex":"22c232"
         }

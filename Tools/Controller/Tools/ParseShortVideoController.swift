@@ -54,9 +54,9 @@ class ParseShortVideoController: BaseViewController {
             view.addSubview(playVideoBtn)
             playVideoBtn.snp.makeConstraints { (make) in
                 make.centerX.equalToSuperview()
-                make.width.equalTo(80)
-                make.height.equalTo(80)
-                make.top.equalTo(self.parseBtn.snp.bottom).offset(15 + (UIScreen.main.bounds.size.width - 30) * 9 / 32 - 40)
+                make.width.equalTo(40)
+                make.height.equalTo(40)
+                make.top.equalTo(self.parseBtn.snp.bottom).offset(15 + (UIScreen.main.bounds.size.width - 30) * 9 / 32 - 20)
             }
             
             view.addSubview(saveVideoBtn)
@@ -137,7 +137,7 @@ class ParseShortVideoController: BaseViewController {
         parseBtn.addTarget(self, action: #selector(parseBtnAction), for: .touchUpInside)
         parseBtn.layer.cornerRadius = 10
         parseBtn.clipsToBounds = true
-        parseBtn.layer.borderWidth = 0.5
+        parseBtn.layer.borderWidth = 1
         parseBtn.layer.borderColor = UIColor.systemBlue.cgColor
         return parseBtn
     }()
@@ -146,7 +146,8 @@ class ParseShortVideoController: BaseViewController {
     
     lazy var playVideoBtn : UIButton = {
         let playVideoBtn = UIButton(frame: .zero)
-        playVideoBtn.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        playVideoBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        playVideoBtn.tintColor = .systemBackground
         playVideoBtn.addTarget(self, action: #selector(playVideoBtnAction), for: .touchUpInside)
         return playVideoBtn
     }()
@@ -158,7 +159,7 @@ class ParseShortVideoController: BaseViewController {
         saveVideoBtn.addTarget(self, action: #selector(saveVideoBtnAction), for: .touchUpInside)
         saveVideoBtn.layer.cornerRadius = 10
         saveVideoBtn.clipsToBounds = true
-        saveVideoBtn.layer.borderWidth = 0.5
+        saveVideoBtn.layer.borderWidth = 1
         saveVideoBtn.layer.borderColor = UIColor.systemBlue.cgColor
         return saveVideoBtn
     }()

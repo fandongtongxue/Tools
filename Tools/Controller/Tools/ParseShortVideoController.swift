@@ -53,16 +53,16 @@ class ParseShortVideoController: BaseViewController {
             view.layer.addSublayer(playerLayer)
             view.addSubview(playVideoBtn)
             playVideoBtn.snp.makeConstraints { (make) in
-                make.left.equalTo(self.textView)
-                make.width.equalTo((UIScreen.main.bounds.size.width - 45) / 2)
-                make.height.equalTo(40)
-                make.top.equalTo(self.parseBtn.snp.bottom).offset(30 + (UIScreen.main.bounds.size.width - 30) * 9 / 16)
+                make.centerX.equalToSuperview()
+                make.width.equalTo(80)
+                make.height.equalTo(80)
+                make.top.equalTo(self.parseBtn.snp.bottom).offset(15 + (UIScreen.main.bounds.size.width - 30) * 9 / 32 - 40)
             }
             
             view.addSubview(saveVideoBtn)
             saveVideoBtn.snp.makeConstraints { (make) in
                 make.right.equalToSuperview().offset(-15)
-                make.width.equalTo((UIScreen.main.bounds.size.width - 45) / 2)
+                make.left.equalToSuperview().offset(15)
                 make.height.equalTo(40)
                 make.top.equalTo(self.parseBtn.snp.bottom).offset(30 + (UIScreen.main.bounds.size.width - 30) * 9 / 16)
             }
@@ -73,8 +73,17 @@ class ParseShortVideoController: BaseViewController {
     
     @objc func parseBtnAction(){
         view.makeToastActivity(.center)
+        let text = textView.text
+        let textArray = text?.components(separatedBy: " ") ?? []
+        var realText = ""
+        for subText in textArray {
+            if subText.contains("http") {
+                realText = subText
+                break
+            }
+        }
 //        http://api.tools.app.xiaobingkj.com/parseVideo.php?url=http://v.douyin.com/eMKj42N/
-        FDNetwork.GET(url: "http://api.tools.app.xiaobingkj.com/parseVideo.php", param: ["url":textView.text], success: { (result) in
+        FDNetwork.GET(url: "http://api.tools.app.xiaobingkj.com/parseVideo.php", param: ["url":realText], success: { (result) in
             let model = ParseShortVideoModel.deserialize(from: result) ?? ParseShortVideoModel()
             self.model = model
             if model.code == 200 {
@@ -137,13 +146,8 @@ class ParseShortVideoController: BaseViewController {
     
     lazy var playVideoBtn : UIButton = {
         let playVideoBtn = UIButton(frame: .zero)
-        playVideoBtn.setTitle("播放视频", for: .normal)
-        playVideoBtn.setTitleColor(.systemBlue, for: .normal)
+        playVideoBtn.setImage(UIImage(systemName: "play.circle"), for: .normal)
         playVideoBtn.addTarget(self, action: #selector(playVideoBtnAction), for: .touchUpInside)
-        playVideoBtn.layer.cornerRadius = 10
-        playVideoBtn.clipsToBounds = true
-        playVideoBtn.layer.borderWidth = 0.5
-        playVideoBtn.layer.borderColor = UIColor.systemBlue.cgColor
         return playVideoBtn
     }()
     

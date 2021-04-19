@@ -8,6 +8,7 @@
 import UIKit
 import AVKit
 import Toast_Swift
+import Alamofire
 
 class ParseShortVideoController: BaseViewController {
     
@@ -105,7 +106,26 @@ class ParseShortVideoController: BaseViewController {
     }
     
     @objc func saveVideoBtnAction(){
-        
+        view.makeToastActivity(.center)
+        let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
+        AF.download(model.data?.url ?? "", to: destination).responseData { (response) in
+            if response.fileURL != nil{
+                if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(response.fileURL?.path ?? "") {
+                    UISaveVideoAtPathToSavedPhotosAlbum(response.fileURL?.path ?? "", self, #selector(self.video(videoPath:didFinishSavingWithError:contextInfo:)), nil)
+                }else{
+                    self.view.hideToastActivity()
+                }
+            }
+        }
+    }
+    
+    @objc func video(videoPath: String, didFinishSavingWithError error: NSError, contextInfo info: AnyObject){
+        view.hideToastActivity()
+        if error.code != 0 {
+            view.makeToast("保存失败")
+        }else{
+            view.makeToast("保存成功")
+        }
     }
     
     @objc func checkUIPasteboard(){
@@ -146,7 +166,8 @@ class ParseShortVideoController: BaseViewController {
     
     lazy var playVideoBtn : UIButton = {
         let playVideoBtn = UIButton(frame: .zero)
-        playVideoBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        playVideoBtn.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+        playVideoBtn.setImage(#imageLiteral(resourceName: "play"), for: .highlighted)
         playVideoBtn.tintColor = .systemBackground
         playVideoBtn.addTarget(self, action: #selector(playVideoBtnAction), for: .touchUpInside)
         return playVideoBtn

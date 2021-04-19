@@ -105,17 +105,22 @@ class ParseShortVideoController: BaseViewController {
         present(playerVC, animated: true, completion: nil)
     }
     
-    @objc func saveVideoBtnAction(){
+    @objc func saveVideoBtnAction(sender :UIButton){
+        sender.isUserInteractionEnabled = false
         view.makeToastActivity(.center)
-        let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
-        AF.download(model.data?.url ?? "", to: destination).responseData { (response) in
+        AF.download(model.data?.url ?? "", to: { (url, urlResponse) -> (destinationURL: URL, options: DownloadRequest.Options) in
+            let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+            let time = Date().timeIntervalSince1970
+            let fileURL = docURL?.appendingPathComponent("\(time).mp4")
+            return (fileURL!, [.removePreviousFile,.createIntermediateDirectories])
+        }).responseData { (response) in
             if response.fileURL != nil{
                 if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(response.fileURL?.path ?? "") {
                     UISaveVideoAtPathToSavedPhotosAlbum(response.fileURL?.path ?? "", self, #selector(self.video(videoPath:didFinishSavingWithError:contextInfo:)), nil)
-                }else{
-                    self.view.hideToastActivity()
                 }
             }
+            self.view.hideToastActivity()
+            sender.isUserInteractionEnabled = true
         }
     }
     
@@ -177,7 +182,7 @@ class ParseShortVideoController: BaseViewController {
         let saveVideoBtn = UIButton(frame: .zero)
         saveVideoBtn.setTitle("保存视频", for: .normal)
         saveVideoBtn.setTitleColor(.systemBlue, for: .normal)
-        saveVideoBtn.addTarget(self, action: #selector(saveVideoBtnAction), for: .touchUpInside)
+        saveVideoBtn.addTarget(self, action: #selector(saveVideoBtnAction(sender:)), for: .touchUpInside)
         saveVideoBtn.layer.cornerRadius = 10
         saveVideoBtn.clipsToBounds = true
         saveVideoBtn.layer.borderWidth = 1

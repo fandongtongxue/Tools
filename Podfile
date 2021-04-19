@@ -12,4 +12,5 @@ target 'Tools' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'Kingfisher'
+  pod "MarkdownView"
 end

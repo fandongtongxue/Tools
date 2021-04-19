@@ -19,7 +19,7 @@ class ParseShortVideoController: BaseViewController {
 
         // Do any additional setup after loading the view.
         
-        title = "解析短视频"
+        title = "去除短视频水印"
         
         view.addSubview(textView)
         textView.snp.makeConstraints { (make) in

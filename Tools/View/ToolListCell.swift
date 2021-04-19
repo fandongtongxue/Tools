@@ -20,11 +20,16 @@ class ToolListCell: UITableViewCell {
     
     lazy var nameLabel : UILabel = {
         let nameLabel = UILabel(frame: .zero)
-        nameLabel.textColor = .systemGray
+        nameLabel.textColor = .systemBlue
         nameLabel.textAlignment = .left
         nameLabel.font = .systemFont(ofSize: 17, weight: .medium)
         nameLabel.numberOfLines = 0
         return nameLabel
+    }()
+    
+    lazy var iconImageView : UIImageView = {
+        let iconImageView = UIImageView(frame: .zero)
+        return iconImageView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -36,6 +41,12 @@ class ToolListCell: UITableViewCell {
             make.top.equalToSuperview().offset(5)
             make.bottom.equalToSuperview().offset(-5)
             make.width.equalTo(120)
+        }
+        colorBgView.addSubview(iconImageView)
+        iconImageView.snp.makeConstraints { (make) in
+            make.left.equalTo(self.colorBgView).offset(15)
+            make.top.equalTo(self.colorBgView).offset(10)
+            make.size.equalTo(CGSize(width: 40, height: 40))
         }
         contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (make) in
@@ -52,6 +63,7 @@ class ToolListCell: UITableViewCell {
             //设置数据
             colorBgView.backgroundColor = UIColor(hex: newValue.backgroundColorHex)
             nameLabel.text = newValue.name
+            iconImageView.kf.setImage(with: URL(string: newValue.icon))
         }
         get{
             return _model

@@ -13,7 +13,6 @@ class ToolModel: BaseModel {
     var id = 0
     var name = ""
     var backgroundColorHex = ""
-    var desc_url = ""
+    var desc_md = ""
     var icon = ""
-    var video_url = ""
 }

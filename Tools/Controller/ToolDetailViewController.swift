@@ -8,29 +8,23 @@
 import UIKit
 import WebKit
 import AVKit
+import MarkdownView
 
 class ToolDetailViewController: BaseViewController {
     var model = ToolModel()
     
-    lazy var webView : WKWebView = {
-        let config = WKWebViewConfiguration()
-        let webView = WKWebView(frame: .zero, configuration: config)
-        return webView
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         title = model.name
         
-        
-        view.addSubview(webView)
-        webView.snp.makeConstraints { (make) in
+        let mdView = MarkdownView()
+        view.addSubview(mdView)
+        mdView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
-        webView.load(URLRequest(url: URL(string: model.desc_url)!))
-        
+        mdView.load(markdown: model.desc_md, enableImage: true)
     }
     
 

@@ -2,9 +2,9 @@
     "data":[
         {
             "id":1,
-            "name":"去除短视频水印",
+            "name":"去除视频水印",
             "icon":"http://img.app.xiaobingkj.com/%E5%8E%BB%E6%B0%B4%E5%8D%B0.png",
-            "desc_url":"https://github.com/5ime/video_spider",
+            "desc_md":"在抖音视频页面点击分享选择复制链接\n![](http://img.app.xiaobingkj.com/IMG_98.JPEG)\n打开Tools选择去除短视频水印工具并点击确定\n![](http://img.app.xiaobingkj.com/IMG_99.JPEG)\n点击开始解析，点击播放可预览或直接点击保存\n![](http://img.app.xiaobingkj.com/IMG_100.JPEG)",
             "backgroundColorHex":"22c232"
         }
     ]

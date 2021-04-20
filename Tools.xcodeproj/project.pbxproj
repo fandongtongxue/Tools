@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0464B17F262E7C150019ED4B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B17E262E7C150019ED4B /* QRCodeViewController.swift */; };
+		0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B181262EA9C80019ED4B /* FDDefine.swift */; };
 		048D595726251F8100628F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595626251F8100628F78 /* AppDelegate.swift */; };
 		048D595926251F8100628F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595826251F8100628F78 /* SceneDelegate.swift */; };
 		048D595B26251F8100628F78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595A26251F8100628F78 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		0464B17E262E7C150019ED4B /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		0464B181262EA9C80019ED4B /* FDDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDDefine.swift; sourceTree = "<group>"; };
 		048D595326251F8100628F78 /* Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048D595626251F8100628F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		048D595826251F8100628F78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		04B1C837262970E9005EDBCB /* FD */ = {
 			isa = PBXGroup;
 			children = (
+				0464B181262EA9C80019ED4B /* FDDefine.swift */,
 				04B1C845262974E9005EDBCB /* FDNetwork.swift */,
 			);
 			path = FD;
@@ -306,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */,
 				048D59852625272500628F78 /* BaseNavigationController.swift in Sources */,
 				04A93ED8262818F4006C9773 /* ToolDetailViewController.swift in Sources */,
 				048D597C262524D200628F78 /* ToolsViewController.swift in Sources */,

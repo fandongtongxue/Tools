@@ -21,17 +21,24 @@ class ParseShortVideoController: BaseViewController {
         
         title = "去除短视频水印"
         
-        view.addSubview(textView)
-        textView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(132 + 15)
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(FD_LargeTitleHeight + FD_NavigationHeight)
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
+            make.bottom.equalToSuperview()
+        }
+        scrollView.addSubview(textView)
+        textView.snp.makeConstraints { (make) in
+            make.top.left.equalToSuperview()
             make.height.equalTo(80)
+            make.width.equalTo(FD_ScreenWidth - 30)
         }
         
-        view.addSubview(parseBtn)
+        scrollView.addSubview(parseBtn)
         parseBtn.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.textView)
+            make.left.equalToSuperview()
+            make.width.equalTo(FD_ScreenWidth - 30)
             make.top.equalTo(self.textView.snp.bottom).offset(15)
             make.height.equalTo(40)
         }
@@ -51,8 +58,8 @@ class ParseShortVideoController: BaseViewController {
     
     func addVideoView(){
         if !(view.layer.sublayers?.contains(playerLayer) ?? false) {
-            view.layer.addSublayer(playerLayer)
-            view.addSubview(playVideoBtn)
+            scrollView.layer.addSublayer(playerLayer)
+            scrollView.addSubview(playVideoBtn)
             playVideoBtn.snp.makeConstraints { (make) in
                 make.centerX.equalToSuperview()
                 make.width.equalTo(40)
@@ -60,11 +67,11 @@ class ParseShortVideoController: BaseViewController {
                 make.top.equalTo(self.parseBtn.snp.bottom).offset(15 + (UIScreen.main.bounds.size.width - 30) * 9 / 32 - 20)
             }
             
-            view.addSubview(saveVideoBtn)
+            scrollView.addSubview(saveVideoBtn)
             saveVideoBtn.snp.makeConstraints { (make) in
-                make.right.equalToSuperview().offset(-15)
-                make.left.equalToSuperview().offset(15)
+                make.left.equalToSuperview()
                 make.height.equalTo(40)
+                make.width.equalTo(FD_ScreenWidth - 30)
                 make.top.equalTo(self.parseBtn.snp.bottom).offset(30 + (UIScreen.main.bounds.size.width - 30) * 9 / 16)
             }
         }
@@ -144,6 +151,13 @@ class ParseShortVideoController: BaseViewController {
             present(alert, animated: true, completion: nil)
         }
     }
+    
+    lazy var scrollView : UIScrollView = {
+        let scrollView = UIScrollView(frame: .zero)
+        scrollView.contentSize = CGSize(width: 0, height: (UIScreen.main.bounds.size.width - 30) * 9 / 16 + 40 + 80 + 40 + 40 + 3 * 15 + 44)
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -FD_SafeAreaBottomHeight, right: 0)
+        return scrollView
+    }()
 
     lazy var textView : UITextView = {
         let textView = UITextView(frame: .zero)
@@ -199,7 +213,7 @@ class ParseShortVideoController: BaseViewController {
     lazy var playerLayer : AVPlayerLayer = {
         let playerLayer = AVPlayerLayer(player: player)
         let width = UIScreen.main.bounds.size.width - 30
-        playerLayer.frame = CGRect(x: 15, y: self.parseBtn.frame.origin.y + self.parseBtn.frame.size.height + 15, width: width, height: width * 9 / 16)
+        playerLayer.frame = CGRect(x: 0, y: self.parseBtn.frame.origin.y + self.parseBtn.frame.size.height + 15, width: width, height: width * 9 / 16)
         playerLayer.backgroundColor = UIColor.systemGray6.cgColor
         playerLayer.cornerRadius = 10
         return playerLayer

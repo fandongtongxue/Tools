@@ -96,9 +96,23 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let toolVC = ParseShortVideoController()
-        toolVC.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(toolVC, animated: true)
+        let model = dataArray[indexPath.item]
+        switch model.id {
+        case 1:
+            let toolVC = ParseShortVideoController()
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 2:
+            let toolVC = QRCodeViewController()
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        default:
+            view.makeToast("未完成的功能")
+            break
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {

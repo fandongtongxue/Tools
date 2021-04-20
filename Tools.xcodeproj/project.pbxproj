@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0464B17F262E7C150019ED4B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B17E262E7C150019ED4B /* QRCodeViewController.swift */; };
 		048D595726251F8100628F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595626251F8100628F78 /* AppDelegate.swift */; };
 		048D595926251F8100628F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595826251F8100628F78 /* SceneDelegate.swift */; };
 		048D595B26251F8100628F78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595A26251F8100628F78 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0464B17E262E7C150019ED4B /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		048D595326251F8100628F78 /* Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048D595626251F8100628F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		048D595826251F8100628F78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				04B1C83326296BE5005EDBCB /* ParseShortVideoController.swift */,
+				0464B17E262E7C150019ED4B /* QRCodeViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				048D595B26251F8100628F78 /* ViewController.swift in Sources */,
 				04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */,
 				04B1C8492629765B005EDBCB /* ParseShortVideoModel.swift in Sources */,
+				0464B17F262E7C150019ED4B /* QRCodeViewController.swift in Sources */,
 				048D59722625240A00628F78 /* TabBarController.swift in Sources */,
 				048D599D26256CB300628F78 /* ToolModel.swift in Sources */,
 				048D595726251F8100628F78 /* AppDelegate.swift in Sources */,

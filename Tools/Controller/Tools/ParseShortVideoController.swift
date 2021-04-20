@@ -57,7 +57,7 @@ class ParseShortVideoController: BaseViewController {
     }
     
     func addVideoView(){
-        if !(view.layer.sublayers?.contains(playerLayer) ?? false) {
+        if !(scrollView.layer.sublayers?.contains(playerLayer) ?? false) {
             scrollView.layer.addSublayer(playerLayer)
             scrollView.addSubview(playVideoBtn)
             playVideoBtn.snp.makeConstraints { (make) in
@@ -154,7 +154,7 @@ class ParseShortVideoController: BaseViewController {
     
     lazy var scrollView : UIScrollView = {
         let scrollView = UIScrollView(frame: .zero)
-        scrollView.contentSize = CGSize(width: 0, height: (UIScreen.main.bounds.size.width - 30) * 9 / 16 + 40 + 80 + 40 + 40 + 3 * 15 + 44)
+        scrollView.contentSize = CGSize(width: 0, height: (UIScreen.main.bounds.size.width - 30) * 9 / 16 + 40 + 80 + 40 + 3 * 15)
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -FD_SafeAreaBottomHeight, right: 0)
         return scrollView
     }()

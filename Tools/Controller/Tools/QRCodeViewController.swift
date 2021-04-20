@@ -15,18 +15,24 @@ class QRCodeViewController: BaseViewController {
         // Do any additional setup after loading the view.
         
         title = "二维码生成"
-        
-        view.addSubview(textView)
-        textView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(132 + 15)
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(FD_LargeTitleHeight + FD_NavigationHeight)
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
+            make.bottom.equalToSuperview()
+        }
+        scrollView.addSubview(textView)
+        textView.snp.makeConstraints { (make) in
+            make.top.left.equalToSuperview()
             make.height.equalTo(80)
+            make.width.equalTo(FD_ScreenWidth - 30)
         }
         
-        view.addSubview(generateBtn)
+        scrollView.addSubview(generateBtn)
         generateBtn.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.textView)
+            make.left.equalToSuperview()
+            make.width.equalTo(FD_ScreenWidth - 30)
             make.top.equalTo(self.textView.snp.bottom).offset(15)
             make.height.equalTo(40)
         }
@@ -41,14 +47,14 @@ class QRCodeViewController: BaseViewController {
             let transform = CGAffineTransform(scaleX: 7, y: 7)
             if let output = filter.outputImage?.transformed(by: transform), let cgImage = context.createCGImage(output, from: output.extent) {
                 let image = UIImage(cgImage: cgImage)
-                if !view.subviews.contains(imageView) {
-                    view.addSubview(imageView)
+                if !scrollView.subviews.contains(imageView) {
+                    scrollView.addSubview(imageView)
                     imageView.snp.makeConstraints { (make) in
                         make.left.right.equalTo(self.generateBtn);
                         make.top.equalTo(self.generateBtn.snp.bottom).offset(15)
                         make.height.equalTo(self.generateBtn.snp.width)
                     }
-                    view.addSubview(saveImageBtn)
+                    scrollView.addSubview(saveImageBtn)
                     saveImageBtn.snp.makeConstraints { (make) in
                         make.left.right.equalTo(self.generateBtn);
                         make.top.equalTo(self.imageView.snp.bottom).offset(15)
@@ -132,6 +138,13 @@ class QRCodeViewController: BaseViewController {
         saveImageBtn.layer.borderWidth = 1
         saveImageBtn.layer.borderColor = UIColor.systemBlue.cgColor
         return saveImageBtn
+    }()
+    
+    lazy var scrollView : UIScrollView = {
+        let scrollView = UIScrollView(frame: .zero)
+        scrollView.contentSize = CGSize(width: 0, height: UIScreen.main.bounds.size.width - 30 + 40 + 80 + 40 + 3 * 15)
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -FD_SafeAreaBottomHeight, right: 0)
+        return scrollView
     }()
 
 }

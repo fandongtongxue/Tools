@@ -11,6 +11,5 @@ target 'Tools' do
   pod 'Toast-Swift', '~> 5.0.1'
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'Kingfisher'
   pod "MarkdownView"
 end

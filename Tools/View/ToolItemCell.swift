@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 protocol ToolItemCellDelegate {
     func itemCell(itemCell :ToolItemCell, didClickInfoBtn: UIButton)

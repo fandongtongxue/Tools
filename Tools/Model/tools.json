@@ -27,6 +27,13 @@
             "icon":"wifi",
             "desc_md":"",
             "backgroundColorHex":"22c232"
+        },
+        {
+            "id":5,
+            "name":"视频提取音频",
+            "icon":"waveform",
+            "desc_md":"",
+            "backgroundColorHex":"22c232"
         }
     ]
 }

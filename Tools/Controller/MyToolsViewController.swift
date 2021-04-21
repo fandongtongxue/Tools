@@ -117,6 +117,12 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             let toolVC = WiFiShareViewController()
             toolVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 5:
+            let toolVC = VideoExtractAudioViewController()
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
         default:
             view.makeToast("未完成的功能")
             break

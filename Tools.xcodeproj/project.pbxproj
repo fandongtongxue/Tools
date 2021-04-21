@@ -25,6 +25,7 @@
 		048D599D26256CB300628F78 /* ToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D599C26256CB300628F78 /* ToolModel.swift */; };
 		0494207F262FB44A0088ADCE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0494207E262FB44A0088ADCE /* CloudKit.framework */; };
 		049420A0262FD26A0088ADCE /* TTSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494209F262FD26A0088ADCE /* TTSViewController.swift */; };
+		049420A9263002FA0088ADCE /* WiFiShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049420A8263002FA0088ADCE /* WiFiShareViewController.swift */; };
 		04A93D072627C658006C9773 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A93D062627C658006C9773 /* tools.json */; };
 		04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF02627E781006C9773 /* ToolItemCell.swift */; };
 		04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF82627E9F0006C9773 /* BaseModel.swift */; };
@@ -59,6 +60,7 @@
 		0494207C262FB3F80088ADCE /* Tools.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tools.entitlements; sourceTree = "<group>"; };
 		0494207E262FB44A0088ADCE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		0494209F262FD26A0088ADCE /* TTSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSViewController.swift; sourceTree = "<group>"; };
+		049420A8263002FA0088ADCE /* WiFiShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiShareViewController.swift; sourceTree = "<group>"; };
 		04A93D062627C658006C9773 /* tools.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
 		04A93DF02627E781006C9773 /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
 		04A93DF82627E9F0006C9773 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				04B1C83326296BE5005EDBCB /* ParseShortVideoController.swift */,
 				0464B17E262E7C150019ED4B /* QRCodeViewController.swift */,
 				0494209F262FD26A0088ADCE /* TTSViewController.swift */,
+				049420A8263002FA0088ADCE /* WiFiShareViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				048D59822625266700628F78 /* BaseViewController.swift in Sources */,
 				04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */,
 				04B1C83426296BE5005EDBCB /* ParseShortVideoController.swift in Sources */,
+				049420A9263002FA0088ADCE /* WiFiShareViewController.swift in Sources */,
 				04B1C846262974E9005EDBCB /* FDNetwork.swift in Sources */,
 				048D5979262524C600628F78 /* MyToolsViewController.swift in Sources */,
 			);

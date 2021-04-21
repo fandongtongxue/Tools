@@ -29,6 +29,8 @@ class ToolListCell: UITableViewCell {
     
     lazy var iconImageView : UIImageView = {
         let iconImageView = UIImageView(frame: .zero)
+        iconImageView.tintColor = .white
+        iconImageView.contentMode = .scaleAspectFit
         return iconImageView
     }()
     
@@ -46,7 +48,6 @@ class ToolListCell: UITableViewCell {
         iconImageView.snp.makeConstraints { (make) in
             make.left.equalTo(self.colorBgView).offset(15)
             make.top.equalTo(self.colorBgView).offset(10)
-            make.size.equalTo(CGSize(width: 40, height: 40))
         }
         contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (make) in
@@ -63,7 +64,7 @@ class ToolListCell: UITableViewCell {
             //设置数据
             colorBgView.backgroundColor = UIColor(hex: newValue.backgroundColorHex)
             nameLabel.text = newValue.name
-            iconImageView.kf.setImage(with: URL(string: newValue.icon))
+            iconImageView.image = UIImage(systemName: newValue.icon)
         }
         get{
             return _model

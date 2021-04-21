@@ -44,6 +44,10 @@ class TTSViewController: BaseViewController {
     }
     
     @objc func generateBtnAction(){
+        if textView.text.count == 0 {
+            return
+        }
+        view.endEditing(true)
         utterance = AVSpeechUtterance(string: textView.text)
         utterance.rate = 0.1
         syntesizer.delegate = self

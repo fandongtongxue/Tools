@@ -33,7 +33,6 @@ class ToolItemCell: UICollectionViewCell {
         infoBtn.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-10)
             make.top.equalToSuperview().offset(10)
-            make.size.equalTo(CGSize(width: 40, height: 40))
         }
         colorBgView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (make) in
@@ -56,13 +55,15 @@ class ToolItemCell: UICollectionViewCell {
     
     lazy var iconImageView : UIImageView = {
         let iconImageView = UIImageView(frame: .zero)
+        iconImageView.tintColor = .white
+        iconImageView.contentMode = .scaleAspectFit
         return iconImageView
     }()
     
     lazy var infoBtn : UIButton = {
         let infoBtn = UIButton(frame: .zero)
         infoBtn.setImage(UIImage(systemName: "ellipsis"), for: .normal)
-        infoBtn.tintColor = .systemBackground
+        infoBtn.tintColor = .white
         infoBtn.addTarget(self, action: #selector(infoBtnAction(sender:)), for: .touchUpInside)
         return infoBtn
     }()
@@ -85,7 +86,8 @@ class ToolItemCell: UICollectionViewCell {
             //设置数据
             colorBgView.backgroundColor = UIColor(hex: newValue.backgroundColorHex)
             nameLabel.text = newValue.name
-            iconImageView.kf.setImage(with: URL(string: newValue.icon))
+            iconImageView.image = UIImage(systemName: newValue.icon)
+            
         }
         get{
             return _model

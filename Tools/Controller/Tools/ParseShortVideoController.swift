@@ -80,6 +80,10 @@ class ParseShortVideoController: BaseViewController {
     }
     
     @objc func parseBtnAction(){
+        if textView.text.count == 0 {
+            return
+        }
+        view.endEditing(true)
         view.makeToastActivity(.center)
         let text = textView.text
         let textArray = text?.components(separatedBy: " ") ?? []

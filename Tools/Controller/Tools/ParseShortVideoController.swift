@@ -86,12 +86,14 @@ class ParseShortVideoController: BaseViewController {
         view.endEditing(true)
         view.makeToastActivity(.center)
         let text = textView.text
-        let textArray = text?.components(separatedBy: " ") ?? []
-        var realText = ""
-        for subText in textArray {
-            if subText.contains("http") {
-                realText = subText
-                break
+        var realText = text ?? ""
+        if text?.contains("douyin.com") ?? false {
+            let textArray = text?.components(separatedBy: " ") ?? []
+            for subText in textArray {
+                if subText.contains("http") {
+                    realText = subText
+                    break
+                }
             }
         }
 //        http://api.tools.app.xiaobingkj.com/parseVideo.php?url=http://v.douyin.com/eMKj42N/

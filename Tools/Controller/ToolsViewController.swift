@@ -12,7 +12,7 @@ class ToolsViewController: BaseViewController {
     
     lazy var searchRC : ToolsSearchResultController = {
         let searchRC = ToolsSearchResultController()
-        searchRC.nav = navigationController as! BaseNavigationController
+        searchRC.nav = navigationController as? BaseNavigationController
         return searchRC
     }()
     
@@ -157,7 +157,7 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
                         storageArray.append(self.dataArray[indexPath.item].toJSON()!)
                         NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
                     }else{
-                        NSUbiquitousKeyValueStore.default.set([self.dataArray[indexPath.item].toJSON()], forKey: MyToolSaveKey)
+                        NSUbiquitousKeyValueStore.default.set([self.dataArray[indexPath.item].toJSON() ?? ""], forKey: MyToolSaveKey)
                     }
                     NSUbiquitousKeyValueStore.default.synchronize()
                 }

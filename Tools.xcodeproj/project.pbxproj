@@ -23,6 +23,7 @@
 		048D598D2625298000628F78 /* ToolsSearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D598C2625298000628F78 /* ToolsSearchResultController.swift */; };
 		048D599026253A3600628F78 /* ToolListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D598F26253A3600628F78 /* ToolListCell.swift */; };
 		048D599D26256CB300628F78 /* ToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D599C26256CB300628F78 /* ToolModel.swift */; };
+		0494207F262FB44A0088ADCE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0494207E262FB44A0088ADCE /* CloudKit.framework */; };
 		04A93D072627C658006C9773 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A93D062627C658006C9773 /* tools.json */; };
 		04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF02627E781006C9773 /* ToolItemCell.swift */; };
 		04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF82627E9F0006C9773 /* BaseModel.swift */; };
@@ -54,6 +55,8 @@
 		048D598C2625298000628F78 /* ToolsSearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsSearchResultController.swift; sourceTree = "<group>"; };
 		048D598F26253A3600628F78 /* ToolListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolListCell.swift; sourceTree = "<group>"; };
 		048D599C26256CB300628F78 /* ToolModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolModel.swift; sourceTree = "<group>"; };
+		0494207C262FB3F80088ADCE /* Tools.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tools.entitlements; sourceTree = "<group>"; };
+		0494207E262FB44A0088ADCE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		04A93D062627C658006C9773 /* tools.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
 		04A93DF02627E781006C9773 /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
 		04A93DF82627E9F0006C9773 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B3A2194BDA724F19F7DC8D4 /* Pods_Tools.framework in Frameworks */,
+				0494207F262FB44A0088ADCE /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +103,7 @@
 		048D595526251F8100628F78 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				0494207C262FB3F80088ADCE /* Tools.entitlements */,
 				048D595626251F8100628F78 /* AppDelegate.swift */,
 				048D595826251F8100628F78 /* SceneDelegate.swift */,
 				048D595A26251F8100628F78 /* ViewController.swift */,
@@ -188,6 +193,7 @@
 		35C5D9240BB5BA539567E040 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0494207E262FB44A0088ADCE /* CloudKit.framework */,
 				8E7A5A17F50E9D36BED15AE2 /* Pods_Tools.framework */,
 			);
 			name = Frameworks;
@@ -479,7 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20210420;
 				DEVELOPMENT_TEAM = 37R27U9WSN;
@@ -503,7 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20210420;
 				DEVELOPMENT_TEAM = 37R27U9WSN;

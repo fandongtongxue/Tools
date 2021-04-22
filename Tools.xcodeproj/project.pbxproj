@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0464B17F262E7C150019ED4B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B17E262E7C150019ED4B /* QRCodeViewController.swift */; };
 		0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B181262EA9C80019ED4B /* FDDefine.swift */; };
+		046B19332631429A00D5D475 /* OCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B19322631429A00D5D475 /* OCRViewController.swift */; };
 		048D595726251F8100628F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595626251F8100628F78 /* AppDelegate.swift */; };
 		048D595926251F8100628F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595826251F8100628F78 /* SceneDelegate.swift */; };
 		048D595B26251F8100628F78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595A26251F8100628F78 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		0464B17E262E7C150019ED4B /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		0464B181262EA9C80019ED4B /* FDDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDDefine.swift; sourceTree = "<group>"; };
+		046B19322631429A00D5D475 /* OCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewController.swift; sourceTree = "<group>"; };
 		048D595326251F8100628F78 /* Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048D595626251F8100628F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		048D595826251F8100628F78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				0494209F262FD26A0088ADCE /* TTSViewController.swift */,
 				049420A8263002FA0088ADCE /* WiFiShareViewController.swift */,
 				049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */,
+				046B19322631429A00D5D475 /* OCRViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				049420BF26301FCC0088ADCE /* VideoExtractAudioViewController.swift in Sources */,
 				048D599D26256CB300628F78 /* ToolModel.swift in Sources */,
 				048D595726251F8100628F78 /* AppDelegate.swift in Sources */,
+				046B19332631429A00D5D475 /* OCRViewController.swift in Sources */,
 				048D595926251F8100628F78 /* SceneDelegate.swift in Sources */,
 				049420A0262FD26A0088ADCE /* TTSViewController.swift in Sources */,
 				048D598D2625298000628F78 /* ToolsSearchResultController.swift in Sources */,

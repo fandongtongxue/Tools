@@ -34,6 +34,13 @@
             "icon":"waveform",
             "desc_md":"",
             "backgroundColorHex":"22c232"
+        },
+        {
+            "id":6,
+            "name":"OCR",
+            "icon":"doc.text.magnifyingglass",
+            "desc_md":"",
+            "backgroundColorHex":"22c232"
         }
     ]
 }

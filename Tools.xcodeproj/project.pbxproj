@@ -15,6 +15,7 @@
 		047553FD26326323001087D7 /* JuHeIPResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553FC26326323001087D7 /* JuHeIPResponseModel.swift */; };
 		047554002632737D001087D7 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553FF2632737D001087D7 /* PhoneViewController.swift */; };
 		047554032632747C001087D7 /* JuHePhoneResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047554022632747C001087D7 /* JuHePhoneResponseModel.swift */; };
+		047554062632A890001087D7 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047554052632A890001087D7 /* Dictionary.swift */; };
 		048D595726251F8100628F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595626251F8100628F78 /* AppDelegate.swift */; };
 		048D595926251F8100628F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595826251F8100628F78 /* SceneDelegate.swift */; };
 		048D595B26251F8100628F78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595A26251F8100628F78 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		047553FC26326323001087D7 /* JuHeIPResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuHeIPResponseModel.swift; sourceTree = "<group>"; };
 		047553FF2632737D001087D7 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		047554022632747C001087D7 /* JuHePhoneResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuHePhoneResponseModel.swift; sourceTree = "<group>"; };
+		047554052632A890001087D7 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		048D595326251F8100628F78 /* Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048D595626251F8100628F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		048D595826251F8100628F78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				04B1C837262970E9005EDBCB /* FD */,
 				048D595426251F8100628F78 /* Products */,
 				047553F126326160001087D7 /* Config.swift */,
+				047554052632A890001087D7 /* Dictionary.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				047554032632747C001087D7 /* JuHePhoneResponseModel.swift in Sources */,
 				048D595926251F8100628F78 /* SceneDelegate.swift in Sources */,
 				049420A0262FD26A0088ADCE /* TTSViewController.swift in Sources */,
+				047554062632A890001087D7 /* Dictionary.swift in Sources */,
 				048D598D2625298000628F78 /* ToolsSearchResultController.swift in Sources */,
 				048D599026253A3600628F78 /* ToolListCell.swift in Sources */,
 				048D59822625266700628F78 /* BaseViewController.swift in Sources */,

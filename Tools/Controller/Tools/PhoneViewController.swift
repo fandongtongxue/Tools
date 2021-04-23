@@ -8,6 +8,8 @@
 import UIKit
 
 class PhoneViewController: BaseViewController {
+    
+    var responseModel = JuHePhoneResponseModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,20 +19,21 @@ class PhoneViewController: BaseViewController {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(FD_TopHeight)
-            make.left.equalToSuperview().offset(15)
-            make.right.equalToSuperview().offset(-15)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
             make.bottom.equalToSuperview()
         }
         scrollView.addSubview(textField)
         textField.snp.makeConstraints { (make) in
-            make.top.left.equalToSuperview()
+            make.top.equalToSuperview()
+            make.left.equalToSuperview().offset(15)
             make.height.equalTo(40)
             make.width.equalTo(FD_ScreenWidth - 30)
         }
         
         scrollView.addSubview(queryBtn)
         queryBtn.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
+            make.left.equalToSuperview().offset(15)
             make.width.equalTo(FD_ScreenWidth - 30)
             make.top.equalTo(self.textField.snp.bottom).offset(15)
             make.height.equalTo(40)
@@ -64,13 +67,44 @@ class PhoneViewController: BaseViewController {
         if textField.text?.count != 11 {
             return
         }
+        textField.resignFirstResponder()
         FDNetwork.GET(url: api_phone, param: ["key":api_phone_key,"phone":textField.text!]) { (result) in
-            let responseModel = JuHePhoneResponseModel.deserialize(from: result)
+            self.responseModel = JuHePhoneResponseModel.deserialize(from: result) ?? JuHePhoneResponseModel()
+            if !self.scrollView.subviews.contains(self.tableView){
+                self.scrollView.addSubview(self.tableView)
+                self.tableView.snp.makeConstraints { (make) in
+                    make.left.equalToSuperview()
+                    make.width.equalTo(FD_ScreenWidth)
+                    make.top.equalTo(self.queryBtn.snp.bottom).offset(15)
+                    make.height.equalTo(self.responseResultArray.count * 44)
+                }
+            }
+            self.tableView.reloadData()
         } failure: { (error) in
             self.view.makeToast(error)
         }
 
     }
+    
+    lazy var responseResultArray : [[String : Any]] = {
+        var responseResultArray = [[String : Any]]()
+        let responseDict = responseModel.result?.toJSON() ?? [:]
+        for index in 0...responseDict.count - 1{
+            let key = Array(responseDict.keys)[index]
+            let value = Array(responseDict.values)[index]
+            responseResultArray.append([key:value])
+        }
+        return responseResultArray
+    }()
+    
+    lazy var tableView : UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.isScrollEnabled = false
+        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
+        return tableView
+    }()
 
     lazy var textField : UITextField = {
         let textField = UITextField(frame: .zero)
@@ -83,6 +117,7 @@ class PhoneViewController: BaseViewController {
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         textField.leftView = leftView
         textField.leftViewMode = .always
+        textField.keyboardType = .phonePad
         return textField
     }()
     
@@ -105,4 +140,31 @@ class PhoneViewController: BaseViewController {
         return scrollView
     }()
 
+}
+
+extension PhoneViewController : UITableViewDelegate,UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return responseResultArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        cell.textLabel?.text = (transfromDict[responseResultArray[indexPath.row].keys.first!] ?? "") + "-" +  (responseResultArray[indexPath.row].values.first as! String)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        UIPasteboard.general.string = cell?.textLabel?.text
+        view.makeToast("已复制到剪贴板")
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
 }

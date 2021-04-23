@@ -10,6 +10,11 @@
 		0464B17F262E7C150019ED4B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B17E262E7C150019ED4B /* QRCodeViewController.swift */; };
 		0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B181262EA9C80019ED4B /* FDDefine.swift */; };
 		046B19332631429A00D5D475 /* OCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B19322631429A00D5D475 /* OCRViewController.swift */; };
+		047553EF26325FD1001087D7 /* IPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553EE26325FD1001087D7 /* IPViewController.swift */; };
+		047553F226326160001087D7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553F126326160001087D7 /* Config.swift */; };
+		047553FD26326323001087D7 /* JuHeIPResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553FC26326323001087D7 /* JuHeIPResponseModel.swift */; };
+		047554002632737D001087D7 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553FF2632737D001087D7 /* PhoneViewController.swift */; };
+		047554032632747C001087D7 /* JuHePhoneResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047554022632747C001087D7 /* JuHePhoneResponseModel.swift */; };
 		048D595726251F8100628F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595626251F8100628F78 /* AppDelegate.swift */; };
 		048D595926251F8100628F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595826251F8100628F78 /* SceneDelegate.swift */; };
 		048D595B26251F8100628F78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595A26251F8100628F78 /* ViewController.swift */; };
@@ -42,6 +47,11 @@
 		0464B17E262E7C150019ED4B /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		0464B181262EA9C80019ED4B /* FDDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDDefine.swift; sourceTree = "<group>"; };
 		046B19322631429A00D5D475 /* OCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewController.swift; sourceTree = "<group>"; };
+		047553EE26325FD1001087D7 /* IPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPViewController.swift; sourceTree = "<group>"; };
+		047553F126326160001087D7 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		047553FC26326323001087D7 /* JuHeIPResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuHeIPResponseModel.swift; sourceTree = "<group>"; };
+		047553FF2632737D001087D7 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
+		047554022632747C001087D7 /* JuHePhoneResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuHePhoneResponseModel.swift; sourceTree = "<group>"; };
 		048D595326251F8100628F78 /* Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048D595626251F8100628F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		048D595826251F8100628F78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +135,7 @@
 				04A93DFB2627EFE1006C9773 /* Base */,
 				04B1C837262970E9005EDBCB /* FD */,
 				048D595426251F8100628F78 /* Products */,
+				047553F126326160001087D7 /* Config.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -167,6 +178,8 @@
 				04A93D062627C658006C9773 /* tools.json */,
 				048D599C26256CB300628F78 /* ToolModel.swift */,
 				04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */,
+				047553FC26326323001087D7 /* JuHeIPResponseModel.swift */,
+				047554022632747C001087D7 /* JuHePhoneResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +193,8 @@
 				049420A8263002FA0088ADCE /* WiFiShareViewController.swift */,
 				049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */,
 				046B19322631429A00D5D475 /* OCRViewController.swift */,
+				047553EE26325FD1001087D7 /* IPViewController.swift */,
+				047553FF2632737D001087D7 /* PhoneViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -336,10 +351,15 @@
 				04B1C8492629765B005EDBCB /* ParseShortVideoModel.swift in Sources */,
 				0464B17F262E7C150019ED4B /* QRCodeViewController.swift in Sources */,
 				048D59722625240A00628F78 /* TabBarController.swift in Sources */,
+				047554002632737D001087D7 /* PhoneViewController.swift in Sources */,
+				047553EF26325FD1001087D7 /* IPViewController.swift in Sources */,
 				049420BF26301FCC0088ADCE /* VideoExtractAudioViewController.swift in Sources */,
+				047553FD26326323001087D7 /* JuHeIPResponseModel.swift in Sources */,
 				048D599D26256CB300628F78 /* ToolModel.swift in Sources */,
+				047553F226326160001087D7 /* Config.swift in Sources */,
 				048D595726251F8100628F78 /* AppDelegate.swift in Sources */,
 				046B19332631429A00D5D475 /* OCRViewController.swift in Sources */,
+				047554032632747C001087D7 /* JuHePhoneResponseModel.swift in Sources */,
 				048D595926251F8100628F78 /* SceneDelegate.swift in Sources */,
 				049420A0262FD26A0088ADCE /* TTSViewController.swift in Sources */,
 				048D598D2625298000628F78 /* ToolsSearchResultController.swift in Sources */,

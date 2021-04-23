@@ -41,6 +41,20 @@
             "icon":"doc.text.magnifyingglass",
             "desc_md":"",
             "backgroundColorHex":"22c232"
+        },
+        {
+            "id":7,
+            "name":"IP地址查询",
+            "icon":"network",
+            "desc_md":"",
+            "backgroundColorHex":"22c232"
+        },
+        {
+            "id":8,
+            "name":"归属地查询",
+            "icon":"iphone",
+            "desc_md":"",
+            "backgroundColorHex":"22c232"
         }
     ]
 }

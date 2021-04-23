@@ -55,6 +55,13 @@
             "icon":"iphone",
             "desc_md":"",
             "backgroundColorHex":"22c232"
+        },
+        {
+            "id":9,
+            "name":"网速测试",
+            "icon":"speedometer",
+            "desc_md":"",
+            "backgroundColorHex":"22c232"
         }
     ]
 }

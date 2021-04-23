@@ -135,7 +135,7 @@ class IPViewController: BaseViewController {
     
     lazy var scrollView : UIScrollView = {
         let scrollView = UIScrollView(frame: .zero)
-        scrollView.contentSize = CGSize(width: 0, height: 40 * 3 + FD_ScreenWidth - 30 + 3 * 15 + FD_SafeAreaBottomHeight)
+        scrollView.contentSize = CGSize(width: 0, height: 40 + 15)
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -FD_SafeAreaBottomHeight, right: 0)
         return scrollView
     }()

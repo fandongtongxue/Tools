@@ -22,6 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
         let tabBarC = TabBarController()
         window?.rootViewController = tabBarC
+        
+        let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
+        if beginTime == nil {
+            UserDefaults.standard.set(Date(), forKey: AdShowOrNotKey)
+            UserDefaults.standard.synchronize()
+        }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
@@ -35,7 +41,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-        tryToPresentAd()
+        let nowDate = Date()
+        let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
+        if beginTime != nil {
+            let beginDate = beginTime as! Date
+            let durationTime = nowDate.timeIntervalSince(beginDate)
+            //7天之后显示广告
+            if durationTime > 3600 * 24 * 7 {
+                tryToPresentAd()
+            }
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

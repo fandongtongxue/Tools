@@ -68,6 +68,7 @@ class IPViewController: BaseViewController {
             return
         }
         textField.resignFirstResponder()
+        view.makeToastActivity(.center)
         FDNetwork.GET(url: api_ip, param: ["key":api_ip_key,"ip":textField.text!]) { (result) in
             self.responseModel = JuHeIPResponseModel.deserialize(from: result) ?? JuHeIPResponseModel()
             if !self.scrollView.subviews.contains(self.tableView){
@@ -80,7 +81,9 @@ class IPViewController: BaseViewController {
                 }
             }
             self.tableView.reloadData()
+            self.view.hideToastActivity()
         } failure: { (error) in
+            self.view.hideToastActivity()
             self.view.makeToast(error)
         }
 

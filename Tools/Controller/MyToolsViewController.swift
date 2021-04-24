@@ -145,9 +145,13 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             navigationController?.pushViewController(toolVC, animated: true)
             break
         case 10:
-//            https://m.tb.cn/h.4qdNE8W
             let toolVC = SFSafariViewController(url: URL(string: "https://m.tb.cn/h.4qdNE8W")!)
             present(toolVC, animated: true, completion: nil)
+            break
+        case 11:
+            let toolVC = BilibiliViewController()
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
             break
         default:
             view.makeToast("未完成的功能")

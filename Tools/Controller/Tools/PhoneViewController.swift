@@ -68,6 +68,7 @@ class PhoneViewController: BaseViewController {
             return
         }
         textField.resignFirstResponder()
+        view.makeToastActivity(.center)
         FDNetwork.GET(url: api_phone, param: ["key":api_phone_key,"phone":textField.text!]) { (result) in
             self.responseModel = JuHePhoneResponseModel.deserialize(from: result) ?? JuHePhoneResponseModel()
             if !self.scrollView.subviews.contains(self.tableView){
@@ -80,7 +81,9 @@ class PhoneViewController: BaseViewController {
                 }
             }
             self.tableView.reloadData()
+            self.view.hideToastActivity()
         } failure: { (error) in
+            self.view.hideToastActivity()
             self.view.makeToast(error)
         }
 

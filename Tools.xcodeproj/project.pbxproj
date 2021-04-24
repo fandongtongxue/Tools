@@ -35,6 +35,8 @@
 		049420A0262FD26A0088ADCE /* TTSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494209F262FD26A0088ADCE /* TTSViewController.swift */; };
 		049420A9263002FA0088ADCE /* WiFiShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049420A8263002FA0088ADCE /* WiFiShareViewController.swift */; };
 		049420BF26301FCC0088ADCE /* VideoExtractAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */; };
+		04995C472633B91C00642205 /* BilibiliViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04995C462633B91C00642205 /* BilibiliViewController.swift */; };
+		04995C572633BE5E00642205 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04995C592633BE5E00642205 /* Localizable.strings */; };
 		04A93D072627C658006C9773 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A93D062627C658006C9773 /* tools.json */; };
 		04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF02627E781006C9773 /* ToolItemCell.swift */; };
 		04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF82627E9F0006C9773 /* BaseModel.swift */; };
@@ -69,8 +71,6 @@
 		048D597B262524D200628F78 /* ToolsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsViewController.swift; sourceTree = "<group>"; };
 		048D59812625266700628F78 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		048D59842625272500628F78 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
-		048D59872625280F00628F78 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		048D59882625280F00628F78 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		048D598C2625298000628F78 /* ToolsSearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsSearchResultController.swift; sourceTree = "<group>"; };
 		048D598F26253A3600628F78 /* ToolListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolListCell.swift; sourceTree = "<group>"; };
 		048D599C26256CB300628F78 /* ToolModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolModel.swift; sourceTree = "<group>"; };
@@ -79,6 +79,9 @@
 		0494209F262FD26A0088ADCE /* TTSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSViewController.swift; sourceTree = "<group>"; };
 		049420A8263002FA0088ADCE /* WiFiShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiShareViewController.swift; sourceTree = "<group>"; };
 		049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExtractAudioViewController.swift; sourceTree = "<group>"; };
+		04995C462633B91C00642205 /* BilibiliViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilibiliViewController.swift; sourceTree = "<group>"; };
+		04995C582633BE5E00642205 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		04995C5B2633BE6200642205 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		04A93D062627C658006C9773 /* tools.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
 		04A93DF02627E781006C9773 /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
 		04A93DF82627E9F0006C9773 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 				048D595426251F8100628F78 /* Products */,
 				047553F126326160001087D7 /* Config.swift */,
 				047554052632A890001087D7 /* Dictionary.swift */,
+				04995C592633BE5E00642205 /* Localizable.strings */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -201,6 +205,7 @@
 				047553EE26325FD1001087D7 /* IPViewController.swift */,
 				047553FF2632737D001087D7 /* PhoneViewController.swift */,
 				0475540B2632C22D001087D7 /* NetworkSpeedViewController.swift */,
+				04995C462633B91C00642205 /* BilibiliViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04995C572633BE5E00642205 /* Localizable.strings in Resources */,
 				048D596326251F8200628F78 /* LaunchScreen.storyboard in Resources */,
 				048D596026251F8200628F78 /* Assets.xcassets in Resources */,
 				048D595E26251F8100628F78 /* Main.storyboard in Resources */,
@@ -377,6 +383,7 @@
 				04B1C83426296BE5005EDBCB /* ParseShortVideoController.swift in Sources */,
 				049420A9263002FA0088ADCE /* WiFiShareViewController.swift in Sources */,
 				04B1C846262974E9005EDBCB /* FDNetwork.swift in Sources */,
+				04995C472633B91C00642205 /* BilibiliViewController.swift in Sources */,
 				048D5979262524C600628F78 /* MyToolsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,7 +395,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				048D595D26251F8100628F78 /* Base */,
-				048D59872625280F00628F78 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -397,9 +403,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				048D596226251F8200628F78 /* Base */,
-				048D59882625280F00628F78 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		04995C592633BE5E00642205 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04995C582633BE5E00642205 /* en */,
+				04995C5B2633BE6200642205 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

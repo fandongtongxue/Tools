@@ -69,6 +69,13 @@
             "icon":"yensign.square",
             "desc_md":"",
             "backgroundColorHex":"22c232"
+        },
+        {
+            "id":11,
+            "name":"小破站封面获取",
+            "icon":"photo",
+            "desc_md":"",
+            "backgroundColorHex":"22c232"
         }
 
     ]

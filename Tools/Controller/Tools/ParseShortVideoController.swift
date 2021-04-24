@@ -9,6 +9,7 @@ import UIKit
 import AVKit
 import Toast_Swift
 import Alamofire
+import GoogleMobileAds
 
 class ParseShortVideoController: BaseViewController {
     
@@ -42,7 +43,6 @@ class ParseShortVideoController: BaseViewController {
             make.top.equalTo(self.textView.snp.bottom).offset(15)
             make.height.equalTo(40)
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +74,12 @@ class ParseShortVideoController: BaseViewController {
                 make.width.equalTo(FD_ScreenWidth - 30)
                 make.top.equalTo(self.parseBtn.snp.bottom).offset(30 + (UIScreen.main.bounds.size.width - 30) * 9 / 16)
             }
+            scrollView.addSubview(bannerView)
+            bannerView.snp.makeConstraints { (make) in
+                make.top.equalTo(self.saveVideoBtn.snp.bottom).offset(15)
+                make.centerX.equalToSuperview()
+            }
+            bannerView.load(GADRequest())
         }
         let item = AVPlayerItem(url: URL(string: (model.data?.url)!)!)
         player.replaceCurrentItem(with: item)
@@ -158,9 +164,18 @@ class ParseShortVideoController: BaseViewController {
         }
     }
     
+    lazy var bannerView: GADBannerView = {
+        let bannerView = GADBannerView()
+        bannerView.adUnitID = AdMobAdUnitID
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        bannerView.adSize = kGADAdSizeBanner
+        return bannerView
+    }()
+    
     lazy var scrollView : UIScrollView = {
         let scrollView = UIScrollView(frame: .zero)
-        scrollView.contentSize = CGSize(width: 0, height: (UIScreen.main.bounds.size.width - 30) * 9 / 16 + 40 + 80 + 40 + 40 + 3 * 15 + FD_SafeAreaBottomHeight)
+        scrollView.contentSize = CGSize(width: 0, height: (UIScreen.main.bounds.size.width - 30) * 9 / 16 + 40 + 80 + 40 + 40 + 4 * 15 + 50 + FD_SafeAreaBottomHeight)
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -FD_SafeAreaBottomHeight, right: 0)
         return scrollView
     }()
@@ -225,4 +240,10 @@ class ParseShortVideoController: BaseViewController {
         return playerLayer
     }()
 
+}
+
+extension ParseShortVideoController : GADBannerViewDelegate{
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+        view.makeToast(error.localizedDescription)
+    }
 }

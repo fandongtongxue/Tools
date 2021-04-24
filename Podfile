@@ -13,4 +13,6 @@ target 'Tools' do
   pod 'SwiftyJSON'
   pod "MarkdownView"
   pod 'Kingfisher'
+  pod 'Google-Mobile-Ads-SDK'
+
 end

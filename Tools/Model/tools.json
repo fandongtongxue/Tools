@@ -62,6 +62,14 @@
             "icon":"speedometer",
             "desc_md":"",
             "backgroundColorHex":"22c232"
+        },
+        {
+            "id":10,
+            "name":"淘宝1元购",
+            "icon":"yensign.square",
+            "desc_md":"",
+            "backgroundColorHex":"22c232"
         }
+
     ]
 }

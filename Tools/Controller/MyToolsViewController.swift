@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class MyToolsViewController: BaseViewController {
     
@@ -142,6 +143,11 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             let toolVC = NetworkSpeedViewController()
             toolVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 10:
+//            https://m.tb.cn/h.4qdNE8W
+            let toolVC = SFSafariViewController(url: URL(string: "https://m.tb.cn/h.4qdNE8W")!)
+            present(toolVC, animated: true, completion: nil)
             break
         default:
             view.makeToast("未完成的功能")

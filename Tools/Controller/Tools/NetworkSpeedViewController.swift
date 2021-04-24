@@ -15,7 +15,7 @@ class NetworkSpeedViewController: BaseViewController {
     var startTimeStamp : TimeInterval = 0
     var endTimeStamp : TimeInterval = 0
     
-    var downloadTask = URLSessionDownloadTask()
+    var downloadTask : URLSessionDownloadTask?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class NetworkSpeedViewController: BaseViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        downloadTask.cancel()
+        downloadTask?.cancel()
     }
     
 
@@ -42,7 +42,7 @@ class NetworkSpeedViewController: BaseViewController {
         view.makeToastActivity(.center)
         let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue())
         downloadTask = session.downloadTask(with: URL(string: "https://dldir1.qq.com/qqfile/QQforMac/QQ_6.7.5.dmg")!)
-        downloadTask.resume()
+        downloadTask?.resume()
     }
     
     func end(){

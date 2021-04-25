@@ -7,6 +7,7 @@ PODS:
   - Ads-CN/BUFoundation (3.5.1.2)
   - Ads-CN/Domestic (3.5.1.2)
   - Alamofire (5.4.3)
+  - BaiduMobStatCodeless (5.3.3)
   - Firebase/Analytics (7.11.0):
     - Firebase/Core
   - Firebase/Core (7.11.0):
@@ -112,6 +113,7 @@ PODS:
 DEPENDENCIES:
   - Ads-CN
   - Alamofire
+  - BaiduMobStatCodeless
   - Firebase/Analytics
   - Google-Mobile-Ads-SDK
   - HandyJSON (~> 5.0.2)
@@ -126,6 +128,7 @@ SPEC REPOS:
   trunk:
     - Ads-CN
     - Alamofire
+    - BaiduMobStatCodeless
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -149,6 +152,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Ads-CN: c9f347beb4f9f3894ba1955eee224dd47c3da722
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  BaiduMobStatCodeless: 198e04ed005f6f6c467886959c040a1c7d5b3236
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseAnalytics: cd3bd84d722a24a8923918af8af8e5236f615d77
   FirebaseCore: 907447d8917a4d3eb0cce2829c5a0ad21d90b432
@@ -169,6 +173,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: fc1439ef4057b2db313dd5f4b8c4acd8b70aa5a7
+PODFILE CHECKSUM: 60883c7053be6bf6e9cbff3a93d6679f016d093d
 
 COCOAPODS: 1.10.1

@@ -41,9 +41,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }else{
             GADMobileAds.sharedInstance().start(completionHandler: nil)
             GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
+            //谷歌统计
+            FirebaseApp.configure()
         }
-        //谷歌统计
-        FirebaseApp.configure()
         
         let tabBarC = TabBarController()
         window?.rootViewController = tabBarC

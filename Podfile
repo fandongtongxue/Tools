@@ -16,5 +16,6 @@ target 'Tools' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'Firebase/Analytics'
   pod 'Ads-CN'
+  pod 'BaiduMobStatCodeless'
 
 end

@@ -90,5 +90,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>mtj_appkey</key>
+	<string>293b54cd5f</string>
+	<key>mtj_deubglog</key>
+	<string>0</string>
 </dict>
 </plist>

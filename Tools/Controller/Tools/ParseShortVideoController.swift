@@ -244,6 +244,6 @@ class ParseShortVideoController: BaseViewController {
 
 extension ParseShortVideoController : GADBannerViewDelegate{
     func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-        view.makeToast(error.localizedDescription)
+        bannerView.load(GADRequest())
     }
 }

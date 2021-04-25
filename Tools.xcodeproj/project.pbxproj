@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0462AA1A2634F10F0051995D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0462AA192634F10F0051995D /* GoogleService-Info.plist */; };
 		0464B17F262E7C150019ED4B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B17E262E7C150019ED4B /* QRCodeViewController.swift */; };
 		0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B181262EA9C80019ED4B /* FDDefine.swift */; };
 		046B19332631429A00D5D475 /* OCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B19322631429A00D5D475 /* OCRViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0462AA192634F10F0051995D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0464B17E262E7C150019ED4B /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		0464B181262EA9C80019ED4B /* FDDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDDefine.swift; sourceTree = "<group>"; };
 		046B19322631429A00D5D475 /* OCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		048D595526251F8100628F78 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				0462AA192634F10F0051995D /* GoogleService-Info.plist */,
 				0494207C262FB3F80088ADCE /* Tools.entitlements */,
 				048D595626251F8100628F78 /* AppDelegate.swift */,
 				048D595826251F8100628F78 /* SceneDelegate.swift */,
@@ -302,6 +305,7 @@
 				048D596026251F8200628F78 /* Assets.xcassets in Resources */,
 				048D595E26251F8100628F78 /* Main.storyboard in Resources */,
 				04A93D072627C658006C9773 /* tools.json in Resources */,
+				0462AA1A2634F10F0051995D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

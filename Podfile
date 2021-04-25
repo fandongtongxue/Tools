@@ -14,5 +14,6 @@ target 'Tools' do
   pod "MarkdownView"
   pod 'Kingfisher'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'Firebase/Analytics'
 
 end

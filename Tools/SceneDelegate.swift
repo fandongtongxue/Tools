@@ -8,29 +8,52 @@
 import UIKit
 import GoogleMobileAds
 import Firebase
+import AppTrackingTransparency
+import AdSupport
+import BUAdSDK
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var appOpenAd: GADAppOpenAd?
     var loadTime: Date?
+    
+    func requestIDFA() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                // Tracking authorization completed. Start loading ads here.
+                // loadAd()
+            })
+        } else {
+            // Fallback on earlier versions
+        }
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        // 广告
+        let languageArray = UserDefaults.standard.array(forKey: "AppleLanguages") as! [String]
+        let lauguage = languageArray.first
+        if lauguage?.contains("zh") ?? false {
+            requestIDFA()
+        }else{
+            GADMobileAds.sharedInstance().start(completionHandler: nil)
+            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
+        }
+        //谷歌统计
         FirebaseApp.configure()
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
+        
         let tabBarC = TabBarController()
         window?.rootViewController = tabBarC
         
+        //7天后会显示谷歌启动广告
         let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
         if beginTime == nil {
             UserDefaults.standard.set(Date(), forKey: AdShowOrNotKey)
             UserDefaults.standard.synchronize()
         }
-        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
@@ -74,7 +97,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func requestAppOpenAd(){
         appOpenAd = nil
-        GADAppOpenAd.load(withAdUnitID: "ca-app-pub-3940256099942544/5662855259", request: GADRequest(), orientation: .portrait) { (openAd, error) in
+        GADAppOpenAd.load(withAdUnitID: AdMobAdOpenID, request: GADRequest(), orientation: .portrait) { (openAd, error) in
             if error != nil{
                 return
             }

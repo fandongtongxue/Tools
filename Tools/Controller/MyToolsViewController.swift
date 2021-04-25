@@ -106,7 +106,7 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             navigationController?.pushViewController(toolVC, animated: true)
             break
         case 2:
-            let toolVC = QRCodeViewController()
+            let toolVC = QRCodeGenerateViewController()
             toolVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(toolVC, animated: true)
             break
@@ -151,6 +151,11 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             break
         case 11:
             let toolVC = BilibiliViewController()
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 12:
+            let toolVC = QRCodeScanViewController()
             toolVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(toolVC, animated: true)
             break

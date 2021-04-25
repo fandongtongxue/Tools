@@ -1,5 +1,5 @@
 //
-//  QRCodeViewController.swift
+//  QRCodeGenerateViewController.swift
 //  Tools
 //
 //  Created by Mac on 2021/4/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QRCodeViewController: BaseViewController {
+class QRCodeGenerateViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

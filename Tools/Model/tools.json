@@ -76,6 +76,13 @@
             "icon":"photo",
             "desc_md":"",
             "backgroundColorHex":"22c232"
+        },
+        {
+            "id":12,
+            "name":"二维码扫描",
+            "icon":"qrcode.viewfinder",
+            "desc_md":"",
+            "backgroundColorHex":"22c232"
         }
 
     ]

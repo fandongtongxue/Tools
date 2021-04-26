@@ -32,10 +32,21 @@ class ScreenShotViewController: BaseViewController {
         
     }
     
+    func saveImageBtnAction(image: UIImage){
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo info: AnyObject){
+        if error.code != 0 {
+            view.makeToast("保存失败")
+        }else{
+            view.makeToast("保存成功")
+        }
+    }
+    
     @objc func selectBtnAction(){
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
-        picker.mediaTypes = [kUTTypePNG as String]
         picker.delegate = self
         present(picker, animated: true, completion: nil)
     }
@@ -65,5 +76,25 @@ class ScreenShotViewController: BaseViewController {
 extension ScreenShotViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
+        let image = info[.originalImage] as! UIImage
+        
+        let iphoneImg = UIImage(named: "iPhone 11.jpeg")
+        let iphoneImgW = iphoneImg?.size.width ?? 0
+        let iphoneImgH = iphoneImg?.size.height ?? 0
+        
+        let maskImg = UIImage(named: "iPhone 11 Mask.jpeg")
+        let maskImgW = maskImg?.size.width ?? 0
+        let maskImgH = maskImg?.size.height ?? 0
+        
+        let realRect = CGRect(x: (iphoneImgW - maskImgW ) / 2, y: (iphoneImgH - maskImgH ) / 2, width: maskImgW, height: maskImgH)
+        
+        UIGraphicsBeginImageContext(CGSize(width: iphoneImgW, height: iphoneImgH))
+        iphoneImg?.draw(in: CGRect(x: 0, y: 0, width: iphoneImgW, height: iphoneImgH))
+        maskImg?.draw(in: realRect)
+        image.draw(in: realRect)
+        let resultImg = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
+        UIGraphicsEndImageContext()
+        
+        saveImageBtnAction(image: resultImg)
     }
 }

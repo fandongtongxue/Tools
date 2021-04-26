@@ -83,6 +83,27 @@
             "icon":"qrcode.viewfinder",
             "desc_md":"",
             "backgroundColorHex":"22c232"
+        },
+        {
+            "id":13,
+            "name":"带壳截图",
+            "icon":"iphone",
+            "desc_md":"",
+            "backgroundColorHex":"22c232"
+        },
+        {
+            "id":14,
+            "name":"录屏套壳",
+            "icon":"iphone.badge.play",
+            "desc_md":"",
+            "backgroundColorHex":"22c232"
+        },
+        {
+            "id":15,
+            "name":"相机水印",
+            "icon":"bookmark",
+            "desc_md":"",
+            "backgroundColorHex":"22c232"
         }
 
     ]

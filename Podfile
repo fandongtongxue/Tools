@@ -13,9 +13,11 @@ target 'Tools' do
   pod 'SwiftyJSON'
   pod "MarkdownView"
   pod 'Kingfisher'
-  pod 'Google-Mobile-Ads-SDK'
   pod 'Firebase/Analytics'
-  pod 'Ads-CN'
   pod 'BaiduMobStatCodeless'
+  
+#  if isAd
+#  pod 'Google-Mobile-Ads-SDK'
+#  pod 'Ads-CN'
 
 end

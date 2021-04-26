@@ -9,7 +9,8 @@ import UIKit
 import AVKit
 import Toast_Swift
 import Alamofire
-import GoogleMobileAds
+//if isAd
+//import GoogleMobileAds
 
 class ParseShortVideoController: BaseViewController {
     
@@ -74,12 +75,14 @@ class ParseShortVideoController: BaseViewController {
                 make.width.equalTo(FD_ScreenWidth - 30)
                 make.top.equalTo(self.parseBtn.snp.bottom).offset(30 + (UIScreen.main.bounds.size.width - 30) * 9 / 16)
             }
-            scrollView.addSubview(bannerView)
-            bannerView.snp.makeConstraints { (make) in
-                make.top.equalTo(self.saveVideoBtn.snp.bottom).offset(15)
-                make.centerX.equalToSuperview()
-            }
-            bannerView.load(GADRequest())
+//            if isAd {
+//                scrollView.addSubview(bannerView)
+//                bannerView.snp.makeConstraints { (make) in
+//                    make.top.equalTo(self.saveVideoBtn.snp.bottom).offset(15)
+//                    make.centerX.equalToSuperview()
+//                }
+//                bannerView.load(GADRequest())
+//            }
         }
         let item = AVPlayerItem(url: URL(string: (model.data?.url)!)!)
         player.replaceCurrentItem(with: item)
@@ -164,14 +167,15 @@ class ParseShortVideoController: BaseViewController {
         }
     }
     
-    lazy var bannerView: GADBannerView = {
-        let bannerView = GADBannerView()
-        bannerView.adUnitID = AdMobAdUnitID
-        bannerView.rootViewController = self
-        bannerView.delegate = self
-        bannerView.adSize = kGADAdSizeBanner
-        return bannerView
-    }()
+//    if isAd
+//    lazy var bannerView: GADBannerView = {
+//        let bannerView = GADBannerView()
+//        bannerView.adUnitID = AdMobAdUnitID
+//        bannerView.rootViewController = self
+//        bannerView.delegate = self
+//        bannerView.adSize = kGADAdSizeBanner
+//        return bannerView
+//    }()
     
     lazy var scrollView : UIScrollView = {
         let scrollView = UIScrollView(frame: .zero)
@@ -241,9 +245,9 @@ class ParseShortVideoController: BaseViewController {
     }()
 
 }
-
-extension ParseShortVideoController : GADBannerViewDelegate{
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-        bannerView.load(GADRequest())
-    }
-}
+//if isAd
+//extension ParseShortVideoController : GADBannerViewDelegate{
+//    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+//        bannerView.load(GADRequest())
+//    }
+//}

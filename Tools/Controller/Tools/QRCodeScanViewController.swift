@@ -20,7 +20,16 @@ class QRCodeScanViewController: BaseViewController {
         title = "二维码扫描"
         view.addSubview(bgView)
         setUpScan()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         scanSession.startRunning()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        scanSession.stopRunning()
     }
     
     lazy var bgView : UIView = {

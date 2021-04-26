@@ -7,6 +7,7 @@
 
 import Foundation
 
+let isAd = false
 
 /// 聚合数据
 let api_ip_key = "6cd42fc32ba926b658516aecd8e70c6e"

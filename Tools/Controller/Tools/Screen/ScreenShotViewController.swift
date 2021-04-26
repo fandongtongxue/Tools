@@ -77,6 +77,7 @@ extension ScreenShotViewController : UIImagePickerControllerDelegate,UINavigatio
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         let image = info[.originalImage] as! UIImage
+        let radiusImage = image.addRoundCorner(radiusSize: CGSize(width: 10, height: 10))
         
         let iphoneImg = UIImage(named: "iPhone 11.jpeg")
         let iphoneImgW = iphoneImg?.size.width ?? 0
@@ -91,7 +92,7 @@ extension ScreenShotViewController : UIImagePickerControllerDelegate,UINavigatio
         UIGraphicsBeginImageContext(CGSize(width: iphoneImgW, height: iphoneImgH))
         iphoneImg?.draw(in: CGRect(x: 0, y: 0, width: iphoneImgW, height: iphoneImgH))
         maskImg?.draw(in: realRect)
-        image.draw(in: realRect)
+        radiusImage.draw(in: realRect)
         let resultImg = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
         UIGraphicsEndImageContext()
         

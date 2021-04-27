@@ -135,8 +135,8 @@
 		04B1C83426296BE5005EDBCB /* ParseShortVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C83326296BE5005EDBCB /* ParseShortVideoController.swift */; };
 		04B1C846262974E9005EDBCB /* FDNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C845262974E9005EDBCB /* FDNetwork.swift */; };
 		04B1C8492629765B005EDBCB /* ParseShortVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */; };
+		04F0E3B6263799B1005C6F7A /* UIImage+FD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0E3B5263799B1005C6F7A /* UIImage+FD.swift */; };
 		8B3A2194BDA724F19F7DC8D4 /* Pods_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7A5A17F50E9D36BED15AE2 /* Pods_Tools.framework */; };
-		CB92584A2636EF23000808DD /* UIImage+FD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9258492636EF23000808DD /* UIImage+FD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -273,10 +273,10 @@
 		04B1C83326296BE5005EDBCB /* ParseShortVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseShortVideoController.swift; sourceTree = "<group>"; };
 		04B1C845262974E9005EDBCB /* FDNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDNetwork.swift; sourceTree = "<group>"; };
 		04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseShortVideoModel.swift; sourceTree = "<group>"; };
+		04F0E3B5263799B1005C6F7A /* UIImage+FD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+FD.swift"; sourceTree = "<group>"; };
 		3A91064668C4DE3440D969AD /* Pods-Tools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.debug.xcconfig"; path = "Target Support Files/Pods-Tools/Pods-Tools.debug.xcconfig"; sourceTree = "<group>"; };
 		8E7A5A17F50E9D36BED15AE2 /* Pods_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5EF2C540199B83CDEE38334 /* Pods-Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.release.xcconfig"; path = "Target Support Files/Pods-Tools/Pods-Tools.release.xcconfig"; sourceTree = "<group>"; };
-		CB9258492636EF23000808DD /* UIImage+FD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+FD.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +304,8 @@
 				0403A8112636881600876BB9 /* 12P-Blue.png */,
 				0403A8102636881600876BB9 /* 12P-Gold.png */,
 				0403A80F2636881600876BB9 /* 12P-White.png */,
+				0403A7E426366BFB00876BB9 /* iPhone 11.jpeg */,
+				0403A7E726366C2100876BB9 /* iPhone 11 Mask.jpeg */,
 				0403A8052636880D00876BB9 /* ScreenShotViewController.swift */,
 				0403A8202636886500876BB9 /* ScreenRecordViewController.swift */,
 			);
@@ -432,8 +434,6 @@
 				047554052632A890001087D7 /* Dictionary.swift */,
 				04995C592633BE5E00642205 /* Localizable.strings */,
 				043B17FC2635644C006FAC93 /* Tools-Bridging-Header.h.h */,
-				0403A7E426366BFB00876BB9 /* iPhone 11.jpeg */,
-				0403A7E726366C2100876BB9 /* iPhone 11 Mask.jpeg */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -508,7 +508,7 @@
 			children = (
 				0464B181262EA9C80019ED4B /* FDDefine.swift */,
 				04B1C845262974E9005EDBCB /* FDNetwork.swift */,
-				CB9258492636EF23000808DD /* UIImage+FD.swift */,
+				04F0E3B5263799B1005C6F7A /* UIImage+FD.swift */,
 			);
 			path = FD;
 			sourceTree = "<group>";
@@ -736,6 +736,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */,
+				04F0E3B6263799B1005C6F7A /* UIImage+FD.swift in Sources */,
 				048D59852625272500628F78 /* BaseNavigationController.swift in Sources */,
 				04A93ED8262818F4006C9773 /* ToolDetailViewController.swift in Sources */,
 				048D597C262524D200628F78 /* ToolsViewController.swift in Sources */,
@@ -768,7 +769,6 @@
 				0499592A2635574F00B44964 /* QRCodeScanViewController.swift in Sources */,
 				049420A9263002FA0088ADCE /* WiFiShareViewController.swift in Sources */,
 				04B1C846262974E9005EDBCB /* FDNetwork.swift in Sources */,
-				CB92584A2636EF23000808DD /* UIImage+FD.swift in Sources */,
 				04995C472633B91C00642205 /* BilibiliViewController.swift in Sources */,
 				048D5979262524C600628F78 /* MyToolsViewController.swift in Sources */,
 			);

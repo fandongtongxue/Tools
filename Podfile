@@ -15,6 +15,8 @@ target 'Tools' do
   pod 'Kingfisher'
   pod 'Firebase/Analytics'
   pod 'BaiduMobStatCodeless'
+  pod 'DeviceKit', '~> 4.0'
+
   
 #  if isAd
 #  pod 'Google-Mobile-Ads-SDK'

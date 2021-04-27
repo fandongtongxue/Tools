@@ -1,21 +1,36 @@
 //
-//  UIImage.swift
+//  UIImage+FD.swift
 //  Tools
 //
-//  Created by 范东 on 2021/4/26.
+//  Created by Mac on 2021/4/27.
 //
 
 import Foundation
 
 extension UIImage {
-    func addRoundCorner(radiusSize:CGSize) -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+    
+    public func roundImage(byRoundingCorners: UIRectCorner = UIRectCorner.allCorners, cornerRadi: CGFloat) -> UIImage? {
+        return roundImage(byRoundingCorners: byRoundingCorners, cornerRadii: CGSize(width: cornerRadi, height: cornerRadi))
+    }
+    
+    public func roundImage(byRoundingCorners: UIRectCorner = UIRectCorner.allCorners, cornerRadii: CGSize) -> UIImage? {
+        
+        let imageRect = CGRect(origin: CGPoint.zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        defer {
+            UIGraphicsEndImageContext()
+        }
         let context = UIGraphicsGetCurrentContext()
-        UIGraphicsBeginImageContextWithOptions(self.size, false, UIScreen.main.scale)
-        context?.addPath(UIBezierPath(roundedRect: rect, byRoundingCorners: .allCorners, cornerRadii: size) as! CGPath)
-        draw(in: rect)
-        let resultImage = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
-        UIGraphicsEndImageContext()
-        return resultImage
-      }
+        guard context != nil else {
+            return nil
+        }
+        context?.setShouldAntialias(true)
+        let bezierPath = UIBezierPath(roundedRect: imageRect,
+                                      byRoundingCorners: byRoundingCorners,
+                                      cornerRadii: cornerRadii)
+        bezierPath.close()
+        bezierPath.addClip()
+        self.draw(in: imageRect)
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
 }

@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
   - BaiduMobStatCodeless (5.3.3)
+  - DeviceKit (4.3.0)
   - Firebase/Analytics (7.11.0):
     - Firebase/Core
   - Firebase/Core (7.11.0):
@@ -95,6 +96,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - BaiduMobStatCodeless
+  - DeviceKit (~> 4.0)
   - Firebase/Analytics
   - HandyJSON (~> 5.0.2)
   - Hue
@@ -108,6 +110,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - BaiduMobStatCodeless
+    - DeviceKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -129,6 +132,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   BaiduMobStatCodeless: 198e04ed005f6f6c467886959c040a1c7d5b3236
+  DeviceKit: 7decde449c308ac7e816e2184ded1c7c596fb885
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseAnalytics: cd3bd84d722a24a8923918af8af8e5236f615d77
   FirebaseCore: 907447d8917a4d3eb0cce2829c5a0ad21d90b432
@@ -147,6 +151,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 0578b4791b993d5b296f92f76bddf00517fe955e
+PODFILE CHECKSUM: fa8dd61800227d7ce70467da8002e2b1691e83ec
 
 COCOAPODS: 1.10.1

@@ -19,7 +19,7 @@ target 'Tools' do
 
   
 #  if isAd
-#  pod 'Google-Mobile-Ads-SDK'
+  pod 'Google-Mobile-Ads-SDK'
 #  pod 'Ads-CN'
 
 end

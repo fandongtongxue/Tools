@@ -9,24 +9,25 @@ import UIKit
 import Firebase
 import AppTrackingTransparency
 
-#warning("如果需要使用广告打开注释if isAd 的注释")
+//#warning("如果需要使用广告打开注释if isAd 的注释")
 //if isAd
-//import GoogleMobileAds
-//import AdSupport
+import GoogleMobileAds
+import AdSupport
 //import BUAdSDK
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 //    if isAd
-//    var appOpenAd: GADAppOpenAd?
-//    var loadTime: Date?
+    var appOpenAd: GADAppOpenAd?
+    var loadTime: Date?
     
     func requestIDFA() {
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
                 // Tracking authorization completed. Start loading ads here.
-                // loadAd()
+//                 loadAd()
             })
         } else {
             // Fallback on earlier versions
@@ -39,24 +40,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         if isAd {
             // 广告
-//            let languageArray = UserDefaults.standard.array(forKey: "AppleLanguages") as! [String]
-//            let lauguage = languageArray.first
-//            if lauguage?.contains("zh") ?? false {
-//                requestIDFA()
-//            }else{
-//                GADMobileAds.sharedInstance().start(completionHandler: nil)
-//                GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
-//                //谷歌统计
-//                FirebaseApp.configure()
-//
-//            }
-//
-//            //7天后会显示启动广告
-//            let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
-//            if beginTime == nil {
-//                UserDefaults.standard.set(Date(), forKey: AdShowOrNotKey)
-//                UserDefaults.standard.synchronize()
-//            }
+            let languageArray = UserDefaults.standard.array(forKey: "AppleLanguages") as! [String]
+            let lauguage = languageArray.first
+            if lauguage?.contains("zh") ?? false {
+                requestIDFA()
+            }else{
+                GADMobileAds.sharedInstance().start(completionHandler: nil)
+                GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
+                //谷歌统计
+                FirebaseApp.configure()
+
+            }
+
+            //7天后会显示启动广告
+            let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
+            if beginTime == nil {
+                UserDefaults.standard.set(Date(), forKey: AdShowOrNotKey)
+                UserDefaults.standard.synchronize()
+            }
         }
         
         let tabBarC = TabBarController()
@@ -76,16 +77,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         if isAd {
-//            let nowDate = Date()
-//            let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
-//            if beginTime != nil {
-//                let beginDate = beginTime as! Date
-//                let durationTime = nowDate.timeIntervalSince(beginDate)
-//                //7天之后显示广告
-//                if durationTime > 3600 * 24 * 7 {
-//                    tryToPresentAd()
-//                }
-//            }
+            let nowDate = Date()
+            let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
+            if beginTime != nil {
+                let beginDate = beginTime as! Date
+                let durationTime = nowDate.timeIntervalSince(beginDate)
+                //7天之后显示广告
+                if durationTime > 3600 * 24 * 7 {
+                    tryToPresentAd()
+                }
+            }
         }
     }
 
@@ -106,50 +107,50 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
 //    if isAd
-//    func requestAppOpenAd(){
-//        appOpenAd = nil
-//        GADAppOpenAd.load(withAdUnitID: AdMobAdOpenID, request: GADRequest(), orientation: .portrait) { (openAd, error) in
-//            if error != nil{
-//                return
-//            }
-//            self.appOpenAd = openAd
-//            self.appOpenAd?.fullScreenContentDelegate = self
-//            self.loadTime = Date()
-//        }
-//    }
-//
-//    func tryToPresentAd(){
-//        if appOpenAd != nil && wasLoadTimeLessThanNHoursAgo(n: 4) {
-//            let rootVC = window?.rootViewController
-//            appOpenAd?.present(fromRootViewController: rootVC!)
-//        }else{
-//            requestAppOpenAd()
-//        }
-//    }
-//
-//    func wasLoadTimeLessThanNHoursAgo(n: Int) -> Bool{
-//        let now = Date()
-//        let timeIntervalBetweenNowAndLoadTime = now.timeIntervalSince(loadTime ?? Date())
-//        let secondsPerHour = 3600.0
-//        let intervalInHours = timeIntervalBetweenNowAndLoadTime / secondsPerHour
-//        return Int(intervalInHours) < n
-//    }
+    func requestAppOpenAd(){
+        appOpenAd = nil
+        GADAppOpenAd.load(withAdUnitID: AdMobAdOpenID, request: GADRequest(), orientation: .portrait) { (openAd, error) in
+            if error != nil{
+                return
+            }
+            self.appOpenAd = openAd
+            self.appOpenAd?.fullScreenContentDelegate = self
+            self.loadTime = Date()
+        }
+    }
+
+    func tryToPresentAd(){
+        if appOpenAd != nil && wasLoadTimeLessThanNHoursAgo(n: 4) {
+            let rootVC = window?.rootViewController
+            appOpenAd?.present(fromRootViewController: rootVC!)
+        }else{
+            requestAppOpenAd()
+        }
+    }
+
+    func wasLoadTimeLessThanNHoursAgo(n: Int) -> Bool{
+        let now = Date()
+        let timeIntervalBetweenNowAndLoadTime = now.timeIntervalSince(loadTime ?? Date())
+        let secondsPerHour = 3600.0
+        let intervalInHours = timeIntervalBetweenNowAndLoadTime / secondsPerHour
+        return Int(intervalInHours) < n
+    }
 
 
 }
 
 //if isAd
-//extension SceneDelegate : GADFullScreenContentDelegate{
-//    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
-//        requestAppOpenAd()
-//    }
-//
-//    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-//        debugPrint("adDidPresentFullScreenContent")
-//    }
-//
-//    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-//        requestAppOpenAd()
-//    }
-//}
+extension SceneDelegate : GADFullScreenContentDelegate{
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        requestAppOpenAd()
+    }
+
+    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        debugPrint("adDidPresentFullScreenContent")
+    }
+
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        requestAppOpenAd()
+    }
+}
 

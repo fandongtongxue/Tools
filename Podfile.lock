@@ -103,6 +103,7 @@ PODS:
   - SnapKit (5.0.1)
   - SwiftyJSON (5.0.1)
   - Toast-Swift (5.0.1)
+  - UnsplashPhotoPicker (1.1.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -117,6 +118,7 @@ DEPENDENCIES:
   - SnapKit (~> 5.0.0)
   - SwiftyJSON
   - Toast-Swift (~> 5.0.1)
+  - UnsplashPhotoPicker (~> 1.1.1)
 
 SPEC REPOS:
   trunk:
@@ -142,6 +144,7 @@ SPEC REPOS:
     - SnapKit
     - SwiftyJSON
     - Toast-Swift
+    - UnsplashPhotoPicker
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
@@ -166,7 +169,8 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  UnsplashPhotoPicker: 86520e34cfded8fb4a41910bf87afe571906b4e3
 
-PODFILE CHECKSUM: 265e99e275a40ee650fda08a6ce4b4f9026d7238
+PODFILE CHECKSUM: 9fac7537fbd891e148b31bd25f6e17c44dc5e898
 
 COCOAPODS: 1.10.1

@@ -66,6 +66,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             UserDefaults.standard.synchronize()
         }
         
+        let storageObjectLocal = UserDefaults.standard.array(forKey: MyToolSaveKey)
+        if storageObjectLocal == nil {
+            UserDefaults.standard.setValue([], forKey: MyToolSaveKey)
+        }
+        
         let tabBarC = TabBarController()
         window?.rootViewController = tabBarC
         

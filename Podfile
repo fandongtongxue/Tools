@@ -13,10 +13,11 @@ target 'Tools' do
   pod 'SwiftyJSON'
   pod "MarkdownView"
   pod 'Kingfisher'
+  pod 'DeviceKit', '~> 4.0'
+  pod 'UnsplashPhotoPicker', '~> 1.1.1'
+
   pod 'Firebase/Analytics'
   pod 'BaiduMobStatCodeless'
-  pod 'DeviceKit', '~> 4.0'
-
   
 #  if isAd
   pod 'Google-Mobile-Ads-SDK'

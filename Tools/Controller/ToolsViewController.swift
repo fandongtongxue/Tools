@@ -122,7 +122,11 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
             return detailVC
         } actionProvider: { (element) -> UIMenu? in
             
-            let storageObject = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey)
+            let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
+            var storageObject = UserDefaults.standard.array(forKey: MyToolSaveKey)
+            if isSaveiCloud {
+                storageObject = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey)
+            }
             var ret = false
             if storageObject != nil{
                 let storageArray = storageObject as! [[String : Any]]
@@ -136,14 +140,23 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
             if ret {
                 let removeAction = UIAction(title: "移除", image: UIImage(systemName: "minus.square"), state: .off) { (action) in
                     print("点击了移除")
-                    var storageArray = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey) as! [[String : Any]]
+                    let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
+                    var storageArray = UserDefaults.standard.array(forKey: MyToolSaveKey) as! [[String : Any]]
+                    if isSaveiCloud {
+                        storageArray = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey) as! [[String : Any]]
+                    }
                     for i in 0...storageArray.count - 1{
                         let subObject = storageArray[i]
                         let model = ToolModel.deserialize(from: subObject)
                         if model?.id == self.dataArray[indexPath.item].id {
                             storageArray.remove(at: i)
-                            NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
-                            NSUbiquitousKeyValueStore.default.synchronize()
+                            if isSaveiCloud {
+                                NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
+                                NSUbiquitousKeyValueStore.default.synchronize()
+                            }else{
+                                UserDefaults.standard.setValue(storageArray, forKey: MyToolSaveKey)
+                                UserDefaults.standard.synchronize()
+                            }
                             break
                         }
                     }
@@ -152,14 +165,29 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
             }else{
                 let addAction = UIAction(title: "添加", image: UIImage(systemName: "plus.app"), state: .off) { (action) in
                     print("点击了添加")
-                    let storageObject = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey)
+                    let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
+                    var storageObject = UserDefaults.standard.array(forKey: MyToolSaveKey)
+                    if isSaveiCloud {
+                        storageObject = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey)
+                    }
                     if storageObject != nil {
                         var storageArray = storageObject as! [[String : Any]]
                         storageArray.append(self.dataArray[indexPath.item].toJSON()!)
-                        NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
+                        if isSaveiCloud {
+                            NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
+                        }else{
+                            UserDefaults.standard.setValue(storageArray, forKey: MyToolSaveKey)
+                        }
+                        
                     }else{
-                        NSUbiquitousKeyValueStore.default.set([self.dataArray[indexPath.item].toJSON() ?? ""], forKey: MyToolSaveKey)
+                        if isSaveiCloud {
+                            NSUbiquitousKeyValueStore.default.set([self.dataArray[indexPath.item].toJSON() ?? ""], forKey: MyToolSaveKey)
+                        }else{
+                            UserDefaults.standard.setValue([self.dataArray[indexPath.item].toJSON() ?? [:]], forKey: MyToolSaveKey)
+                        }
+                        
                     }
+                    UserDefaults.standard.synchronize()
                     NSUbiquitousKeyValueStore.default.synchronize()
                 }
                 return UIMenu(title: "", children: [addAction])

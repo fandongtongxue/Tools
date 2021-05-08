@@ -31,7 +31,11 @@ class MyToolsViewController: BaseViewController {
     
     func refreshData(){
         dataArray.removeAll()
-        let storageObject = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey)
+        var storageObject = UserDefaults.standard.array(forKey: MyToolSaveKey)
+        let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
+        if isSaveiCloud {
+            storageObject = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey)
+        }
         if storageObject != nil {
             let storageArray = storageObject as! [[String : Any]]
             if storageArray.count > 0 {
@@ -189,14 +193,24 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
         } actionProvider: { (element) -> UIMenu? in
             let removeAction = UIAction(title: "移除", image: UIImage(systemName: "minus.square"), state: .off) { (action) in
                 print("点击了移除")
-                var storageArray = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey) as! [[String : Any]]
+                let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
+                var storageArray = UserDefaults.standard.array(forKey: MyToolSaveKey) as! [[String : Any]]
+                if isSaveiCloud {
+                    storageArray = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey) as! [[String : Any]]
+                }
                 for i in 0...storageArray.count - 1{
                     let subObject = storageArray[i]
                     let model = ToolModel.deserialize(from: subObject)
                     if model?.id == self.dataArray[indexPath.item].id {
                         storageArray.remove(at: i)
-                        NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
-                        NSUbiquitousKeyValueStore.default.synchronize()
+                        let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
+                        if isSaveiCloud {
+                            NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
+                            NSUbiquitousKeyValueStore.default.synchronize()
+                        }else{
+                            UserDefaults.standard.setValue(storageArray, forKey: MyToolSaveKey)
+                            UserDefaults.standard.synchronize()
+                        }
                         self.refreshData()
                         break
                     }

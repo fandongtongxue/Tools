@@ -25,11 +25,14 @@ class SetViewController: UITableViewController {
     lazy var syncSwitch: UISwitch = {
         let syncSwitch = UISwitch(frame: .zero)
         syncSwitch.addTarget(self, action: #selector(syncSwitchAction(sender:)), for: .valueChanged)
+        let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
+        syncSwitch.isOn = isSaveiCloud
         return syncSwitch
     }()
     
     @objc func syncSwitchAction(sender: UISwitch){
-        
+        UserDefaults.standard.setValue(sender.isOn, forKey: iCloudSwitchKey)
+        UserDefaults.standard.synchronize()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

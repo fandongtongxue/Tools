@@ -60,6 +60,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
         
+        let isSaveiCloud = UserDefaults.standard.value(forKey: iCloudSwitchKey)
+        if isSaveiCloud == nil {
+            UserDefaults.standard.setValue(true, forKey: iCloudSwitchKey)
+            UserDefaults.standard.synchronize()
+        }
+        
         let tabBarC = TabBarController()
         window?.rootViewController = tabBarC
         

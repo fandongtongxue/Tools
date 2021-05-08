@@ -10,6 +10,8 @@
 		0403A8062636880D00876BB9 /* ScreenShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403A8052636880D00876BB9 /* ScreenShotViewController.swift */; };
 		0403A81D2636884700876BB9 /* ShotOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403A81C2636884700876BB9 /* ShotOnViewController.swift */; };
 		0403A8212636886500876BB9 /* ScreenRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403A8202636886500876BB9 /* ScreenRecordViewController.swift */; };
+		0444DE32264615A3001DDACA /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444DE31264615A3001DDACA /* SetViewController.swift */; };
+		0444DE3E26461C93001DDACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0444DE3C26461C93001DDACA /* Localizable.strings */; };
 		0462AA1A2634F10F0051995D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0462AA192634F10F0051995D /* GoogleService-Info.plist */; };
 		0464B17F262E7C150019ED4B /* QRCodeGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B17E262E7C150019ED4B /* QRCodeGenerateViewController.swift */; };
 		0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B181262EA9C80019ED4B /* FDDefine.swift */; };
@@ -41,7 +43,6 @@
 		049420BF26301FCC0088ADCE /* VideoExtractAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */; };
 		0499592A2635574F00B44964 /* QRCodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049959292635574F00B44964 /* QRCodeScanViewController.swift */; };
 		04995C472633B91C00642205 /* BilibiliViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04995C462633B91C00642205 /* BilibiliViewController.swift */; };
-		04995C572633BE5E00642205 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04995C592633BE5E00642205 /* Localizable.strings */; };
 		04A93D072627C658006C9773 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A93D062627C658006C9773 /* tools.json */; };
 		04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF02627E781006C9773 /* ToolItemCell.swift */; };
 		04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF82627E9F0006C9773 /* BaseModel.swift */; };
@@ -58,6 +59,11 @@
 		0403A81C2636884700876BB9 /* ShotOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotOnViewController.swift; sourceTree = "<group>"; };
 		0403A8202636886500876BB9 /* ScreenRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRecordViewController.swift; sourceTree = "<group>"; };
 		043B17FC2635644C006FAC93 /* Tools-Bridging-Header.h.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tools-Bridging-Header.h.h"; sourceTree = "<group>"; };
+		0444DE31264615A3001DDACA /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
+		0444DE3926461C35001DDACA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		0444DE3A26461C35001DDACA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		0444DE3D26461C93001DDACA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0444DE4026461C98001DDACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0462AA192634F10F0051995D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0464B17E262E7C150019ED4B /* QRCodeGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerateViewController.swift; sourceTree = "<group>"; };
 		0464B181262EA9C80019ED4B /* FDDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDDefine.swift; sourceTree = "<group>"; };
@@ -92,8 +98,6 @@
 		049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExtractAudioViewController.swift; sourceTree = "<group>"; };
 		049959292635574F00B44964 /* QRCodeScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanViewController.swift; sourceTree = "<group>"; };
 		04995C462633B91C00642205 /* BilibiliViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilibiliViewController.swift; sourceTree = "<group>"; };
-		04995C582633BE5E00642205 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		04995C5B2633BE6200642205 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		04A93D062627C658006C9773 /* tools.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
 		04A93DF02627E781006C9773 /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
 		04A93DF82627E9F0006C9773 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 		048D595526251F8100628F78 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				0444DE3C26461C93001DDACA /* Localizable.strings */,
 				0462AA192634F10F0051995D /* GoogleService-Info.plist */,
 				0494207C262FB3F80088ADCE /* Tools.entitlements */,
 				048D595626251F8100628F78 /* AppDelegate.swift */,
@@ -175,7 +180,6 @@
 				048D595426251F8100628F78 /* Products */,
 				047553F126326160001087D7 /* Config.swift */,
 				047554052632A890001087D7 /* Dictionary.swift */,
-				04995C592633BE5E00642205 /* Localizable.strings */,
 				043B17FC2635644C006FAC93 /* Tools-Bridging-Header.h.h */,
 			);
 			path = Tools;
@@ -200,6 +204,7 @@
 				048D597B262524D200628F78 /* ToolsViewController.swift */,
 				048D598C2625298000628F78 /* ToolsSearchResultController.swift */,
 				04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */,
+				0444DE31264615A3001DDACA /* SetViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -333,8 +338,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04995C572633BE5E00642205 /* Localizable.strings in Resources */,
 				048D596326251F8200628F78 /* LaunchScreen.storyboard in Resources */,
+				0444DE3E26461C93001DDACA /* Localizable.strings in Resources */,
 				048D596026251F8200628F78 /* Assets.xcassets in Resources */,
 				048D595E26251F8100628F78 /* Main.storyboard in Resources */,
 				04A93D072627C658006C9773 /* tools.json in Resources */,
@@ -405,6 +410,7 @@
 				0403A8212636886500876BB9 /* ScreenRecordViewController.swift in Sources */,
 				047553EF26325FD1001087D7 /* IPViewController.swift in Sources */,
 				049420BF26301FCC0088ADCE /* VideoExtractAudioViewController.swift in Sources */,
+				0444DE32264615A3001DDACA /* SetViewController.swift in Sources */,
 				047553FD26326323001087D7 /* JuHeIPResponseModel.swift in Sources */,
 				0403A81D2636884700876BB9 /* ShotOnViewController.swift in Sources */,
 				048D599D26256CB300628F78 /* ToolModel.swift in Sources */,
@@ -433,10 +439,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0444DE3C26461C93001DDACA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0444DE3D26461C93001DDACA /* zh-Hans */,
+				0444DE4026461C98001DDACA /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		048D595C26251F8100628F78 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				048D595D26251F8100628F78 /* Base */,
+				0444DE3926461C35001DDACA /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -445,17 +461,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				048D596226251F8200628F78 /* Base */,
+				0444DE3A26461C35001DDACA /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		04995C592633BE5E00642205 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04995C582633BE5E00642205 /* en */,
-				04995C5B2633BE6200642205 /* zh-Hans */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

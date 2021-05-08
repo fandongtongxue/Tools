@@ -16,7 +16,7 @@ class MyToolsViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationItem.title = "我的工具"
+        navigationItem.title = NSLocalizedString("My Tools", comment: "")
         
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in

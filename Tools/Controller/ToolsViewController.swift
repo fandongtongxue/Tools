@@ -29,7 +29,7 @@ class ToolsViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationItem.title = "工具中心"
+        navigationItem.title = NSLocalizedString("Tools Center", comment: "")
         navigationItem.searchController = searchC
         
         view.addSubview(collectionView)

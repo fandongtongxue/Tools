@@ -24,7 +24,12 @@ class ToolDetailViewController: BaseViewController {
         mdView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
-        mdView.load(markdown: model.desc_md, enableImage: true)
+        if Locale.preferredLanguages.first?.contains("zh") ?? false {
+            mdView.load(markdown: model.desc_md, enableImage: true)
+        }else{
+            mdView.load(markdown: model.desc_en_md, enableImage: true)
+        }
+        
     }
     
 

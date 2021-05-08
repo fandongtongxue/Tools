@@ -71,6 +71,7 @@ class ToolItemCell: UICollectionViewCell {
         let nameLabel = UILabel(frame: .zero)
         nameLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         nameLabel.font = .systemFont(ofSize: 17, weight: .medium)
+        nameLabel.numberOfLines = 0
         return nameLabel
     }()
     
@@ -84,9 +85,13 @@ class ToolItemCell: UICollectionViewCell {
             _model = newValue
             //设置数据
             colorBgView.backgroundColor = UIColor(hex: newValue.backgroundColorHex)
-            nameLabel.text = newValue.name
+            if Locale.preferredLanguages.first?.contains("zh") ?? false {
+                //中文
+                nameLabel.text = newValue.name
+            }else{
+                nameLabel.text = newValue.name_en
+            }
             iconImageView.image = UIImage(systemName: newValue.icon)
-            
         }
         get{
             return _model

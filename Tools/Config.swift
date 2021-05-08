@@ -20,7 +20,7 @@ let api_phone = "http://apis.juhe.cn/mobile/get"
 /// Banner ad unit ID.
 let AdMobAdUnitID = "ca-app-pub-1088661153697754/6942996267"
 
-let AdMobAdOpenID = "ca-app-pub-3940256099942544/5662855259"
+let AdMobAdOpenID = "ca-app-pub-1088661153697754/4687194555"
 
 
 public let AdShowOrNotKey = "AdShowOrNotKey"

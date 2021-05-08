@@ -40,17 +40,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         if isAd {
             // 广告
-            let languageArray = UserDefaults.standard.array(forKey: "AppleLanguages") as! [String]
-            let lauguage = languageArray.first
-            if lauguage?.contains("zh") ?? false {
-                requestIDFA()
-            }else{
-                GADMobileAds.sharedInstance().start(completionHandler: nil)
-                GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
-                //谷歌统计
-                FirebaseApp.configure()
-
-            }
+            requestIDFA()
+            GADMobileAds.sharedInstance().start(completionHandler: nil)
+            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
+            //谷歌统计
+            FirebaseApp.configure()
 
             //7天后会显示启动广告
             let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
@@ -88,16 +82,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         if isAd {
-            let nowDate = Date()
-            let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
-            if beginTime != nil {
-                let beginDate = beginTime as! Date
-                let durationTime = nowDate.timeIntervalSince(beginDate)
-                //7天之后显示广告
-                if durationTime > 3600 * 24 * 7 {
+//            let nowDate = Date()
+//            let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
+//            if beginTime != nil {
+//                let beginDate = beginTime as! Date
+//                let durationTime = nowDate.timeIntervalSince(beginDate)
+//                //7天之后显示广告
+//                if durationTime > 3600 * 24 * 7 {
                     tryToPresentAd()
-                }
-            }
+//                }
+//            }
         }
     }
 

@@ -114,6 +114,8 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
             detailVC.model = model
             detailVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(detailVC, animated: true)
+        }else{
+            view.makeToast(NSLocalizedString("No Description", comment: ""))
         }
     }
     

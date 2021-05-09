@@ -27,7 +27,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if #available(iOS 14, *) {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
                 // Tracking authorization completed. Start loading ads here.
-//                 loadAd()
+                if status == .authorized {
+                    isAd = true
+                    GADMobileAds.sharedInstance().start(completionHandler: nil)
+                    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
+                }else {
+                    isAd = false
+                }
             })
         } else {
             // Fallback on earlier versions
@@ -38,20 +44,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        if isAd {
-            // 广告
-            requestIDFA()
-            GADMobileAds.sharedInstance().start(completionHandler: nil)
-            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
-            //谷歌统计
-            FirebaseApp.configure()
+        requestIDFA()
+        //谷歌统计
+        FirebaseApp.configure()
 
-            //7天后会显示启动广告
-            let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
-            if beginTime == nil {
-                UserDefaults.standard.set(Date(), forKey: AdShowOrNotKey)
-                UserDefaults.standard.synchronize()
-            }
+        //7天后会显示启动广告
+        let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
+        if beginTime == nil {
+            UserDefaults.standard.set(Date(), forKey: AdShowOrNotKey)
+            UserDefaults.standard.synchronize()
         }
         
         let isSaveiCloud = UserDefaults.standard.value(forKey: iCloudSwitchKey)
@@ -81,18 +82,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-        if isAd {
-//            let nowDate = Date()
-//            let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
-//            if beginTime != nil {
-//                let beginDate = beginTime as! Date
-//                let durationTime = nowDate.timeIntervalSince(beginDate)
-//                //7天之后显示广告
-//                if durationTime > 3600 * 24 * 7 {
-                    tryToPresentAd()
-//                }
-//            }
-        }
+        tryToPresentAd()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -151,7 +141,7 @@ extension SceneDelegate : GADFullScreenContentDelegate{
     }
 
     func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        debugPrint("adDidPresentFullScreenContent")
+        
     }
 
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {

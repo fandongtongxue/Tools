@@ -7,13 +7,7 @@
 
 import UIKit
 
-protocol ToolItemCellDelegate {
-    func itemCell(itemCell :ToolItemCell, didClickInfoBtn: UIButton)
-}
-
 class ToolItemCell: UICollectionViewCell {
-    
-    var delegate : ToolItemCellDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,8 +22,8 @@ class ToolItemCell: UICollectionViewCell {
             make.left.top.equalToSuperview().offset(15)
             make.size.equalTo(CGSize(width: 40, height: 40))
         }
-        colorBgView.addSubview(infoBtn)
-        infoBtn.snp.makeConstraints { (make) in
+        colorBgView.addSubview(selectBtn)
+        selectBtn.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-10)
             make.top.equalToSuperview().offset(10)
         }
@@ -41,10 +35,9 @@ class ToolItemCell: UICollectionViewCell {
         }
     }
     
-    @objc func infoBtnAction(sender :UIButton){
-        if delegate != nil {
-            delegate?.itemCell(itemCell: self, didClickInfoBtn: sender)
-        }
+    @objc func selectBtnAction(sender :UIButton){
+        selectBtn.isSelected = !sender.isSelected
+        model.selected = sender.isSelected
     }
     
     lazy var colorBgView : UIView = {
@@ -59,12 +52,14 @@ class ToolItemCell: UICollectionViewCell {
         return iconImageView
     }()
     
-    lazy var infoBtn : UIButton = {
-        let infoBtn = UIButton(frame: .zero)
-        infoBtn.setImage(UIImage(systemName: "ellipsis"), for: .normal)
-        infoBtn.tintColor = .white
-        infoBtn.addTarget(self, action: #selector(infoBtnAction(sender:)), for: .touchUpInside)
-        return infoBtn
+    lazy var selectBtn : UIButton = {
+        let selectBtn = UIButton(frame: .zero)
+        selectBtn.setImage(UIImage(systemName: "circle"), for: .normal)
+        selectBtn.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .selected)
+        selectBtn.tintColor = .white
+        selectBtn.isHidden = true
+        selectBtn.addTarget(self, action: #selector(selectBtnAction(sender:)), for: .touchUpInside)
+        return selectBtn
     }()
     
     lazy var nameLabel : UILabel = {
@@ -92,9 +87,23 @@ class ToolItemCell: UICollectionViewCell {
                 nameLabel.text = newValue.name_en
             }
             iconImageView.image = UIImage(systemName: newValue.icon)
+            selectBtn.isSelected = newValue.selected
         }
         get{
             return _model
+        }
+    }
+    
+    var _isEditing = false
+    public var isEditing : Bool{
+        set{
+            _isEditing = newValue
+            selectBtn.isHidden = !newValue
+            model.selected = false
+            selectBtn.isSelected = false
+        }
+        get{
+            return _isEditing
         }
     }
 }

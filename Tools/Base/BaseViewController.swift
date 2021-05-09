@@ -22,7 +22,7 @@ class BaseViewController: UIViewController {
     
 
     @objc func setBtnAction(){
-        let setVC = SetViewController()
+        let setVC = SetViewController(style: .insetGrouped)
         let setNav = BaseNavigationController(rootViewController: setVC)
         present(setNav, animated: true, completion: nil)
     }

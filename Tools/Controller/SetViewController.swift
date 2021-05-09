@@ -36,11 +36,11 @@ class SetViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,7 +48,7 @@ class SetViewController: UITableViewController {
         if cell == nil {
             cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
         }
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
             cell?.textLabel?.text = NSLocalizedString("iCloud Sync", comment: "")
             cell?.accessoryView = syncSwitch

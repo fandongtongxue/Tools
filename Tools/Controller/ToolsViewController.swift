@@ -88,7 +88,6 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(ToolItemCell.classForCoder()), for: indexPath) as! ToolItemCell
         cell.model = dataArray[indexPath.item]
-        cell.delegate = self
         return cell
     }
     
@@ -109,10 +108,13 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = ToolDetailViewController()
-        detailVC.model = dataArray[indexPath.item]
-        detailVC.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(detailVC, animated: true)
+        let model = dataArray[indexPath.item]
+        if model.desc_md.count > 0 {
+            let detailVC = ToolDetailViewController()
+            detailVC.model = model
+            detailVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
@@ -202,19 +204,11 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
         let item = Int(configuration.identifier as! String) ?? 0
         let detailVC = ToolDetailViewController()
         detailVC.model = dataArray[item]
+        detailVC.hidesBottomBarWhenPushed = true
         show(detailVC, sender: nil)
     }
 }
 
 extension ToolsViewController : UISearchControllerDelegate{
     
-}
-
-extension ToolsViewController : ToolItemCellDelegate{
-    func itemCell(itemCell: ToolItemCell, didClickInfoBtn: UIButton) {
-        let detailVC = ToolDetailViewController()
-        detailVC.model = itemCell.model
-        detailVC.hidesBottomBarWhenPushed = true
-        show(detailVC, sender: nil)
-    }
 }

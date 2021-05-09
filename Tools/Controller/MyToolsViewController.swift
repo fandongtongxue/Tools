@@ -11,17 +11,64 @@ import SafariServices
 class MyToolsViewController: BaseViewController {
     
     var dataArray = [ToolModel]()
+    
+    var isEdit = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         navigationItem.title = NSLocalizedString("My Tools", comment: "")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editBtnAction))
         
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+    }
+    
+    @objc func editBtnAction(){
+        isEdit = true
+        collectionView.reloadData()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(removeBtnAction))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBtnAction))
+    }
+    
+    @objc func cancelBtnAction(){
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editBtnAction))
+        navigationItem.leftBarButtonItem = nil
+        isEdit = false
+        collectionView.reloadData()
+    }
+    
+    @objc func removeBtnAction(){
+        isEdit = false
+        collectionView.reloadData()
+        let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
+        var storageArray = UserDefaults.standard.array(forKey: MyToolSaveKey) as! [[String : Any]]
+        if isSaveiCloud {
+            storageArray = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey) as! [[String : Any]]
+        }
+        for subModel in dataArray {
+            for i in 0...storageArray.count - 1{
+                let subObject = storageArray[i]
+                let model = ToolModel.deserialize(from: subObject)
+                if model?.id == subModel.id && subModel.selected {
+                    storageArray.remove(at: i)
+                    let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
+                    if isSaveiCloud {
+                        NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
+                        NSUbiquitousKeyValueStore.default.synchronize()
+                    }else{
+                        UserDefaults.standard.setValue(storageArray, forKey: MyToolSaveKey)
+                        UserDefaults.standard.synchronize()
+                    }
+                    self.refreshData()
+                }
+            }
+        }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editBtnAction))
+        navigationItem.leftBarButtonItem = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +128,7 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(ToolItemCell.classForCoder()), for: indexPath) as! ToolItemCell
         cell.model = dataArray[indexPath.item]
-        cell.delegate = self
+        cell.isEditing = isEdit
         return cell
     }
     
@@ -103,6 +150,11 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = dataArray[indexPath.item]
+        if isEdit {
+            model.selected = !model.selected
+            collectionView.reloadData()
+            return
+        }
         switch model.id {
         case 1:
             let toolVC = ParseShortVideoController()
@@ -230,15 +282,6 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
         let item = Int(configuration.identifier as! String) ?? 0
         let detailVC = ToolDetailViewController()
         detailVC.model = dataArray[item]
-        show(detailVC, sender: nil)
-    }
-}
-
-extension MyToolsViewController : ToolItemCellDelegate{
-    func itemCell(itemCell: ToolItemCell, didClickInfoBtn: UIButton) {
-        let detailVC = ToolDetailViewController()
-        detailVC.model = itemCell.model
-        detailVC.hidesBottomBarWhenPushed = true
         show(detailVC, sender: nil)
     }
 }

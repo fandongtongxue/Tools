@@ -49,7 +49,7 @@ class TTSViewController: BaseViewController {
         }
         view.endEditing(true)
         utterance = AVSpeechUtterance(string: textView.text)
-        utterance.rate = 0.1
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         syntesizer.delegate = self
         syntesizer.speak(utterance)
         

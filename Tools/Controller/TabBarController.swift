@@ -20,7 +20,7 @@ class TabBarController: UITabBarController {
         
         let toolsVC = ToolsViewController()
         let toolsNav = BaseNavigationController(rootViewController: toolsVC)
-        let toolsItem = UITabBarItem(title: NSLocalizedString("Tools Center", comment: ""), image: UIImage(systemName: "rectangle.grid.2x2.fill"), selectedImage: UIImage(systemName: "rectangle.grid.2x2.fill"))
+        let toolsItem = UITabBarItem(title: NSLocalizedString("Tools Center", comment: ""), image: UIImage(systemName: "square.2.stack.3d.top.fill"), selectedImage: UIImage(systemName: "square.2.stack.3d.top.fill"))
         toolsNav.tabBarItem = toolsItem
         
         viewControllers = [myNav,toolsNav]

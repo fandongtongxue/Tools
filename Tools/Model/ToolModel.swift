@@ -19,4 +19,5 @@ class ToolModel: BaseModel {
     var desc_en_md = ""
     var icon = ""
     var name_en = ""
+    var selected = false
 }

@@ -16,7 +16,7 @@
             "icon":"qrcode",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"f58dd6"
         },
         {
             "id":3,
@@ -25,7 +25,7 @@
             "icon":"waveform",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"85909a"
         },
         {
             "id":4,
@@ -34,7 +34,7 @@
             "icon":"wifi",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"4665c5"
         },
         {
             "id":5,
@@ -43,7 +43,7 @@
             "icon":"waveform",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"f35c64"
         },
         {
             "id":6,
@@ -52,7 +52,7 @@
             "icon":"doc.text.magnifyingglass",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"00aff6"
         },
         {
             "id":7,
@@ -61,7 +61,7 @@
             "icon":"network",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"f58dd6"
         },
         {
             "id":8,
@@ -70,7 +70,7 @@
             "icon":"iphone",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"85909a"
         },
         {
             "id":9,
@@ -79,7 +79,7 @@
             "icon":"speedometer",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"4665c5"
         },
         {
             "id":10,
@@ -88,7 +88,7 @@
             "icon":"yensign.square",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"f35c64"
         },
         {
             "id":11,
@@ -97,7 +97,7 @@
             "icon":"photo",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"00aff6"
         },
         {
             "id":12,
@@ -106,7 +106,7 @@
             "icon":"qrcode.viewfinder",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"f58dd6"
         },
         {
             "id":13,
@@ -115,7 +115,7 @@
             "icon":"iphone",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"85909a"
         },
         {
             "id":14,
@@ -124,7 +124,7 @@
             "icon":"iphone.badge.play",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"4665c5"
         },
         {
             "id":15,
@@ -133,7 +133,7 @@
             "icon":"bookmark",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"f35c64"
         },
         {
             "id":16,
@@ -142,7 +142,7 @@
             "icon":"photo",
             "desc_md":"",
             "desc_en_md":"",
-            "backgroundColorHex":"22c232"
+            "backgroundColorHex":"00aff6"
         }
 
     ]

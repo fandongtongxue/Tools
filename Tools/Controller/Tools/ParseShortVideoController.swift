@@ -104,6 +104,14 @@ class ParseShortVideoController: BaseViewController {
                     break
                 }
             }
+        }else if text?.contains("kuaishou.com") ?? false {
+            let textArray = text?.components(separatedBy: " ") ?? []
+            for subText in textArray {
+                if subText.contains("http") {
+                    realText = subText
+                    break
+                }
+            }
         }
 //        http://api.tools.app.xiaobingkj.com/parseVideo.php?url=http://v.douyin.com/eMKj42N/
         FDNetwork.GET(url: "http://api.tools.app.xiaobingkj.com/parseVideo.php", param: ["url":realText], success: { (result) in
@@ -230,7 +238,13 @@ class ParseShortVideoController: BaseViewController {
     }()
     
     lazy var player : AVPlayer = {
-        let item = AVPlayerItem(url: URL(string: (model.data?.url)!)!)
+        var realUrl = model.data?.url
+        if realUrl?.contains(",") ?? false {
+            //快手特殊处理
+            realUrl = realUrl?.components(separatedBy: ",").first
+            realUrl?.removeLast()
+        }
+        let item = AVPlayerItem(url: URL(string: (realUrl)!)!)
         let player = AVPlayer(playerItem: item)
         return player
     }()

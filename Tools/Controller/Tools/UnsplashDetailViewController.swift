@@ -37,7 +37,7 @@ class UnsplashDetailViewController: BaseViewController {
             make.left.equalTo(self.iconImageView.snp.right).offset(10)
             make.centerY.equalTo(self.iconImageView)
         }
-        imageView.kf.setImage(with: photo?.urls.first?.value)
+        imageView.kf.setImage(with: photo?.urls[.raw]?.absoluteURL)
         iconImageView.kf.setImage(with: photo?.user.profileImage[.medium])
         nameLabel.text = photo?.user.name
     }

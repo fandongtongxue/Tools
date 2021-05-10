@@ -77,7 +77,7 @@ class ScreenShotViewController: BaseViewController {
         let iphoneImgW = iphoneImg?.size.width ?? 0
         let iphoneImgH = iphoneImg?.size.height ?? 0
         
-        let realRect = CGRect(x: 142, y: 180, width: originImage.size.width, height: originImage.size.height)
+        let realRect = CGRect(x: (iphoneImgW - originImage.size.width) / 2, y: (iphoneImgH - originImage.size.height) / 2, width: originImage.size.width, height: originImage.size.height)
         
         UIGraphicsBeginImageContext(CGSize(width: iphoneImgW, height: iphoneImgH))
         originImage.draw(in: realRect)

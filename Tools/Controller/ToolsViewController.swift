@@ -150,18 +150,20 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
                         storageArray = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey) as! [[String : Any]]
                     }
                     for i in 0...storageArray.count - 1{
-                        let subObject = storageArray[i]
-                        let model = ToolModel.deserialize(from: subObject)
-                        if model?.id == self.dataArray[indexPath.item].id {
-                            storageArray.remove(at: i)
-                            if isSaveiCloud {
-                                NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
-                                NSUbiquitousKeyValueStore.default.synchronize()
-                            }else{
-                                UserDefaults.standard.setValue(storageArray, forKey: MyToolSaveKey)
-                                UserDefaults.standard.synchronize()
+                        if i < storageArray.count {
+                            let subObject = storageArray[i]
+                            let model = ToolModel.deserialize(from: subObject)
+                            if model?.id == self.dataArray[indexPath.item].id {
+                                storageArray.remove(at: i)
+                                if isSaveiCloud {
+                                    NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
+                                    NSUbiquitousKeyValueStore.default.synchronize()
+                                }else{
+                                    UserDefaults.standard.setValue(storageArray, forKey: MyToolSaveKey)
+                                    UserDefaults.standard.synchronize()
+                                }
+                                break
                             }
-                            break
                         }
                     }
                 }

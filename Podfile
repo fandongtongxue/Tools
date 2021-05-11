@@ -15,6 +15,10 @@ target 'Tools' do
   pod 'Kingfisher'
   pod 'DeviceKit', '~> 4.0'
   pod 'UnsplashPhotoPicker', '~> 1.1.1'
+  
+  pod 'ffmpeg-kit-ios-full', '~> 4.4.LTS'
+  pod 'WoodPeckeriOS', :configurations => ['Debug']
+
 
   pod 'Firebase/Analytics'
   pod 'BaiduMobStatCodeless'

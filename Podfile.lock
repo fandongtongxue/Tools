@@ -105,6 +105,7 @@ PODS:
   - SwiftyJSON (5.0.1)
   - Toast-Swift (5.0.1)
   - UnsplashPhotoPicker (1.1.1)
+  - WoodPeckeriOS (1.2.92)
 
 DEPENDENCIES:
   - Alamofire
@@ -121,6 +122,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - Toast-Swift (~> 5.0.1)
   - UnsplashPhotoPicker (~> 1.1.1)
+  - WoodPeckeriOS
 
 SPEC REPOS:
   trunk:
@@ -148,6 +150,7 @@ SPEC REPOS:
     - SwiftyJSON
     - Toast-Swift
     - UnsplashPhotoPicker
+    - WoodPeckeriOS
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
@@ -174,7 +177,8 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UnsplashPhotoPicker: 86520e34cfded8fb4a41910bf87afe571906b4e3
+  WoodPeckeriOS: 29f6fb07de24c8c8716b56a8764876a739c6e8e3
 
-PODFILE CHECKSUM: 164f6f18d93c812f1f28973bad822297ebfa42c1
+PODFILE CHECKSUM: 2510d88800d806ad5d5f8ed1e22b23396d822820
 
 COCOAPODS: 1.10.1

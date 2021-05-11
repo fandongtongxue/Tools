@@ -10,6 +10,7 @@ import MobileCoreServices
 import AVFoundation
 import DeviceKit
 import AVKit
+import AssetsLibrary
 
 class ScreenRecordViewController: BaseViewController {
 
@@ -79,14 +80,15 @@ class ScreenRecordViewController: BaseViewController {
         var cachesFilePath = cachesDirectory.appendingPathComponent("image0.jpg")
         let cachesFileDPath = cachesDirectory.appendingPathComponent("image%d.jpg")
         
+        view.makeToastActivity(.center)
         //先切割图片
         let command = "-i"+""+" -r 1 -q:v 2 -f image2 "+cachesFileDPath
         let session = FFmpegKit.executeAsync(command) { (session) in
-            debugPrint("FFMpeg结束")
+            debugPrint("FFMpeg切割结束")
             //图片合成视频
             let command2 = "-f image2 -i "+cachesFileDPath+" "+"-vcodec h264 -r 25"+" "+documentFilePath
             let session2 = FFmpegKit.executeAsync(command) { (session) in
-                debugPrint("FFMpeg结束")
+                debugPrint("FFMpeg合成结束")
                 DispatchQueue.main.async {
                     self.view.hideToastActivity()
                     debugPrint(documentFilePath)
@@ -145,7 +147,19 @@ class ScreenRecordViewController: BaseViewController {
 extension ScreenRecordViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        let mediaURL = info[.mediaURL] as! URL
-        getImagesFromVideo(mediaURL: mediaURL)
+        if info[.mediaURL] != nil {
+            let mediaURL = info[.mediaURL] as! URL
+            getImagesFromVideo(mediaURL: mediaURL)
+        }else{
+            let referenceURL = info[.referenceURL] as! URL
+            let assetLibrary = ALAssetsLibrary()
+            assetLibrary.asset(for: referenceURL) { (asset) in
+                debugPrint("")
+            } failureBlock: { (error) in
+                debugPrint(error?.localizedDescription)
+            }
+
+        }
+        
     }
 }

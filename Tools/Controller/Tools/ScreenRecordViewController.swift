@@ -85,7 +85,7 @@ class ScreenRecordViewController: BaseViewController {
                 let iphoneImgW = iphoneImg?.size.width ?? 0
                 let iphoneImgH = iphoneImg?.size.height ?? 0
                 
-                let realRect = CGRect(x: (iphoneImgW - finalImage.size.width * 2) / 2, y: (iphoneImgH - finalImage.size.height * 2) / 2, width: finalImage.size.width * 2, height: finalImage.size.height * 2)
+                let realRect = CGRect(x: (iphoneImgW - finalImage.size.width) / 2, y: (iphoneImgH - finalImage.size.height) / 2, width: finalImage.size.width, height: finalImage.size.height)
                 
                 UIGraphicsBeginImageContext(CGSize(width: iphoneImgW, height: iphoneImgH))
                 finalImage.draw(in: realRect)

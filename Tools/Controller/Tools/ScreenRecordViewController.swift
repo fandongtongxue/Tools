@@ -10,7 +10,7 @@ import MobileCoreServices
 import AVFoundation
 import DeviceKit
 import AVKit
-import AssetsLibrary
+import PhotosUI
 
 class ScreenRecordViewController: BaseViewController {
 
@@ -80,17 +80,15 @@ class ScreenRecordViewController: BaseViewController {
         var cachesFilePath = cachesDirectory.appendingPathComponent("image0.jpg")
         let cachesFileDPath = cachesDirectory.appendingPathComponent("image%d.jpg")
         
-        view.makeToastActivity(.center)
         //先切割图片
-        let command = "-i"+""+" -r 1 -q:v 2 -f image2 "+cachesFileDPath
+        let command = "-i "+mediaURL.absoluteString+" -r 30 -q:v 2 -f image2 "+cachesFileDPath
         let session = FFmpegKit.executeAsync(command) { (session) in
             debugPrint("FFMpeg切割结束")
             //图片合成视频
-            let command2 = "-f image2 -i "+cachesFileDPath+" "+"-vcodec h264 -r 25"+" "+documentFilePath
-            let session2 = FFmpegKit.executeAsync(command) { (session) in
+            let command2 = "-f image2 -i "+cachesFileDPath+" "+"-vcodec h264 -r 25 "+documentFilePath
+            let session2 = FFmpegKit.executeAsync(command2) { (session) in
                 debugPrint("FFMpeg合成结束")
                 DispatchQueue.main.async {
-                    self.view.hideToastActivity()
                     debugPrint(documentFilePath)
                     if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(documentFilePath) {
                         UISaveVideoAtPathToSavedPhotosAlbum(documentFilePath, self, #selector(self.video(videoPath:didFinishSavingWithError:contextInfo:)), nil)
@@ -151,14 +149,16 @@ extension ScreenRecordViewController : UIImagePickerControllerDelegate,UINavigat
             let mediaURL = info[.mediaURL] as! URL
             getImagesFromVideo(mediaURL: mediaURL)
         }else{
-            let referenceURL = info[.referenceURL] as! URL
-            let assetLibrary = ALAssetsLibrary()
-            assetLibrary.asset(for: referenceURL) { (asset) in
-                debugPrint("")
-            } failureBlock: { (error) in
-                debugPrint(error?.localizedDescription)
+            let phAsset = info[.phAsset] as! PHAsset
+            let options = PHVideoRequestOptions()
+            options.version = .current
+            options.deliveryMode = .automatic
+            let manager = PHImageManager.default()
+            manager.requestAVAsset(forVideo: phAsset, options: options) { (asset, audioMix, info) in
+                let urlAsset = asset as! AVURLAsset
+                let mediaURL = urlAsset.url
+                self.getImagesFromVideo(mediaURL: mediaURL)
             }
-
         }
         
     }

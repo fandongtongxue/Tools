@@ -11,6 +11,7 @@ import AVFoundation
 import DeviceKit
 import AVKit
 import PhotosUI
+import SwiftVideoGenerator
 
 class ScreenRecordViewController: BaseViewController {
 
@@ -65,52 +66,88 @@ class ScreenRecordViewController: BaseViewController {
     }()
     
     func getImagesFromVideo(mediaURL: URL){
-        
-        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
-        
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy_MM_dd_HH_mm_ss"
-        let dateStr = dateFormatter.string(from: date)
-        
-        let documentFilePath = documentDirectory.appendingPathComponent(dateStr+".mp4")
-        
-        let cachesDirectory = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first! as NSString
-        
-        var cachesFilePath = cachesDirectory.appendingPathComponent("image0.jpg")
-        let cachesFileDPath = cachesDirectory.appendingPathComponent("image%d.jpg")
-        
-        //先切割图片
-        let command = "-i "+mediaURL.absoluteString+" -r 30 -q:v 2 -f image2 "+cachesFileDPath
-        let session = FFmpegKit.executeAsync(command) { (session) in
-            debugPrint("FFMpeg切割结束")
-            //图片合成视频
-            let command2 = "-f image2 -i "+cachesFileDPath+" "+"-vcodec h264 -r 25 "+documentFilePath
-            let session2 = FFmpegKit.executeAsync(command2) { (session) in
-                debugPrint("FFMpeg合成结束")
-                DispatchQueue.main.async {
-                    debugPrint(documentFilePath)
-                    if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(documentFilePath) {
-                        UISaveVideoAtPathToSavedPhotosAlbum(documentFilePath, self, #selector(self.video(videoPath:didFinishSavingWithError:contextInfo:)), nil)
+        view.makeToastActivity(.center)
+        let iphoneImgName = Device.current.safeDescription + " Silver"
+        let iphoneImg = UIImage(named: iphoneImgName)
+        let iphoneImgW = iphoneImg?.size.width ?? 0
+        let iphoneImgH = iphoneImg?.size.height ?? 0
+        let avAsset = AVAsset(url: mediaURL)
+        let duration = avAsset.duration
+        let durationFloatValue = floor(CMTimeGetSeconds(duration))
+        let avMutableComposition = AVMutableComposition()
+        let avMutableCompositionTrack = avMutableComposition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+        let avAssetTrack = avAsset.tracks(withMediaType: .video).first
+        let videoSize = CGSize(width: avAssetTrack?.naturalSize.width ?? 0, height: avAssetTrack?.naturalSize.height ?? 0)
+        do {
+            try avMutableCompositionTrack?.insertTimeRange(CMTimeRange(start: CMTime(value: 0, timescale: 30), end: CMTimeMakeWithSeconds(durationFloatValue, preferredTimescale: 30)), of: avAssetTrack!, at: CMTime(value: 0, timescale: 30))
+            let audioCompositionTrack = avMutableComposition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+            let audioSetList = avAsset.tracks(withMediaType: .audio)
+            if audioSetList.count > 0 {
+                let audioAssetTrack = avAsset.tracks(withMediaType: .audio).first
+                do {
+                    try audioCompositionTrack?.insertTimeRange(CMTimeRange(start: CMTime(value: 0, timescale: 30), end: CMTimeMakeWithSeconds(durationFloatValue, preferredTimescale: 30)), of: audioAssetTrack!, at: CMTime(value: 0, timescale: 30))
+                } catch let error {
+                    view.makeToast(error.localizedDescription)
+                }
+                let avMutableVideoComposition = AVMutableVideoComposition()
+                avMutableVideoComposition.renderSize = CGSize(width: iphoneImgW, height: iphoneImgH)
+                avMutableVideoComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
+                let parentLayer = CALayer()
+                let videoLayer = CALayer()
+                parentLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: iphoneImgW, height: iphoneImgH))
+                let realRect = CGRect(x: (iphoneImgW - videoSize.width) / 2, y: (iphoneImgH - videoSize.height) / 2, width: videoSize.width, height: videoSize.height)
+                videoLayer.frame = realRect
+                parentLayer.addSublayer(videoLayer)
+                let waterMarkLayer = CALayer()
+                waterMarkLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: iphoneImgW, height: iphoneImgH))
+                waterMarkLayer.contents = iphoneImg?.cgImage!
+                parentLayer.addSublayer(waterMarkLayer)
+                avMutableVideoComposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parentLayer)
+                let avMutableVideoCompositionInstruction = AVMutableVideoCompositionInstruction()
+                avMutableVideoCompositionInstruction.timeRange = CMTimeRangeMake(start: CMTimeMake(value: 0, timescale: 30), duration: avMutableComposition.duration)
+                let avMutableVideoCompositionLayerInstruction = AVMutableVideoCompositionLayerInstruction()
+                avMutableVideoCompositionLayerInstruction.setTransform(avAssetTrack!.preferredTransform, at: CMTimeMake(value: 0, timescale: 30))
+                avMutableVideoComposition.instructions = [avMutableVideoCompositionInstruction]
+                let fm = FileManager.default
+                let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
+                let filePath = documentDirectory.appendingPathComponent("output.mp4")
+                
+                if fm.fileExists(atPath: filePath) {
+                    do {
+                        try fm.removeItem(at: URL(fileURLWithPath: filePath))
+                    } catch let error {
+                        view.makeToast(error.localizedDescription)
                     }
                 }
+                let avAssetExportSession = AVAssetExportSession(asset: avMutableComposition, presetName: AVAssetExportPresetHighestQuality)
+                avAssetExportSession?.videoComposition = avMutableVideoComposition
+                avAssetExportSession?.outputURL = URL(fileURLWithPath: filePath)
+                var isMp4 = false
+                for string in avAssetExportSession?.supportedFileTypes ?? [] {
+                    if string == AVFileType.mp4 {
+                        isMp4 = true
+                    }
+                }
+                if isMp4 {
+                    avAssetExportSession?.outputFileType = .mp4
+                }else{
+                    avAssetExportSession?.outputFileType = .mov
+                }
+                avAssetExportSession?.shouldOptimizeForNetworkUse = false
+                avAssetExportSession?.exportAsynchronously(completionHandler: {
+                    debugPrint("导出完成")
+                    DispatchQueue.main.async {
+                        self.view.hideToastActivity()
+                        let playerVC = AVPlayerViewController()
+                        let player = AVPlayer(url: URL(fileURLWithPath: filePath))
+                        playerVC.player = player
+                        player.play()
+                        self.present(playerVC, animated: true, completion: nil)
+                    }
+                })
             }
-            let code2 = session?.getReturnCode()
-            if ReturnCode.isSuccess(code2) {
-                debugPrint("ReturnCode.isSuccess(code)")
-            }else if ReturnCode.isCancel(code2){
-                debugPrint("ReturnCode.isCancel(code)")
-            }else{
-                debugPrint("ReturnCode.isFailure(code)")
-            }
-        }
-        let code = session?.getReturnCode()
-        if ReturnCode.isSuccess(code) {
-            debugPrint("ReturnCode.isSuccess(code)")
-        }else if ReturnCode.isCancel(code){
-            debugPrint("ReturnCode.isCancel(code)")
-        }else{
-            debugPrint("ReturnCode.isFailure(code)")
+        } catch let error {
+            view.makeToast(error.localizedDescription)
         }
         
         
@@ -124,20 +161,6 @@ class ScreenRecordViewController: BaseViewController {
         }else{
             view.makeToast("保存成功")
         }
-    }
-    
-    func saveImageBtnAction(image: UIImage){
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
-    }
-    
-    @objc func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo info: AnyObject){
-        if error.code != 0 {
-            view.makeToast("保存失败")
-        }else{
-            view.makeToast("保存成功")
-        }
-        
-        
     }
 
 }

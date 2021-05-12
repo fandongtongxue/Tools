@@ -9,7 +9,6 @@
 #define Tools_Bridging_Header_h_h
 
 #import "BaiduMobStat.h"
-#include <ffmpegkit/FFmpegKit.h>
 
 
 #endif /* Tools_Bridging_Header_h_h */

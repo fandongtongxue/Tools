@@ -2,7 +2,6 @@ PODS:
   - Alamofire (5.4.3)
   - BaiduMobStatCodeless (5.3.3)
   - DeviceKit (4.3.0)
-  - ffmpeg-kit-ios-full (4.4)
   - Firebase/Analytics (7.11.0):
     - Firebase/Core
   - Firebase/Core (7.11.0):
@@ -102,6 +101,7 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PromisesObjC (1.2.12)
   - SnapKit (5.0.1)
+  - SwiftVideoGenerator (1.4.0)
   - SwiftyJSON (5.0.1)
   - Toast-Swift (5.0.1)
   - UnsplashPhotoPicker (1.1.1)
@@ -111,7 +111,6 @@ DEPENDENCIES:
   - Alamofire
   - BaiduMobStatCodeless
   - DeviceKit (~> 4.0)
-  - ffmpeg-kit-ios-full (~> 4.4.LTS)
   - Firebase/Analytics
   - Google-Mobile-Ads-SDK
   - HandyJSON (~> 5.0.2)
@@ -119,6 +118,7 @@ DEPENDENCIES:
   - Kingfisher
   - MarkdownView
   - SnapKit (~> 5.0.0)
+  - SwiftVideoGenerator
   - SwiftyJSON
   - Toast-Swift (~> 5.0.1)
   - UnsplashPhotoPicker (~> 1.1.1)
@@ -129,7 +129,6 @@ SPEC REPOS:
     - Alamofire
     - BaiduMobStatCodeless
     - DeviceKit
-    - ffmpeg-kit-ios-full
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -147,6 +146,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SnapKit
+    - SwiftVideoGenerator
     - SwiftyJSON
     - Toast-Swift
     - UnsplashPhotoPicker
@@ -156,7 +156,6 @@ SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   BaiduMobStatCodeless: 198e04ed005f6f6c467886959c040a1c7d5b3236
   DeviceKit: 7decde449c308ac7e816e2184ded1c7c596fb885
-  ffmpeg-kit-ios-full: af29316ac513b7551dd0693ec3fc1ce9700823df
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseAnalytics: cd3bd84d722a24a8923918af8af8e5236f615d77
   FirebaseCore: 907447d8917a4d3eb0cce2829c5a0ad21d90b432
@@ -174,11 +173,12 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftVideoGenerator: 804637c18f68a4f205d806e305ebceb4adcf3d25
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UnsplashPhotoPicker: 86520e34cfded8fb4a41910bf87afe571906b4e3
   WoodPeckeriOS: 29f6fb07de24c8c8716b56a8764876a739c6e8e3
 
-PODFILE CHECKSUM: 2510d88800d806ad5d5f8ed1e22b23396d822820
+PODFILE CHECKSUM: 7ea0c173f011eff68e8ee0fd3a9b4b6d48e8b026
 
 COCOAPODS: 1.10.1

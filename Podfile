@@ -16,7 +16,7 @@ target 'Tools' do
   pod 'DeviceKit', '~> 4.0'
   pod 'UnsplashPhotoPicker', '~> 1.1.1'
   
-  pod 'ffmpeg-kit-ios-full', '~> 4.4.LTS'
+  pod 'SwiftVideoGenerator'
   pod 'WoodPeckeriOS', :configurations => ['Debug']
 
 

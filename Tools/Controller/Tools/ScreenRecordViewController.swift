@@ -11,7 +11,6 @@ import AVFoundation
 import DeviceKit
 import AVKit
 import PhotosUI
-import SwiftVideoGenerator
 
 class ScreenRecordViewController: BaseViewController {
 

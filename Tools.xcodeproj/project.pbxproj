@@ -18,7 +18,6 @@
 		0464B17F262E7C150019ED4B /* QRCodeGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B17E262E7C150019ED4B /* QRCodeGenerateViewController.swift */; };
 		0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B181262EA9C80019ED4B /* FDDefine.swift */; };
 		046B19332631429A00D5D475 /* OCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B19322631429A00D5D475 /* OCRViewController.swift */; };
-		04734EFC264BA1B100669CE7 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04734EFB264BA1B100669CE7 /* 1.mp3 */; };
 		047553EF26325FD1001087D7 /* IPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553EE26325FD1001087D7 /* IPViewController.swift */; };
 		047553F226326160001087D7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553F126326160001087D7 /* Config.swift */; };
 		047553FD26326323001087D7 /* JuHeIPResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553FC26326323001087D7 /* JuHeIPResponseModel.swift */; };
@@ -73,7 +72,6 @@
 		0464B17E262E7C150019ED4B /* QRCodeGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerateViewController.swift; sourceTree = "<group>"; };
 		0464B181262EA9C80019ED4B /* FDDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDDefine.swift; sourceTree = "<group>"; };
 		046B19322631429A00D5D475 /* OCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewController.swift; sourceTree = "<group>"; };
-		04734EFB264BA1B100669CE7 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 		047553EE26325FD1001087D7 /* IPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPViewController.swift; sourceTree = "<group>"; };
 		047553F126326160001087D7 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		047553FC26326323001087D7 /* JuHeIPResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuHeIPResponseModel.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 		048D595526251F8100628F78 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				04734EFB264BA1B100669CE7 /* 1.mp3 */,
 				0444DE3C26461C93001DDACA /* Localizable.strings */,
 				0462AA192634F10F0051995D /* GoogleService-Info.plist */,
 				0494207C262FB3F80088ADCE /* Tools.entitlements */,
@@ -333,7 +330,6 @@
 			files = (
 				048D596326251F8200628F78 /* LaunchScreen.storyboard in Resources */,
 				0444DE3E26461C93001DDACA /* Localizable.strings in Resources */,
-				04734EFC264BA1B100669CE7 /* 1.mp3 in Resources */,
 				048D596026251F8200628F78 /* Assets.xcassets in Resources */,
 				048D595E26251F8100628F78 /* Main.storyboard in Resources */,
 				04A93D072627C658006C9773 /* tools.json in Resources */,

@@ -77,7 +77,8 @@ class ScreenRecordViewController: BaseViewController {
         let avMutableComposition = AVMutableComposition()
         let avMutableCompositionTrack = avMutableComposition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
         let avAssetTrack = avAsset.tracks(withMediaType: .video).first
-        let videoSize = CGSize(width: avAssetTrack?.naturalSize.width ?? 0, height: avAssetTrack?.naturalSize.height ?? 0)
+        let videoSize = CGSize(width: (avAssetTrack?.naturalSize.width ?? 0) * 2, height: (avAssetTrack?.naturalSize.height ?? 0) * 2)
+        debugPrint(videoSize)
         do {
             try avMutableCompositionTrack?.insertTimeRange(CMTimeRange(start: CMTime(value: 0, timescale: 30), end: CMTimeMakeWithSeconds(durationFloatValue, preferredTimescale: 30)), of: avAssetTrack!, at: CMTime(value: 0, timescale: 30))
             let audioCompositionTrack = avMutableComposition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
@@ -95,8 +96,10 @@ class ScreenRecordViewController: BaseViewController {
                 let parentLayer = CALayer()
                 let videoLayer = CALayer()
                 parentLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: iphoneImgW, height: iphoneImgH))
+                debugPrint(parentLayer.frame)
                 let realRect = CGRect(x: (iphoneImgW - videoSize.width) / 2, y: (iphoneImgH - videoSize.height) / 2, width: videoSize.width, height: videoSize.height)
                 videoLayer.frame = realRect
+                debugPrint(realRect)
                 parentLayer.addSublayer(videoLayer)
                 let waterMarkLayer = CALayer()
                 waterMarkLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: iphoneImgW, height: iphoneImgH))
@@ -105,8 +108,9 @@ class ScreenRecordViewController: BaseViewController {
                 avMutableVideoComposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parentLayer)
                 let avMutableVideoCompositionInstruction = AVMutableVideoCompositionInstruction()
                 avMutableVideoCompositionInstruction.timeRange = CMTimeRangeMake(start: CMTimeMake(value: 0, timescale: 30), duration: avMutableComposition.duration)
-                let avMutableVideoCompositionLayerInstruction = AVMutableVideoCompositionLayerInstruction()
-                avMutableVideoCompositionLayerInstruction.setTransform(avAssetTrack!.preferredTransform, at: CMTimeMake(value: 0, timescale: 30))
+                let avMutableVideoCompositionLayerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: avMutableCompositionTrack!)
+                avMutableCompositionTrack?.preferredTransform = avAssetTrack!.preferredTransform
+                avMutableVideoCompositionInstruction.layerInstructions = [avMutableVideoCompositionLayerInstruction]
                 avMutableVideoComposition.instructions = [avMutableVideoCompositionInstruction]
                 let fm = FileManager.default
                 let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
@@ -135,14 +139,11 @@ class ScreenRecordViewController: BaseViewController {
                 }
                 avAssetExportSession?.shouldOptimizeForNetworkUse = false
                 avAssetExportSession?.exportAsynchronously(completionHandler: {
-                    debugPrint("导出完成")
                     DispatchQueue.main.async {
                         self.view.hideToastActivity()
-                        let playerVC = AVPlayerViewController()
-                        let player = AVPlayer(url: URL(fileURLWithPath: filePath))
-                        playerVC.player = player
-                        player.play()
-                        self.present(playerVC, animated: true, completion: nil)
+                        if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(filePath){
+                            UISaveVideoAtPathToSavedPhotosAlbum(filePath, self, #selector(self.video(videoPath:didFinishSavingWithError:contextInfo:)), nil)
+                        }
                     }
                 })
             }

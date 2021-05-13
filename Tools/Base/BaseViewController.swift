@@ -35,7 +35,7 @@ class BaseViewController: UIViewController {
     
     @objc func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo info: AnyObject){
         if error.code != 0 {
-            view.makeToast("保存失败")
+            view.makeToast(error.localizedDescription)
         }else{
             view.makeToast("保存成功")
         }

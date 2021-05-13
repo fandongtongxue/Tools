@@ -65,7 +65,9 @@ class WebViewController: BaseViewController {
     }
     
     @objc func captureBtnAction(){
+        view.makeToastActivity(.center)
         webView.swContentCapture { (image) in
+            self.view.hideToastActivity()
             if image != nil {
                 self.saveImage(image: image!)
             }
@@ -113,21 +115,16 @@ extension WebViewController: WKUIDelegate, WKNavigationDelegate, WKScriptMessage
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        view.isUserInteractionEnabled = false
-        view.makeToastActivity(.center)
+        
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
-        view.isUserInteractionEnabled = true
-        view.hideToastActivity()
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        view.isUserInteractionEnabled = true
-        view.hideToastActivity()
+        
+        
     }
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        view.isUserInteractionEnabled = true
-        view.hideToastActivity()
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {

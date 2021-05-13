@@ -15,6 +15,8 @@ target 'Tools' do
   pod 'Kingfisher'
   pod 'DeviceKit', '~> 4.0'
   pod 'UnsplashPhotoPicker', '~> 1.1.1'
+  pod "SwViewCapture"
+
   
   pod 'WoodPeckeriOS', :configurations => ['Debug']
 

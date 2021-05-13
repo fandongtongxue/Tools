@@ -102,6 +102,7 @@ PODS:
   - PromisesObjC (1.2.12)
   - SnapKit (5.0.1)
   - SwiftyJSON (5.0.1)
+  - SwViewCapture (1.0.6)
   - Toast-Swift (5.0.1)
   - UnsplashPhotoPicker (1.1.1)
   - WoodPeckeriOS (1.2.92)
@@ -118,6 +119,7 @@ DEPENDENCIES:
   - MarkdownView
   - SnapKit (~> 5.0.0)
   - SwiftyJSON
+  - SwViewCapture
   - Toast-Swift (~> 5.0.1)
   - UnsplashPhotoPicker (~> 1.1.1)
   - WoodPeckeriOS
@@ -145,6 +147,7 @@ SPEC REPOS:
     - PromisesObjC
     - SnapKit
     - SwiftyJSON
+    - SwViewCapture
     - Toast-Swift
     - UnsplashPhotoPicker
     - WoodPeckeriOS
@@ -171,10 +174,11 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  SwViewCapture: edf1ea74e164f47af005fbdfdc6fc18ec373ec69
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UnsplashPhotoPicker: 86520e34cfded8fb4a41910bf87afe571906b4e3
   WoodPeckeriOS: 29f6fb07de24c8c8716b56a8764876a739c6e8e3
 
-PODFILE CHECKSUM: f7c2a0e985b10978b88aa08507c2b897f220f9b8
+PODFILE CHECKSUM: 5c026a4959ed2c0a5b3740ecdebea1a2603b9ca8
 
 COCOAPODS: 1.10.1

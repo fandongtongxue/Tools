@@ -18,6 +18,27 @@ class BaseViewController: UIViewController {
         if self.isKind(of: ToolsViewController.classForCoder()) || self.isKind(of: MyToolsViewController.classForCoder()) {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(setBtnAction))
         }
+        upConfig()
+        upView()
+    }
+    
+    // 需要在初始化时,进行的操作
+    open func upConfig() {}
+    open func upView() {}
+    
+    
+    /// 保存图片
+    /// - Parameter image: 需要保存的图片
+    open func saveImage(image: UIImage){
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo info: AnyObject){
+        if error.code != 0 {
+            view.makeToast("保存失败")
+        }else{
+            view.makeToast("保存成功")
+        }
     }
     
 

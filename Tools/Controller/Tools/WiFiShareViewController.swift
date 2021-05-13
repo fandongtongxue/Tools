@@ -75,14 +75,6 @@ class WiFiShareViewController: BaseViewController {
         }
     }
     
-    @objc func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo info: AnyObject){
-        if error.code != 0 {
-            view.makeToast("保存失败")
-        }else{
-            view.makeToast("保存成功")
-        }
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)

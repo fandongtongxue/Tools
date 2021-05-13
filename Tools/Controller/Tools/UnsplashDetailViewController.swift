@@ -47,16 +47,9 @@ class UnsplashDetailViewController: BaseViewController {
     }
     
     @objc func saveBtnAction(){
-        UIImageWriteToSavedPhotosAlbum(imageView.image ?? UIImage(), self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
+        saveImage(image: imageView.image ?? UIImage())
     }
     
-    @objc func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo info: AnyObject){
-        if error.code != 0 {
-            view.makeToast("保存失败")
-        }else{
-            view.makeToast("保存成功")
-        }
-    }
 
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()

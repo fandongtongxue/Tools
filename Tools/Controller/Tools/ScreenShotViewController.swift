@@ -33,18 +33,6 @@ class ScreenShotViewController: BaseViewController {
         
     }
     
-    func saveImageBtnAction(image: UIImage){
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
-    }
-    
-    @objc func image(image: UIImage, didFinishSavingWithError error: NSError, contextInfo info: AnyObject){
-        if error.code != 0 {
-            view.makeToast("保存失败")
-        }else{
-            view.makeToast("保存成功")
-        }
-    }
-    
     @objc func selectBtnAction(){
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
@@ -85,7 +73,7 @@ class ScreenShotViewController: BaseViewController {
         let resultImg = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
         UIGraphicsEndImageContext()
         
-        saveImageBtnAction(image: resultImg)
+        saveImage(image: resultImg)
     }
 
 }

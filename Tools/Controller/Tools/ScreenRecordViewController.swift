@@ -104,7 +104,8 @@ class ScreenRecordViewController: BaseViewController {
                     realRect = CGRect(x: 140, y: (iphoneImgH - videoSize.height * 1.945), width: videoSize.width * 2.02, height: videoSize.height * 1.85)
                     break
                 case .iPhoneXR:
-                    realRect = CGRect(x: (iphoneImgW - videoSize.width) / 2, y: (iphoneImgH - videoSize.height) / 2, width: videoSize.width * 1.27, height: videoSize.height * 1.32)
+                    realRect = CGRect(x: (iphoneImgW - videoSize.width) / 2, y: -128, width: videoSize.width * 1.27, height: videoSize.height * 1.14)
+                    break
                 default:
                     break
                 }

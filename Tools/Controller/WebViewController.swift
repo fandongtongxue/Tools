@@ -46,12 +46,14 @@ class WebViewController: BaseViewController {
         for name in getScriptNames() {
             webView.configuration.userContentController.add(self, name: name)
         }
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         for name in getScriptNames() {
             webView.configuration.userContentController.removeScriptMessageHandler(forName: name)
         }
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func upConfig() {
@@ -61,7 +63,7 @@ class WebViewController: BaseViewController {
     override func upView() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "截图", style: .plain, target: self, action: #selector(captureBtnAction))
         view.addSubview(webView)
-        webView.frame = view.bounds
+        webView.frame = CGRect(x: 0, y: FD_TopHeight, width: FD_ScreenWidth, height: FD_ScreenHeight)
     }
     
     @objc func captureBtnAction(){
@@ -118,7 +120,7 @@ extension WebViewController: WKUIDelegate, WKNavigationDelegate, WKScriptMessage
         
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        title = webView.title
+        
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         

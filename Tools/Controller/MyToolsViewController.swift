@@ -7,6 +7,7 @@
 
 import UIKit
 import SafariServices
+import UnsplashPhotoPicker
 
 class MyToolsViewController: BaseViewController {
     
@@ -109,15 +110,13 @@ class MyToolsViewController: BaseViewController {
     }()
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func presentDetailVC(object: Any){
+        let photo = object as! UnsplashPhoto
+        let detailVC = UnsplashDetailViewController()
+        detailVC.photo = photo
+        let detailNav = BaseNavigationController(rootViewController: detailVC)
+        present(detailNav, animated: true, completion: nil)
     }
-    */
 
 }
 
@@ -233,9 +232,16 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             navigationController?.pushViewController(toolVC, animated: true)
             break
         case 16:
-            let toolVC = UnsplashViewController()
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
+            let configuration = UnsplashPhotoPickerConfiguration(
+                accessKey: "522f34661134a2300e6d94d344a7ab6424e028a51b31353363b7a8cce11d73b6",
+                secretKey: "eb12dda638ceb799db5d221bc0952b236777e77d5ffbeb4b4aef5841e0ab442d",
+                query: "",
+                allowsMultipleSelection: false
+            )
+            let unsplashPhotoPicker = UnsplashPhotoPicker(configuration: configuration)
+            unsplashPhotoPicker.photoPickerDelegate = self
+
+            present(unsplashPhotoPicker, animated: true, completion: nil)
             break
         case 17:
             let toolVC = WebpageShotViewController()
@@ -292,5 +298,16 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
         let detailVC = ToolDetailViewController()
         detailVC.model = dataArray[item]
         show(detailVC, sender: nil)
+    }
+}
+
+// MARK: - UnsplashPhotoPickerDelegate
+extension MyToolsViewController: UnsplashPhotoPickerDelegate {
+    func unsplashPhotoPicker(_ photoPicker: UnsplashPhotoPicker, didSelectPhotos photos: [UnsplashPhoto]) {
+        perform(#selector(presentDetailVC), with: photos.first, afterDelay: 0.25)
+    }
+
+    func unsplashPhotoPickerDidCancel(_ photoPicker: UnsplashPhotoPicker) {
+        
     }
 }

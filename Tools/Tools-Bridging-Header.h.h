@@ -9,6 +9,7 @@
 #define Tools_Bridging_Header_h_h
 
 #import "BaiduMobStat.h"
+#import <TZImagePickerController/TZImagePickerController.h>
 
 
 #endif /* Tools_Bridging_Header_h_h */

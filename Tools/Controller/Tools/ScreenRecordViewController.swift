@@ -37,11 +37,8 @@ class ScreenRecordViewController: BaseViewController {
     }
     
     @objc func selectBtnAction(){
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.mediaTypes = [kUTTypeMovie as String]
-        picker.delegate = self
-        present(picker, animated: true, completion: nil)
+        let picker = TZImagePickerController(maxImagesCount: 1, delegate: self)
+        present(picker!, animated: true, completion: nil)
     }
     
 
@@ -65,7 +62,9 @@ class ScreenRecordViewController: BaseViewController {
     }()
     
     func getImagesFromVideo(mediaURL: URL){
-        view.makeToastActivity(.center)
+        DispatchQueue.main.async {
+            self.view.makeToastActivity(.center)
+        }
         let iphoneImgName = Device.current.safeDescription + " Silver"
         let iphoneImg = UIImage(named: iphoneImgName)
         let iphoneImgW = iphoneImg?.size.width ?? 0
@@ -76,7 +75,7 @@ class ScreenRecordViewController: BaseViewController {
         let avMutableComposition = AVMutableComposition()
         let avMutableCompositionTrack = avMutableComposition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
         let avAssetTrack = avAsset.tracks(withMediaType: .video).first
-        let videoSize = CGSize(width: (avAssetTrack?.naturalSize.width ?? 0) * 2, height: (avAssetTrack?.naturalSize.height ?? 0) * 2)
+        let videoSize = CGSize(width: (avAssetTrack?.naturalSize.width ?? 0), height: (avAssetTrack?.naturalSize.height ?? 0))
         debugPrint(videoSize)
         do {
             try avMutableCompositionTrack?.insertTimeRange(CMTimeRange(start: CMTime(value: 0, timescale: 30), end: CMTimeMakeWithSeconds(durationFloatValue, preferredTimescale: 30)), of: avAssetTrack!, at: CMTime(value: 0, timescale: 30))
@@ -87,7 +86,10 @@ class ScreenRecordViewController: BaseViewController {
                 do {
                     try audioCompositionTrack?.insertTimeRange(CMTimeRange(start: CMTime(value: 0, timescale: 30), end: CMTimeMakeWithSeconds(durationFloatValue, preferredTimescale: 30)), of: audioAssetTrack!, at: CMTime(value: 0, timescale: 30))
                 } catch let error {
-                    view.makeToast(error.localizedDescription)
+                    DispatchQueue.main.async {
+                        self.view.makeToast(error.localizedDescription)
+                    }
+                    
                 }
                 let avMutableVideoComposition = AVMutableVideoComposition()
                 avMutableVideoComposition.renderSize = CGSize(width: iphoneImgW, height: iphoneImgH)
@@ -96,7 +98,16 @@ class ScreenRecordViewController: BaseViewController {
                 let videoLayer = CALayer()
                 parentLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: iphoneImgW, height: iphoneImgH))
                 debugPrint(parentLayer.frame)
-                let realRect = CGRect(x: (iphoneImgW - videoSize.width) / 2, y: (iphoneImgH - videoSize.height) / 2, width: videoSize.width, height: videoSize.height)
+                var realRect = CGRect.zero
+                switch Device.current {
+                case .iPhoneX:
+                    realRect = CGRect(x: 140, y: (iphoneImgH - videoSize.height * 1.945), width: videoSize.width * 2.02, height: videoSize.height * 1.85)
+                    break
+                case .iPhoneXR:
+                    realRect = CGRect(x: (iphoneImgW - videoSize.width) / 2, y: (iphoneImgH - videoSize.height) / 2, width: videoSize.width * 1.27, height: videoSize.height * 1.32)
+                default:
+                    break
+                }
                 videoLayer.frame = realRect
                 debugPrint(realRect)
                 parentLayer.addSublayer(videoLayer)
@@ -119,7 +130,9 @@ class ScreenRecordViewController: BaseViewController {
                     do {
                         try fm.removeItem(at: URL(fileURLWithPath: filePath))
                     } catch let error {
-                        view.makeToast(error.localizedDescription)
+                        DispatchQueue.main.async {
+                            self.view.makeToast(error.localizedDescription)
+                        }
                     }
                 }
                 let avAssetExportSession = AVAssetExportSession(asset: avMutableComposition, presetName: AVAssetExportPresetHighestQuality)
@@ -147,7 +160,9 @@ class ScreenRecordViewController: BaseViewController {
                 })
             }
         } catch let error {
-            view.makeToast(error.localizedDescription)
+            DispatchQueue.main.async {
+                self.view.makeToast(error.localizedDescription)
+            }
         }
         
         
@@ -165,24 +180,16 @@ class ScreenRecordViewController: BaseViewController {
 
 }
 
-extension ScreenRecordViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate{
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true, completion: nil)
-        if info[.mediaURL] != nil {
-            let mediaURL = info[.mediaURL] as! URL
-            getImagesFromVideo(mediaURL: mediaURL)
-        }else{
-            let phAsset = info[.phAsset] as! PHAsset
-            let options = PHVideoRequestOptions()
-            options.version = .current
-            options.deliveryMode = .automatic
-            let manager = PHImageManager.default()
-            manager.requestAVAsset(forVideo: phAsset, options: options) { (asset, audioMix, info) in
-                let urlAsset = asset as! AVURLAsset
-                let mediaURL = urlAsset.url
-                self.getImagesFromVideo(mediaURL: mediaURL)
-            }
+extension ScreenRecordViewController : TZImagePickerControllerDelegate{
+    func imagePickerController(_ picker: TZImagePickerController!, didFinishPickingVideo coverImage: UIImage!, sourceAssets asset: PHAsset!) {
+        let options = PHVideoRequestOptions()
+        options.version = .current
+        options.deliveryMode = .automatic
+        let manager = PHImageManager.default()
+        manager.requestAVAsset(forVideo: asset, options: options) { (asset, audioMix, info) in
+            let urlAsset = asset as! AVURLAsset
+            let mediaURL = urlAsset.url
+            self.getImagesFromVideo(mediaURL: mediaURL)
         }
-        
     }
 }

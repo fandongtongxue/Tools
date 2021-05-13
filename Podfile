@@ -16,7 +16,7 @@ target 'Tools' do
   pod 'DeviceKit', '~> 4.0'
   pod 'UnsplashPhotoPicker', '~> 1.1.1'
   pod "SwViewCapture"
-
+  pod 'TZImagePickerController'
   
   pod 'WoodPeckeriOS', :configurations => ['Debug']
 

@@ -104,6 +104,7 @@ PODS:
   - SwiftyJSON (5.0.1)
   - SwViewCapture (1.0.6)
   - Toast-Swift (5.0.1)
+  - TZImagePickerController (3.6.0)
   - UnsplashPhotoPicker (1.1.1)
   - WoodPeckeriOS (1.2.92)
 
@@ -121,6 +122,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - SwViewCapture
   - Toast-Swift (~> 5.0.1)
+  - TZImagePickerController
   - UnsplashPhotoPicker (~> 1.1.1)
   - WoodPeckeriOS
 
@@ -149,6 +151,7 @@ SPEC REPOS:
     - SwiftyJSON
     - SwViewCapture
     - Toast-Swift
+    - TZImagePickerController
     - UnsplashPhotoPicker
     - WoodPeckeriOS
 
@@ -176,9 +179,10 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwViewCapture: edf1ea74e164f47af005fbdfdc6fc18ec373ec69
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  TZImagePickerController: a37d7eec87c54436e896a67947033ad2178d498b
   UnsplashPhotoPicker: 86520e34cfded8fb4a41910bf87afe571906b4e3
   WoodPeckeriOS: 29f6fb07de24c8c8716b56a8764876a739c6e8e3
 
-PODFILE CHECKSUM: 5c026a4959ed2c0a5b3740ecdebea1a2603b9ca8
+PODFILE CHECKSUM: c83a1476834d959ab0ab42ae3c90ae8c017ef5ab
 
 COCOAPODS: 1.10.1

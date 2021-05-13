@@ -196,6 +196,7 @@
 				048D598C2625298000628F78 /* ToolsSearchResultController.swift */,
 				04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */,
 				0444DE31264615A3001DDACA /* SetViewController.swift */,
+				04D0E40C264CB22200E45843 /* WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -241,7 +242,6 @@
 				0444DE6D26467C37001DDACA /* UnsplashViewController.swift */,
 				0444DEA62646838B001DDACA /* UnsplashDetailViewController.swift */,
 				04D0E409264CB08400E45843 /* WebpageShotViewController.swift */,
-				04D0E40C264CB22200E45843 /* WebViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";

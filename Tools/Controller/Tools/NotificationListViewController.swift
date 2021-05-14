@@ -9,7 +9,7 @@ import UIKit
 
 class NotificationListViewController: BaseViewController {
     
-    var dataArray = [NotificationListModel]()
+    var dataArray = [UNNotificationRequest]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,11 @@ class NotificationListViewController: BaseViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestData()
     }
     
     @objc func addNotification(){
@@ -60,12 +65,20 @@ class NotificationListViewController: BaseViewController {
             self.present(nav, animated: true, completion: nil)
         }
     }
+    
+    func requestData(){
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            self.dataArray = requests
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 
     lazy var tableView : UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: FD_SafeAreaBottomHeight, right: 0)
         return tableView
     }()
@@ -82,11 +95,33 @@ extension NotificationListViewController: UITableViewDelegate,UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        return cell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "UITableViewCell")
+        }
+        cell?.textLabel?.text = dataArray[indexPath.row].content.title
+        cell?.detailTextLabel?.text = dataArray[indexPath.row].content.subtitle
+        return cell!
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let alert = UIAlertController(title: "确定要删除此提醒吗？", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "确定", style: .destructive, handler: { action in
+                let request = self.dataArray[indexPath.row]
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [request.identifier])
+                self.requestData()
+            }))
+            present(alert, animated: true, completion: nil)
+        }
     }
 }

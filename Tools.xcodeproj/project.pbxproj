@@ -24,7 +24,6 @@
 		047554032632747C001087D7 /* JuHePhoneResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047554022632747C001087D7 /* JuHePhoneResponseModel.swift */; };
 		047554062632A890001087D7 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047554052632A890001087D7 /* Dictionary.swift */; };
 		0475540C2632C22D001087D7 /* NetworkSpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0475540B2632C22D001087D7 /* NetworkSpeedViewController.swift */; };
-		04866EB6264E495A00EC6E9D /* NotificationListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04866EB5264E495A00EC6E9D /* NotificationListModel.swift */; };
 		04866EBA264E4BA900EC6E9D /* NotificationAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04866EB9264E4BA900EC6E9D /* NotificationAddViewController.swift */; };
 		04866EBC264E4CFF00EC6E9D /* NotificationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04866EBB264E4CFF00EC6E9D /* NotificationListViewController.swift */; };
 		048D595726251F8100628F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595626251F8100628F78 /* AppDelegate.swift */; };
@@ -82,7 +81,6 @@
 		047554022632747C001087D7 /* JuHePhoneResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuHePhoneResponseModel.swift; sourceTree = "<group>"; };
 		047554052632A890001087D7 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		0475540B2632C22D001087D7 /* NetworkSpeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpeedViewController.swift; sourceTree = "<group>"; };
-		04866EB5264E495A00EC6E9D /* NotificationListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListModel.swift; sourceTree = "<group>"; };
 		04866EB9264E4BA900EC6E9D /* NotificationAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationAddViewController.swift; sourceTree = "<group>"; };
 		04866EBB264E4CFF00EC6E9D /* NotificationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationListViewController.swift; sourceTree = "<group>"; };
 		048D595326251F8100628F78 /* Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,7 +220,6 @@
 				04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */,
 				047553FC26326323001087D7 /* JuHeIPResponseModel.swift */,
 				047554022632747C001087D7 /* JuHePhoneResponseModel.swift */,
-				04866EB5264E495A00EC6E9D /* NotificationListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -433,7 +430,6 @@
 				04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */,
 				04866EBC264E4CFF00EC6E9D /* NotificationListViewController.swift in Sources */,
 				04B1C83426296BE5005EDBCB /* ParseShortVideoController.swift in Sources */,
-				04866EB6264E495A00EC6E9D /* NotificationListModel.swift in Sources */,
 				04D0E40A264CB08400E45843 /* WebpageShotViewController.swift in Sources */,
 				0499592A2635574F00B44964 /* QRCodeScanViewController.swift in Sources */,
 				04D0E40D264CB22200E45843 /* WebViewController.swift in Sources */,

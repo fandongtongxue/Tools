@@ -152,6 +152,15 @@
             "desc_md":"",
             "desc_en_md":"",
             "backgroundColorHex":"00aff6"
+        },
+        {
+            "id":18,
+            "name":"日期提醒",
+            "name_en":"DateRemind",
+            "icon":"hourglass.tophalf.fill",
+            "desc_md":"",
+            "desc_en_md":"",
+            "backgroundColorHex":"00aff6"
         }
     ]
 }

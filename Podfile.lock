@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.4.3)
   - BaiduMobStatCodeless (5.3.3)
   - DeviceKit (4.3.0)
+  - Eureka (5.3.3)
   - Firebase/Analytics (7.11.0):
     - Firebase/Core
   - Firebase/Core (7.11.0):
@@ -112,6 +113,7 @@ DEPENDENCIES:
   - Alamofire
   - BaiduMobStatCodeless
   - DeviceKit (~> 4.0)
+  - Eureka
   - Firebase/Analytics
   - Google-Mobile-Ads-SDK
   - HandyJSON (~> 5.0.2)
@@ -131,6 +133,7 @@ SPEC REPOS:
     - Alamofire
     - BaiduMobStatCodeless
     - DeviceKit
+    - Eureka
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -159,6 +162,7 @@ SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   BaiduMobStatCodeless: 198e04ed005f6f6c467886959c040a1c7d5b3236
   DeviceKit: 7decde449c308ac7e816e2184ded1c7c596fb885
+  Eureka: e6d720290c56bb23333ad1a0e020b2a98a0e9a43
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseAnalytics: cd3bd84d722a24a8923918af8af8e5236f615d77
   FirebaseCore: 907447d8917a4d3eb0cce2829c5a0ad21d90b432
@@ -183,6 +187,6 @@ SPEC CHECKSUMS:
   UnsplashPhotoPicker: 86520e34cfded8fb4a41910bf87afe571906b4e3
   WoodPeckeriOS: 29f6fb07de24c8c8716b56a8764876a739c6e8e3
 
-PODFILE CHECKSUM: c83a1476834d959ab0ab42ae3c90ae8c017ef5ab
+PODFILE CHECKSUM: 68a2341bb17232f0b564f4ae2a9fc8d7e745b668
 
 COCOAPODS: 1.10.1

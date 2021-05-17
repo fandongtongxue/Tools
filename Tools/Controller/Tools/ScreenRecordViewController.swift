@@ -71,7 +71,7 @@ class ScreenRecordViewController: BaseViewController {
         let iphoneImgH = iphoneImg?.size.height ?? 0
         let avAsset = AVAsset(url: mediaURL)
         let duration = avAsset.duration
-        let durationFloatValue = floor(CMTimeGetSeconds(duration))
+        let durationFloatValue = CMTimeGetSeconds(duration)
         let avMutableComposition = AVMutableComposition()
         let avMutableCompositionTrack = avMutableComposition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
         let avAssetTrack = avAsset.tracks(withMediaType: .video).first
@@ -91,75 +91,100 @@ class ScreenRecordViewController: BaseViewController {
                     }
                     
                 }
-                let avMutableVideoComposition = AVMutableVideoComposition()
-                avMutableVideoComposition.renderSize = CGSize(width: iphoneImgW, height: iphoneImgH)
-                avMutableVideoComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
-                let parentLayer = CALayer()
-                let videoLayer = CALayer()
-                parentLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: iphoneImgW, height: iphoneImgH))
-                debugPrint(parentLayer.frame)
-                var realRect = CGRect.zero
-                switch Device.current {
-                case .iPhoneX:
-                    realRect = CGRect(x: 140, y: -933, width: videoSize.width * 2.02, height: videoSize.height * 1.85)
-                    break
-                case .iPhoneXR:
-                    realRect = CGRect(x: (iphoneImgW - videoSize.width) / 2, y: -110, width: videoSize.width * 1.27, height: videoSize.height * 1.13)
-                    break
-                default:
-                    break
-                }
-                videoLayer.frame = realRect
-                debugPrint(realRect)
-                parentLayer.addSublayer(videoLayer)
-                let waterMarkLayer = CALayer()
-                waterMarkLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: iphoneImgW, height: iphoneImgH))
-                waterMarkLayer.contents = iphoneImg?.cgImage!
-                parentLayer.addSublayer(waterMarkLayer)
-                avMutableVideoComposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parentLayer)
-                let avMutableVideoCompositionInstruction = AVMutableVideoCompositionInstruction()
-                avMutableVideoCompositionInstruction.timeRange = CMTimeRangeMake(start: CMTimeMake(value: 0, timescale: 30), duration: avMutableComposition.duration)
-                let avMutableVideoCompositionLayerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: avMutableCompositionTrack!)
-                avMutableCompositionTrack?.preferredTransform = avAssetTrack!.preferredTransform
-                avMutableVideoCompositionInstruction.layerInstructions = [avMutableVideoCompositionLayerInstruction]
-                avMutableVideoComposition.instructions = [avMutableVideoCompositionInstruction]
-                let fm = FileManager.default
-                let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
-                let filePath = documentDirectory.appendingPathComponent("output.mp4")
-                
-                if fm.fileExists(atPath: filePath) {
-                    do {
-                        try fm.removeItem(at: URL(fileURLWithPath: filePath))
-                    } catch let error {
-                        DispatchQueue.main.async {
-                            self.view.makeToast(error.localizedDescription)
-                        }
-                    }
-                }
-                let avAssetExportSession = AVAssetExportSession(asset: avMutableComposition, presetName: AVAssetExportPresetHighestQuality)
-                avAssetExportSession?.videoComposition = avMutableVideoComposition
-                avAssetExportSession?.outputURL = URL(fileURLWithPath: filePath)
-                var isMp4 = false
-                for string in avAssetExportSession?.supportedFileTypes ?? [] {
-                    if string == AVFileType.mp4 {
-                        isMp4 = true
-                    }
-                }
-                if isMp4 {
-                    avAssetExportSession?.outputFileType = .mp4
-                }else{
-                    avAssetExportSession?.outputFileType = .mov
-                }
-                avAssetExportSession?.shouldOptimizeForNetworkUse = false
-                avAssetExportSession?.exportAsynchronously(completionHandler: {
-                    DispatchQueue.main.async {
-                        self.view.hideToastActivity()
-                        if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(filePath){
-                            UISaveVideoAtPathToSavedPhotosAlbum(filePath, self, #selector(self.video(videoPath:didFinishSavingWithError:contextInfo:)), nil)
-                        }
-                    }
-                })
             }
+            let avMutableVideoComposition = AVMutableVideoComposition()
+            avMutableVideoComposition.renderSize = CGSize(width: iphoneImgW, height: iphoneImgH)
+            avMutableVideoComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
+            let parentLayer = CALayer()
+            let videoLayer = CALayer()
+            parentLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: iphoneImgW, height: iphoneImgH))
+            debugPrint(parentLayer.frame)
+            var realRect = CGRect.zero
+            switch Device.current {
+
+            case .iPhoneX:
+                realRect = CGRect(x: 140, y: -933, width: videoSize.width * 2.02, height: videoSize.height * 1.85)
+                break
+            case .iPhone11Pro:
+                realRect = CGRect(x: 140, y: -933, width: videoSize.width * 2.02, height: videoSize.height * 1.85)
+                break
+
+            case .iPhoneXR:
+                realRect = CGRect(x: (iphoneImgW - videoSize.width) / 2, y: -110, width: videoSize.width * 1.27, height: videoSize.height * 1.13)
+                break
+            case .iPhone11:
+                realRect = CGRect(x: (iphoneImgW - videoSize.width) / 2, y: -110, width: videoSize.width * 1.27, height: videoSize.height * 1.13)
+                break
+
+            case .iPhone12Mini:
+                realRect = CGRect(x: 160, y: -55, width: videoSize.width * 1.2, height: videoSize.height * 1.05)
+                break
+            
+            case .iPhone12:
+                realRect = CGRect(x: 180, y: -182.5, width: videoSize.width * 1.315, height: videoSize.height * 1.1425)
+                break
+            case .iPhone12Pro:
+                realRect = CGRect(x: 180, y: -182.5, width: videoSize.width * 1.315, height: videoSize.height * 1.1425)
+                break
+
+            case .iPhone12ProMax:
+                realRect = CGRect(x: 197.5, y: -197.5, width: videoSize.width * 1.315, height: videoSize.height * 1.1425)
+                break
+            default:
+                break
+            }
+            videoLayer.frame = realRect
+            debugPrint(realRect)
+            parentLayer.addSublayer(videoLayer)
+            let waterMarkLayer = CALayer()
+            waterMarkLayer.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: iphoneImgW, height: iphoneImgH))
+            waterMarkLayer.contents = iphoneImg?.cgImage!
+            parentLayer.addSublayer(waterMarkLayer)
+            avMutableVideoComposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parentLayer)
+            let avMutableVideoCompositionInstruction = AVMutableVideoCompositionInstruction()
+            avMutableVideoCompositionInstruction.timeRange = CMTimeRangeMake(start: CMTimeMake(value: 0, timescale: 30), duration: avMutableComposition.duration)
+            let avMutableVideoCompositionLayerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: avMutableCompositionTrack!)
+            avMutableCompositionTrack?.preferredTransform = avAssetTrack!.preferredTransform
+            avMutableVideoCompositionInstruction.layerInstructions = [avMutableVideoCompositionLayerInstruction]
+            avMutableVideoComposition.instructions = [avMutableVideoCompositionInstruction]
+            let fm = FileManager.default
+            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
+            let filePath = documentDirectory.appendingPathComponent("output.mp4")
+            
+            if fm.fileExists(atPath: filePath) {
+                do {
+                    try fm.removeItem(at: URL(fileURLWithPath: filePath))
+                } catch let error {
+                    DispatchQueue.main.async {
+                        self.view.makeToast(error.localizedDescription)
+                    }
+                }
+            }else{
+                fm.createFile(atPath: filePath, contents: nil, attributes: [.creationDate:Date()])
+            }
+            let avAssetExportSession = AVAssetExportSession(asset: avMutableComposition, presetName: AVAssetExportPresetHighestQuality)
+            avAssetExportSession?.videoComposition = avMutableVideoComposition
+            avAssetExportSession?.outputURL = URL(fileURLWithPath: filePath)
+            var isMp4 = false
+            for string in avAssetExportSession?.supportedFileTypes ?? [] {
+                if string == AVFileType.mp4 {
+                    isMp4 = true
+                }
+            }
+            if isMp4 {
+                avAssetExportSession?.outputFileType = .mp4
+            }else{
+                avAssetExportSession?.outputFileType = .mov
+            }
+            avAssetExportSession?.shouldOptimizeForNetworkUse = false
+            avAssetExportSession?.exportAsynchronously(completionHandler: {
+                DispatchQueue.main.async {
+                    self.view.hideToastActivity()
+                    if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(filePath){
+                        UISaveVideoAtPathToSavedPhotosAlbum(filePath, self, #selector(self.video(videoPath:didFinishSavingWithError:contextInfo:)), nil)
+                    }
+                }
+            })
         } catch let error {
             DispatchQueue.main.async {
                 self.view.makeToast(error.localizedDescription)

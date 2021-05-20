@@ -156,6 +156,10 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             collectionView.reloadData()
             return
         }
+        goToolVC(model: model)
+    }
+    
+    func goToolVC(model: ToolModel){
         switch model.id {
         case 1:
             let toolVC = ParseShortVideoController()
@@ -252,14 +256,128 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             view.makeToast("未完成的功能")
             break
         }
-        
+    }
+    
+    func returnToolVC(model: ToolModel) -> UIViewController{
+        switch model.id {
+        case 1:
+            let toolVC = ParseShortVideoController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 2:
+            let toolVC = QRCodeGenerateViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 3:
+            let toolVC = TTSViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 4:
+            let toolVC = WiFiShareViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 5:
+            let toolVC = VideoExtractAudioViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 6:
+            let toolVC = OCRViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 7:
+            let toolVC = IPViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 8:
+            let toolVC = PhoneViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 9:
+            let toolVC = NetworkSpeedViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 10:
+            let toolVC = SFSafariViewController(url: URL(string: "https://m.tb.cn/h.4qdNE8W")!)
+            return toolVC
+            present(toolVC, animated: true, completion: nil)
+            break
+        case 11:
+            let toolVC = BilibiliViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 12:
+            let toolVC = QRCodeScanViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 13:
+            let toolVC = ScreenShotViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 15:
+            let toolVC = ShotOnViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 16:
+            let configuration = UnsplashPhotoPickerConfiguration(
+                accessKey: "522f34661134a2300e6d94d344a7ab6424e028a51b31353363b7a8cce11d73b6",
+                secretKey: "eb12dda638ceb799db5d221bc0952b236777e77d5ffbeb4b4aef5841e0ab442d",
+                query: "",
+                allowsMultipleSelection: false
+            )
+            let unsplashPhotoPicker = UnsplashPhotoPicker(configuration: configuration)
+            return unsplashPhotoPicker
+            unsplashPhotoPicker.photoPickerDelegate = self
+
+            present(unsplashPhotoPicker, animated: true, completion: nil)
+            break
+        case 17:
+            let toolVC = WebpageShotViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 18:
+            let toolVC = NotificationListViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        default:
+            view.makeToast("未完成的功能")
+            return UIViewController()
+            break
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: String(indexPath.item) as NSCopying) { () -> UIViewController? in
-            let detailVC = ToolDetailViewController()
-            detailVC.model = self.dataArray[indexPath.item]
-            return detailVC
+            return self.returnToolVC(model: self.dataArray[indexPath.item])
         } actionProvider: { (element) -> UIMenu? in
             let removeAction = UIAction(title: "移除", image: UIImage(systemName: "minus.square"), state: .off) { (action) in
                 print("点击了移除")
@@ -295,8 +413,7 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
         let item = Int(configuration.identifier as! String) ?? 0
-        let detailVC = ToolDetailViewController()
-        detailVC.model = dataArray[item]
+        let detailVC = returnToolVC(model: dataArray[item])
         show(detailVC, sender: nil)
     }
 }

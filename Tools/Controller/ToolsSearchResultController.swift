@@ -64,7 +64,8 @@ extension ToolsSearchResultController : UITableViewDelegate,UITableViewDataSourc
         let detailVC = ToolDetailViewController()
         detailVC.model = resultArray[indexPath.row]
         detailVC.hidesBottomBarWhenPushed = true
-        nav?.pushViewController(detailVC, animated: true)
+        let detailNav = BaseNavigationController(rootViewController: detailVC)
+        present(detailNav, animated: true, completion: nil)
     }
 }
 

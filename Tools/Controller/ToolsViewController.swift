@@ -109,107 +109,11 @@ extension ToolsViewController : UICollectionViewDelegate,UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = dataArray[indexPath.item]
-        if model.desc_md.count > 0 {
-            let detailVC = ToolDetailViewController()
-            detailVC.model = model
-            detailVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(detailVC, animated: true)
-        }else{
-            view.makeToast(NSLocalizedString("No Description", comment: ""))
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        return UIContextMenuConfiguration(identifier: String(indexPath.item) as NSCopying) { () -> UIViewController? in
-            let detailVC = ToolDetailViewController()
-            detailVC.model = self.dataArray[indexPath.item]
-            return detailVC
-        } actionProvider: { (element) -> UIMenu? in
-            
-            let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
-            var storageObject = UserDefaults.standard.array(forKey: MyToolSaveKey)
-            if isSaveiCloud {
-                storageObject = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey)
-            }
-            var ret = false
-            if storageObject != nil{
-                let storageArray = storageObject as! [[String : Any]]
-                for subObject in storageArray{
-                    let model = ToolModel.deserialize(from: subObject)
-                    if model?.id == self.dataArray[indexPath.item].id {
-                        ret = true
-                    }
-                }
-            }
-            if ret {
-                let removeAction = UIAction(title: "移除", image: UIImage(systemName: "minus.square"), state: .off) { (action) in
-                    print("点击了移除")
-                    let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
-                    var storageArray = UserDefaults.standard.array(forKey: MyToolSaveKey) as! [[String : Any]]
-                    if isSaveiCloud {
-                        storageArray = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey) as! [[String : Any]]
-                    }
-                    for i in 0...storageArray.count - 1{
-                        if i < storageArray.count {
-                            let subObject = storageArray[i]
-                            let model = ToolModel.deserialize(from: subObject)
-                            if model?.id == self.dataArray[indexPath.item].id {
-                                storageArray.remove(at: i)
-                                if isSaveiCloud {
-                                    NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
-                                    NSUbiquitousKeyValueStore.default.synchronize()
-                                }else{
-                                    UserDefaults.standard.setValue(storageArray, forKey: MyToolSaveKey)
-                                    UserDefaults.standard.synchronize()
-                                }
-                                break
-                            }
-                        }
-                    }
-                }
-                return UIMenu(title: "", children: [removeAction])
-            }else{
-                let addAction = UIAction(title: "添加", image: UIImage(systemName: "plus.app"), state: .off) { (action) in
-                    print("点击了添加")
-                    let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
-                    var storageObject = UserDefaults.standard.array(forKey: MyToolSaveKey)
-                    if isSaveiCloud {
-                        storageObject = NSUbiquitousKeyValueStore.default.array(forKey: MyToolSaveKey)
-                    }
-                    if storageObject != nil {
-                        var storageArray = storageObject as! [[String : Any]]
-                        storageArray.append(self.dataArray[indexPath.item].toJSON()!)
-                        if isSaveiCloud {
-                            NSUbiquitousKeyValueStore.default.set(storageArray, forKey: MyToolSaveKey)
-                        }else{
-                            UserDefaults.standard.setValue(storageArray, forKey: MyToolSaveKey)
-                        }
-                        
-                    }else{
-                        if isSaveiCloud {
-                            NSUbiquitousKeyValueStore.default.set([self.dataArray[indexPath.item].toJSON() ?? ""], forKey: MyToolSaveKey)
-                        }else{
-                            UserDefaults.standard.setValue([self.dataArray[indexPath.item].toJSON() ?? [:]], forKey: MyToolSaveKey)
-                        }
-                        
-                    }
-                    UserDefaults.standard.synchronize()
-                    NSUbiquitousKeyValueStore.default.synchronize()
-                }
-                return UIMenu(title: "", children: [addAction])
-            }
-            
-            
-        }
-
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
-        let item = Int(configuration.identifier as! String) ?? 0
         let detailVC = ToolDetailViewController()
-        detailVC.model = dataArray[item]
+        detailVC.model = model
         detailVC.hidesBottomBarWhenPushed = true
-        show(detailVC, sender: nil)
+        let detailNav = BaseNavigationController(rootViewController: detailVC)
+        present(detailNav, animated: true, completion: nil)
     }
 }
 

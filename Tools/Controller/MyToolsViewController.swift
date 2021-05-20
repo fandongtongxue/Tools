@@ -221,11 +221,6 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             toolVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(toolVC, animated: true)
             break
-        case 14:
-            let toolVC = ScreenRecordViewController()
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 15:
             let toolVC = ShotOnViewController()
             toolVC.hidesBottomBarWhenPushed = true

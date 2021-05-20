@@ -26,6 +26,7 @@ class NotificationListViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         requestData()
+        NotificationCenter.default.addObserver(self, selector: #selector(requestData), name: NSNotification.Name.init(.addNotification), object: nil)
     }
     
     @objc func addNotification(){
@@ -49,9 +50,16 @@ class NotificationListViewController: BaseViewController {
                     self.presentAddVC()
                 }else{
                     DispatchQueue.main.async {
-                        let app = UIApplication.shared
-                        let url = URL(string: UIApplication.openSettingsURLString)
-                        app.open(url!, options: [:], completionHandler: nil)
+                        let alert = UIAlertController(title: "提示", message: "您未通过我们的通知权限，请到设置页面修改", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+                        alert.addAction(UIAlertAction(title: "去修改", style: .destructive, handler: { action in
+                            DispatchQueue.main.async {
+                                let app = UIApplication.shared
+                                let url = URL(string: UIApplication.openSettingsURLString)
+                                app.open(url!, options: [:], completionHandler: nil)
+                            }
+                        }))
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
             }
@@ -66,7 +74,7 @@ class NotificationListViewController: BaseViewController {
         }
     }
     
-    func requestData(){
+    @objc func requestData(){
         UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
             self.dataArray = requests
             DispatchQueue.main.async {
@@ -99,8 +107,9 @@ extension NotificationListViewController: UITableViewDelegate,UITableViewDataSou
         if cell == nil {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "UITableViewCell")
         }
-        cell?.textLabel?.text = dataArray[indexPath.row].content.title
-        cell?.detailTextLabel?.text = dataArray[indexPath.row].content.subtitle
+        let request = dataArray[indexPath.row]
+        cell?.textLabel?.text = request.content.title
+        cell?.detailTextLabel?.text = request.content.subtitle
         return cell!
     }
     
@@ -123,5 +132,9 @@ extension NotificationListViewController: UITableViewDelegate,UITableViewDataSou
             }))
             present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

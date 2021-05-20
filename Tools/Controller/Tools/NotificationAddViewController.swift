@@ -102,6 +102,7 @@ class NotificationAddViewController : FormViewController {
             }else{
                 DispatchQueue.main.async {
                     self.view.makeToast("添加成功")
+                    NotificationCenter.default.post(name: NSNotification.Name.init(.addNotification), object: nil)
                     self.dismiss(animated: true, completion: nil)
                 }
             }

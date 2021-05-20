@@ -118,15 +118,6 @@
             "backgroundColorHex":"85909a"
         },
         {
-            "id":14,
-            "name":"录屏套壳",
-            "name_en":"ScreenRecord With Shell",
-            "icon":"iphone.badge.play",
-            "desc_md":"",
-            "desc_en_md":"",
-            "backgroundColorHex":"4665c5"
-        },
-        {
             "id":15,
             "name":"相机水印",
             "name_en":"Shot On iPhone",

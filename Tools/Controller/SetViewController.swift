@@ -6,19 +6,41 @@
 //
 
 import UIKit
+import MessageUI
+import DeviceKit
+import StoreKit
 
 class SetViewController: UITableViewController {
     
+    var appArray = [AppModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         title = NSLocalizedString("Set", comment: "")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneBtnAction))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeBtnAction))
+        requestData()
     }
     
-    @objc func doneBtnAction(){
+    func requestData(){
+        FDNetwork.GET(url: "http://img.app.xiaobingkj.com/apps.json", param: nil) { result in
+            let data = result["data"] as! [[String:Any]]
+            self.appArray.removeAll()
+            for dict in data{
+                let model = AppModel.deserialize(from: dict) ?? AppModel()
+                if model.name != "快捷工具" {
+                    self.appArray.append(model)
+                }
+            }
+            self.tableView.reloadSections(IndexSet.init(arrayLiteral: 2), with: .automatic)
+        } failure: { error in
+            self.view.makeToast(error)
+        }
+
+    }
+    
+    @objc func closeBtnAction(){
         dismiss(animated: true, completion: nil)
     }
     
@@ -36,11 +58,17 @@ class SetViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return 1
+        }
+        if section == 1 {
+            return 3
+        }
+        return appArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,11 +82,29 @@ class SetViewController: UITableViewController {
             cell?.accessoryView = syncSwitch
             break
         case 1:
-            cell?.textLabel?.text = NSLocalizedString("Version", comment: "")
-            let infoDict = Bundle.main.infoDictionary
-            let version = infoDict?["CFBundleShortVersionString"] as! String
-            let build = infoDict?["CFBundleVersion"] as! String
-            cell?.detailTextLabel?.text = version + "(" + build + ")"
+            switch indexPath.row {
+            case 0:
+                cell?.textLabel?.text = NSLocalizedString("Version", comment: "")
+                let infoDict = Bundle.main.infoDictionary
+                let version = infoDict?["CFBundleShortVersionString"] as! String
+                let build = infoDict?["CFBundleVersion"] as! String
+                cell?.detailTextLabel?.text = version + "(" + build + ")"
+                break
+            case 1:
+                cell?.textLabel?.text = NSLocalizedString("Evaluate", comment: "")
+                break
+            case 2:
+                cell?.textLabel?.text = NSLocalizedString("Feedback", comment: "")
+                break
+            default:
+                break
+            }
+            break
+        case 2:
+            if indexPath.row < appArray.count {
+                let model = appArray[indexPath.row]
+                cell?.textLabel?.text = model.name
+            }
             break
         default:
             break
@@ -68,6 +114,44 @@ class SetViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 1 && indexPath.row == 1 {
+            SKStoreReviewController.requestReview()
+        }else if indexPath.section == 1 && indexPath.row == 2 {
+            if !MFMailComposeViewController.canSendMail() {
+                view.makeToast(NSLocalizedString("No Emal Account", comment: ""))
+                return
+            }
+            let mailVC = MFMailComposeViewController()
+            mailVC.mailComposeDelegate = self
+            mailVC.setToRecipients(["admin@fandong.me"])
+            mailVC.setSubject(NSLocalizedString("AAMob Feedback", comment: ""))
+            var debugInfo = ""
+            let infoDict = Bundle.main.infoDictionary
+            let version = infoDict?["CFBundleShortVersionString"] as! String
+            let build = infoDict?["CFBundleVersion"] as! String
+            debugInfo.append("\n")
+            debugInfo.append("\n")
+            debugInfo.append("\n")
+            debugInfo.append("App Version："+version+"("+build+")\n")
+            debugInfo.append("iOS Version："+(Device.current.systemVersion ?? "")+"\n")
+            debugInfo.append("Device："+(Device.current.description))
+            mailVC.setMessageBody(debugInfo, isHTML: false)
+            present(mailVC, animated: true, completion: nil)
+        }else if indexPath.section == 2{
+            let model = appArray[indexPath.row]
+            UIApplication.shared.openURL(URL(string: model.url)!)
+        }
     }
 
 }
+
+extension SetViewController: MFMailComposeViewControllerDelegate{
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if error != nil {
+            view.makeToast(error?.localizedDescription)
+        }else{
+            controller.dismiss(animated: true, completion: nil)
+        }
+    }
+}
+

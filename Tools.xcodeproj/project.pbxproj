@@ -12,6 +12,7 @@
 		0444DE32264615A3001DDACA /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444DE31264615A3001DDACA /* SetViewController.swift */; };
 		0444DE3E26461C93001DDACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0444DE3C26461C93001DDACA /* Localizable.strings */; };
 		0444DEA72646838B001DDACA /* UnsplashDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444DEA62646838B001DDACA /* UnsplashDetailViewController.swift */; };
+		0451458626A805C40090AFBA /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451458526A805C40090AFBA /* AppModel.swift */; };
 		0462AA1A2634F10F0051995D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0462AA192634F10F0051995D /* GoogleService-Info.plist */; };
 		0464B17F262E7C150019ED4B /* QRCodeGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B17E262E7C150019ED4B /* QRCodeGenerateViewController.swift */; };
 		0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B181262EA9C80019ED4B /* FDDefine.swift */; };
@@ -68,6 +69,7 @@
 		0444DE3D26461C93001DDACA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0444DE4026461C98001DDACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0444DEA62646838B001DDACA /* UnsplashDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashDetailViewController.swift; sourceTree = "<group>"; };
+		0451458526A805C40090AFBA /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		0462AA192634F10F0051995D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0464B17E262E7C150019ED4B /* QRCodeGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerateViewController.swift; sourceTree = "<group>"; };
 		0464B181262EA9C80019ED4B /* FDDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDDefine.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		04A93DFE2627F027006C9773 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0451458526A805C40090AFBA /* AppModel.swift */,
 				04A93D062627C658006C9773 /* tools.json */,
 				048D599C26256CB300628F78 /* ToolModel.swift */,
 				04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */,
@@ -399,6 +402,7 @@
 				048D595B26251F8100628F78 /* ViewController.swift in Sources */,
 				04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */,
 				04B1C8492629765B005EDBCB /* ParseShortVideoModel.swift in Sources */,
+				0451458626A805C40090AFBA /* AppModel.swift in Sources */,
 				0464B17F262E7C150019ED4B /* QRCodeGenerateViewController.swift in Sources */,
 				048D59722625240A00628F78 /* TabBarController.swift in Sources */,
 				047554002632737D001087D7 /* PhoneViewController.swift in Sources */,

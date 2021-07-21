@@ -37,24 +37,6 @@
             "backgroundColorHex":"4665c5"
         },
         {
-            "id":5,
-            "name":"视频提取音频",
-            "name_en":"Audio From Video",
-            "icon":"waveform",
-            "desc_md":"",
-            "desc_en_md":"",
-            "backgroundColorHex":"f35c64"
-        },
-        {
-            "id":6,
-            "name":"OCR",
-            "name_en":"OCR",
-            "icon":"doc.text.magnifyingglass",
-            "desc_md":"",
-            "desc_en_md":"",
-            "backgroundColorHex":"00aff6"
-        },
-        {
             "id":7,
             "name":"IP地址查询",
             "name_en":"IP Address",
@@ -82,24 +64,6 @@
             "backgroundColorHex":"4665c5"
         },
         {
-            "id":10,
-            "name":"淘宝1元购",
-            "name_en":"Taobao Cheap",
-            "icon":"yensign.square",
-            "desc_md":"",
-            "desc_en_md":"",
-            "backgroundColorHex":"f35c64"
-        },
-        {
-            "id":11,
-            "name":"小破站封面获取",
-            "name_en":"Get Bilibili Cover",
-            "icon":"photo",
-            "desc_md":"",
-            "desc_en_md":"",
-            "backgroundColorHex":"00aff6"
-        },
-        {
             "id":12,
             "name":"二维码扫描",
             "name_en":"QRCode Scan",
@@ -116,15 +80,6 @@
             "desc_md":"",
             "desc_en_md":"",
             "backgroundColorHex":"85909a"
-        },
-        {
-            "id":15,
-            "name":"相机水印",
-            "name_en":"Shot On iPhone",
-            "icon":"bookmark",
-            "desc_md":"",
-            "desc_en_md":"",
-            "backgroundColorHex":"f35c64"
         },
         {
             "id":16,

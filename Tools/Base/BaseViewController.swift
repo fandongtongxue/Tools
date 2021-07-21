@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         if self.isKind(of: ToolsViewController.classForCoder()) || self.isKind(of: MyToolsViewController.classForCoder()) {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(setBtnAction))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .plain, target: self, action: #selector(setBtnAction))
         }
         upConfig()
         upView()

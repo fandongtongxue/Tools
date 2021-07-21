@@ -18,7 +18,7 @@ class ToolDetailViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         title = model.name
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBtnAction))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeBtnAction))
         
         let mdView = MarkdownView()
         view.addSubview(mdView)
@@ -62,7 +62,7 @@ class ToolDetailViewController: BaseViewController {
         
     }
     
-    @objc func cancelBtnAction(){
+    @objc func closeBtnAction(){
         dismiss(animated: true, completion: nil)
     }
     
@@ -118,7 +118,7 @@ class ToolDetailViewController: BaseViewController {
             NSUbiquitousKeyValueStore.default.synchronize()
             view.makeToast("添加成功")
         }
-        perform(#selector(cancelBtnAction), with: self, afterDelay: 2)
+        perform(#selector(closeBtnAction), with: self, afterDelay: 0.25)
     }
     
     lazy var operateBtn: UIButton = {

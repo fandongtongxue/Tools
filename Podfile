@@ -24,8 +24,6 @@ target 'Tools' do
   pod 'Firebase/Analytics'
   pod 'BaiduMobStatCodeless'
   
-#  if isAd
   pod 'Google-Mobile-Ads-SDK'
-#  pod 'Ads-CN'
 
 end

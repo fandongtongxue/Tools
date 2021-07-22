@@ -9,17 +9,12 @@ import UIKit
 import Firebase
 import AppTrackingTransparency
 
-//#warning("如果需要使用广告打开注释if isAd 的注释")
-//if isAd
 import GoogleMobileAds
 import AdSupport
-//import BUAdSDK
-
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-//    if isAd
     var appOpenAd: GADAppOpenAd?
     var loadTime: Date?
     
@@ -28,11 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
                 // Tracking authorization completed. Start loading ads here.
                 if status == .authorized {
-                    isAd = true
                     GADMobileAds.sharedInstance().start(completionHandler: nil)
                     GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
-                }else {
-                    isAd = false
                 }
             })
         } else {
@@ -101,7 +93,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
-//    if isAd
     func requestAppOpenAd(){
         appOpenAd = nil
         GADAppOpenAd.load(withAdUnitID: AdMobAdOpenID, request: GADRequest(), orientation: .portrait) { (openAd, error) in
@@ -134,7 +125,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
-//if isAd
 extension SceneDelegate : GADFullScreenContentDelegate{
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         requestAppOpenAd()

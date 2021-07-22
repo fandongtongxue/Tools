@@ -36,7 +36,14 @@ class ToolsViewController: BaseViewController {
         collectionView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadLocalData()
+    }
+    
+    func loadLocalData(){
         let path = Bundle.main.path(forResource: "tools", ofType: "json") ?? ""
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path))
@@ -51,6 +58,23 @@ class ToolsViewController: BaseViewController {
         } catch {
             print(error)
         }
+    }
+    
+    func requestData(){
+//        http://img.app.xiaobingkj.com/tools.json
+        FDNetwork.GET(url: "http://img.app.xiaobingkj.com/tools.json", param: nil) { result in
+            self.dataArray.removeAll()
+            let resultArray = result["data"] as! [[String: Any]]
+            for dict in resultArray{
+                let model = ToolModel.deserialize(from: dict)
+                self.dataArray.append(model ?? ToolModel())
+            }
+            self.searchRC.dataArray = self.dataArray
+            self.collectionView.reloadData()
+        } failure: { error in
+            self.view.makeToast(error)
+        }
+
     }
     
 

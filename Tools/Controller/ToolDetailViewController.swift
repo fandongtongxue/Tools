@@ -28,8 +28,8 @@ class ToolDetailViewController: BaseViewController {
         }
         view.addSubview(operateBtn)
         operateBtn.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-4.5 - FD_SafeAreaBottomHeight)
-            make.height.equalTo(40)
+            make.bottom.equalToSuperview().offset(-FD_SafeAreaBottomHeight)
+            make.height.equalTo(44)
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
         }

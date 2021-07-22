@@ -14,8 +14,8 @@
             "name":"二维码生成",
             "name_en":"QRCode Generate",
             "icon":"qrcode",
-            "desc_md":"",
-            "desc_en_md":"",
+            "desc_md":"在生成页面输入文本\n![](http://img.app.xiaobingkj.com/DEA64A3F-31EC-4600-BFAC-84901DCB9DB1.jpeg)\n点击生成，如需要保存也可以保存\n![](http://img.app.xiaobingkj.com/93230EBB-C924-4604-B3DA-F56D217C30FC.jpeg)",
+            "desc_en_md":"在生成页面输入文本\n![](http://img.app.xiaobingkj.com/DEA64A3F-31EC-4600-BFAC-84901DCB9DB1.jpeg)\n点击生成，如需要保存也可以保存\n![](http://img.app.xiaobingkj.com/93230EBB-C924-4604-B3DA-F56D217C30FC.jpeg)",
             "backgroundColorHex":"f58dd6"
         },
         {

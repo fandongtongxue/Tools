@@ -24,7 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 // Tracking authorization completed. Start loading ads here.
                 if status == .authorized {
                     GADMobileAds.sharedInstance().start(completionHandler: nil)
-                    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4c2021a391e40ebff7169876972939a7"]
+                    #if DEBUG
+                    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["6099f9a9bb8c55c6764fd3ca18560d50"]
+                    #else
+                    #endif
                 }
             })
         } else {
@@ -39,13 +42,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         requestIDFA()
         //谷歌统计
         FirebaseApp.configure()
-
-        //7天后会显示启动广告
-        let beginTime = UserDefaults.standard.object(forKey: AdShowOrNotKey)
-        if beginTime == nil {
-            UserDefaults.standard.set(Date(), forKey: AdShowOrNotKey)
-            UserDefaults.standard.synchronize()
-        }
         
         let isSaveiCloud = UserDefaults.standard.value(forKey: iCloudSwitchKey)
         if isSaveiCloud == nil {
@@ -74,7 +70,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-        tryToPresentAd()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -92,50 +87,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-    
-    func requestAppOpenAd(){
-        appOpenAd = nil
-        GADAppOpenAd.load(withAdUnitID: AdMobAdOpenID, request: GADRequest(), orientation: .portrait) { (openAd, error) in
-            if error != nil{
-                return
-            }
-            self.appOpenAd = openAd
-            self.appOpenAd?.fullScreenContentDelegate = self
-            self.loadTime = Date()
-        }
-    }
-
-    func tryToPresentAd(){
-        if appOpenAd != nil && wasLoadTimeLessThanNHoursAgo(n: 4) {
-            let rootVC = window?.rootViewController
-            appOpenAd?.present(fromRootViewController: rootVC!)
-        }else{
-            requestAppOpenAd()
-        }
-    }
-
-    func wasLoadTimeLessThanNHoursAgo(n: Int) -> Bool{
-        let now = Date()
-        let timeIntervalBetweenNowAndLoadTime = now.timeIntervalSince(loadTime ?? Date())
-        let secondsPerHour = 3600.0
-        let intervalInHours = timeIntervalBetweenNowAndLoadTime / secondsPerHour
-        return Int(intervalInHours) < n
-    }
-
 
 }
-
-extension SceneDelegate : GADFullScreenContentDelegate{
-    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
-        requestAppOpenAd()
-    }
-
-    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        
-    }
-
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        requestAppOpenAd()
-    }
-}
-

@@ -380,7 +380,7 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             return self.returnToolVC(model: self.dataArray[indexPath.item])
         } actionProvider: { (element) -> UIMenu? in
             let removeAction = UIAction(title: "移除", image: UIImage(systemName: "minus.square"), state: .off) { (action) in
-                print("点击了移除")
+                debugPrint("点击了移除")
                 let isSaveiCloud = UserDefaults.standard.bool(forKey: iCloudSwitchKey)
                 var storageArray = UserDefaults.standard.array(forKey: MyToolSaveKey) as! [[String : Any]]
                 if isSaveiCloud {

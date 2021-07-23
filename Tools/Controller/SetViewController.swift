@@ -124,7 +124,7 @@ class SetViewController: UITableViewController {
             let mailVC = MFMailComposeViewController()
             mailVC.mailComposeDelegate = self
             mailVC.setToRecipients(["admin@fandong.me"])
-            mailVC.setSubject(NSLocalizedString("AAMob Feedback", comment: ""))
+            mailVC.setSubject(NSLocalizedString("Tools Feedback", comment: ""))
             var debugInfo = ""
             let infoDict = Bundle.main.infoDictionary
             let version = infoDict?["CFBundleShortVersionString"] as! String

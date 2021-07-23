@@ -149,7 +149,7 @@ class OCRViewController: BaseViewController, UIImagePickerControllerDelegate, UI
         let maxResolution: CGFloat = 640
         
         guard let cgImage = image.cgImage else {
-            print("UIImage has no CGImage backing it!")
+            debugPrint("UIImage has no CGImage backing it!")
             return image
         }
         
@@ -290,7 +290,7 @@ class OCRViewController: BaseViewController, UIImagePickerControllerDelegate, UI
         
         // Transform image to fit screen.
         guard let cgImage = correctedImage.cgImage else {
-            print("Trying to show an image not backed by CGImage!")
+            debugPrint("Trying to show an image not backed by CGImage!")
             return
         }
         
@@ -337,7 +337,7 @@ class OCRViewController: BaseViewController, UIImagePickerControllerDelegate, UI
             do {
                 try imageRequestHandler.perform(requests)
             } catch let error as NSError {
-                print("Failed to perform image request: \(error)")
+                debugPrint("Failed to perform image request: \(error)")
                 self.presentAlert("Image Request Failed", error: error)
                 return
             }

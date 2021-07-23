@@ -16,9 +16,5 @@ let api_phone = "http://apis.juhe.cn/mobile/get"
 
 /// AdMob
 /// Banner ad unit ID.
+/// 短视频底部横幅
 let AdMobAdUnitID = "ca-app-pub-1088661153697754/6942996267"
-
-let AdMobAdOpenID = "ca-app-pub-1088661153697754/4687194555"
-
-
-public let AdShowOrNotKey = "AdShowOrNotKey"

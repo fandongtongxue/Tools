@@ -40,10 +40,11 @@ class ToolsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadLocalData()
+        requestData()
     }
     
     func loadLocalData(){
+        dataArray.removeAll()
         let path = Bundle.main.path(forResource: "tools", ofType: "json") ?? ""
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path))
@@ -56,7 +57,7 @@ class ToolsViewController: BaseViewController {
             searchRC.dataArray = dataArray
             collectionView.reloadData()
         } catch {
-            print(error)
+            debugPrint(error)
         }
     }
     

@@ -46,7 +46,6 @@
 		049420BF26301FCC0088ADCE /* VideoExtractAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */; };
 		0499592A2635574F00B44964 /* QRCodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049959292635574F00B44964 /* QRCodeScanViewController.swift */; };
 		04995C472633B91C00642205 /* BilibiliViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04995C462633B91C00642205 /* BilibiliViewController.swift */; };
-		04A156F826A956750053C039 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A156F726A956750053C039 /* tools.json */; };
 		04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF02627E781006C9773 /* ToolItemCell.swift */; };
 		04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF82627E9F0006C9773 /* BaseModel.swift */; };
 		04A93ED8262818F4006C9773 /* ToolDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */; };
@@ -106,7 +105,6 @@
 		049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExtractAudioViewController.swift; sourceTree = "<group>"; };
 		049959292635574F00B44964 /* QRCodeScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanViewController.swift; sourceTree = "<group>"; };
 		04995C462633B91C00642205 /* BilibiliViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilibiliViewController.swift; sourceTree = "<group>"; };
-		04A156F726A956750053C039 /* tools.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
 		04A93DF02627E781006C9773 /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
 		04A93DF82627E9F0006C9773 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolDetailViewController.swift; sourceTree = "<group>"; };
@@ -215,7 +213,6 @@
 		04A93DFE2627F027006C9773 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				04A156F726A956750053C039 /* tools.json */,
 				0451458526A805C40090AFBA /* AppModel.swift */,
 				048D599C26256CB300628F78 /* ToolModel.swift */,
 				04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */,
@@ -339,7 +336,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				048D596326251F8200628F78 /* LaunchScreen.storyboard in Resources */,
-				04A156F826A956750053C039 /* tools.json in Resources */,
 				0444DE3E26461C93001DDACA /* Localizable.strings in Resources */,
 				048D596026251F8200628F78 /* Assets.xcassets in Resources */,
 				048D595E26251F8100628F78 /* Main.storyboard in Resources */,

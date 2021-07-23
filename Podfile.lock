@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.4.3)
-  - BaiduMobStatCodeless (5.3.3)
   - DeviceKit (4.3.0)
   - Eureka (5.3.3)
   - Firebase/Analytics (7.11.0):
@@ -10,6 +9,9 @@ PODS:
     - FirebaseAnalytics (~> 7.11.0)
   - Firebase/CoreOnly (7.11.0):
     - FirebaseCore (= 7.11.0)
+  - Firebase/Crashlytics (7.11.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 7.11.0)
   - FirebaseAnalytics (7.11.0):
     - FirebaseAnalytics/AdIdSupport (= 7.11.0)
     - FirebaseCore (~> 7.0)
@@ -46,6 +48,12 @@ PODS:
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/Logger (~> 7.0)
     - nanopb (~> 2.30908.0)
+  - FirebaseCrashlytics (7.11.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleDataTransport (~> 8.4)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (~> 1.2)
   - FirebaseInstallations (7.11.0):
     - FirebaseCore (~> 7.0)
     - GoogleUtilities/Environment (~> 7.0)
@@ -106,14 +114,13 @@ PODS:
   - SwViewCapture (1.0.6)
   - Toast-Swift (5.0.1)
   - UnsplashPhotoPicker (1.1.1)
-  - WoodPeckeriOS (1.2.92)
 
 DEPENDENCIES:
   - Alamofire
-  - BaiduMobStatCodeless
   - DeviceKit (~> 4.0)
   - Eureka
   - Firebase/Analytics
+  - Firebase/Crashlytics
   - Google-Mobile-Ads-SDK
   - HandyJSON (~> 5.0.2)
   - Hue
@@ -124,18 +131,17 @@ DEPENDENCIES:
   - SwViewCapture
   - Toast-Swift (~> 5.0.1)
   - UnsplashPhotoPicker (~> 1.1.1)
-  - WoodPeckeriOS
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - BaiduMobStatCodeless
     - DeviceKit
     - Eureka
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
     - FirebaseInstallations
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
@@ -153,17 +159,16 @@ SPEC REPOS:
     - SwViewCapture
     - Toast-Swift
     - UnsplashPhotoPicker
-    - WoodPeckeriOS
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  BaiduMobStatCodeless: 198e04ed005f6f6c467886959c040a1c7d5b3236
   DeviceKit: 7decde449c308ac7e816e2184ded1c7c596fb885
   Eureka: e6d720290c56bb23333ad1a0e020b2a98a0e9a43
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseAnalytics: cd3bd84d722a24a8923918af8af8e5236f615d77
   FirebaseCore: 907447d8917a4d3eb0cce2829c5a0ad21d90b432
   FirebaseCoreDiagnostics: 68ad972f99206cef818230f3f3179d52ccfb7f8c
+  FirebaseCrashlytics: 272b675aa9d1e9bae1f9e1449fcc1f2cf6042806
   FirebaseInstallations: a58d4f72ec5861840b84df489f2668d970df558a
   Google-Mobile-Ads-SDK: 093c3bf0aed3b7d1b8707221a15e3b6634f92dec
   GoogleAppMeasurement: fd19169c3034975cb934e865e5667bfdce59df7f
@@ -181,8 +186,7 @@ SPEC CHECKSUMS:
   SwViewCapture: edf1ea74e164f47af005fbdfdc6fc18ec373ec69
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UnsplashPhotoPicker: 86520e34cfded8fb4a41910bf87afe571906b4e3
-  WoodPeckeriOS: 29f6fb07de24c8c8716b56a8764876a739c6e8e3
 
-PODFILE CHECKSUM: 29d8bcdebe72f0caf4786be0d31730ef411dad3a
+PODFILE CHECKSUM: 99446c4c352c81d3eb92b6d66d91dbf89a87c010
 
 COCOAPODS: 1.10.1

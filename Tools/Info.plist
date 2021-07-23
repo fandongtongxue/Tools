@@ -29,14 +29,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSBonjourServices</key>
-	<array>
-		<string>_adhp._tcp</string>
-	</array>
 	<key>NSCameraUsageDescription</key>
 	<string></string>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>访问本地网络</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -98,9 +92,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>mtj_appkey</key>
-	<string>293b54cd5f</string>
-	<key>mtj_deubglog</key>
-	<string>0</string>
 </dict>
 </plist>

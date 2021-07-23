@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>708352584087-5qk0ilooagh00ejq5irkir3ers14qrem.apps.googleusercontent.com</string>
+	<string>1040209698253-esglc90os74vnef172r45mjh65gu1rg0.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.708352584087-5qk0ilooagh00ejq5irkir3ers14qrem</string>
+	<string>com.googleusercontent.apps.1040209698253-esglc90os74vnef172r45mjh65gu1rg0</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCGUb0iyr4DzIsbWOqO0RhrP1KaZvH5i_c</string>
+	<string>AIzaSyCVZlbw0AJCjYNM0UjGAvztqM3_conAQEw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>708352584087</string>
+	<string>1040209698253</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>me.fandong.Tools1</string>
+	<string>me.fandong.Tools</string>
 	<key>PROJECT_ID</key>
-	<string>ms1q-9f9c1</string>
+	<string>npe5-531a5</string>
 	<key>STORAGE_BUCKET</key>
-	<string>ms1q-9f9c1.appspot.com</string>
+	<string>npe5-531a5.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:708352584087:ios:5ae29fc6ac71063a58bcd2</string>
-	<key>ADMOB_APP_ID</key>
-	<string>ca-app-pub-1088661153697754~7065111731</string>
+	<string>1:1040209698253:ios:299dc8efd09f1e5365f884</string>
 </dict>
 </plist>

@@ -289,6 +289,7 @@
 				048D595026251F8100628F78 /* Frameworks */,
 				048D595126251F8100628F78 /* Resources */,
 				203C2490206F008BBDD07C1A /* [CP] Embed Pods Frameworks */,
+				04240A1726AA55DC002DD8EA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -349,6 +350,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		04240A1726AA55DC002DD8EA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		203C2490206F008BBDD07C1A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -599,7 +619,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210722;
+				CURRENT_PROJECT_VERSION = 20210723;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -623,7 +644,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210722;
+				CURRENT_PROJECT_VERSION = 20210723;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

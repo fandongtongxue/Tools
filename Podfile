@@ -17,12 +17,9 @@ target 'Tools' do
   pod 'UnsplashPhotoPicker', '~> 1.1.1'
   pod "SwViewCapture"
   pod 'Eureka'
-  
-  pod 'WoodPeckeriOS', :configurations => ['Debug']
-
 
   pod 'Firebase/Analytics'
-  pod 'BaiduMobStatCodeless'
+  pod 'Firebase/Crashlytics'
   
   pod 'Google-Mobile-Ads-SDK'
 

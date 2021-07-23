@@ -30,9 +30,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>请允许我们访问您的相机用于图片处理</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
+	<string>请允许我们访问您的相册用于图片处理</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
 	<key>NSUserTrackingUsageDescription</key>

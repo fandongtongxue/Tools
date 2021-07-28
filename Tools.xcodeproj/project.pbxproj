@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0403A8062636880D00876BB9 /* ScreenShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403A8052636880D00876BB9 /* ScreenShotViewController.swift */; };
 		0403A81D2636884700876BB9 /* ShotOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403A81C2636884700876BB9 /* ShotOnViewController.swift */; };
+		04249AD026B0FCC400BDB65A /* BilibiliVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04249ACF26B0FCC400BDB65A /* BilibiliVideoViewController.swift */; };
+		04249AD226B0FD1200BDB65A /* BilibiliVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04249AD126B0FD1200BDB65A /* BilibiliVideoModel.swift */; };
+		04249AD426B0FE0400BDB65A /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 04249AD326B0FE0400BDB65A /* tools.json */; };
 		0444DE32264615A3001DDACA /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444DE31264615A3001DDACA /* SetViewController.swift */; };
 		0444DE3E26461C93001DDACA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0444DE3C26461C93001DDACA /* Localizable.strings */; };
 		0444DEA72646838B001DDACA /* UnsplashDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444DEA62646838B001DDACA /* UnsplashDetailViewController.swift */; };
@@ -45,7 +48,7 @@
 		049420A9263002FA0088ADCE /* WiFiShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049420A8263002FA0088ADCE /* WiFiShareViewController.swift */; };
 		049420BF26301FCC0088ADCE /* VideoExtractAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */; };
 		0499592A2635574F00B44964 /* QRCodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049959292635574F00B44964 /* QRCodeScanViewController.swift */; };
-		04995C472633B91C00642205 /* BilibiliViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04995C462633B91C00642205 /* BilibiliViewController.swift */; };
+		04995C472633B91C00642205 /* BilibiliCoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04995C462633B91C00642205 /* BilibiliCoverViewController.swift */; };
 		04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF02627E781006C9773 /* ToolItemCell.swift */; };
 		04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF82627E9F0006C9773 /* BaseModel.swift */; };
 		04A93ED8262818F4006C9773 /* ToolDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */; };
@@ -61,6 +64,9 @@
 /* Begin PBXFileReference section */
 		0403A8052636880D00876BB9 /* ScreenShotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotViewController.swift; sourceTree = "<group>"; };
 		0403A81C2636884700876BB9 /* ShotOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotOnViewController.swift; sourceTree = "<group>"; };
+		04249ACF26B0FCC400BDB65A /* BilibiliVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilibiliVideoViewController.swift; sourceTree = "<group>"; };
+		04249AD126B0FD1200BDB65A /* BilibiliVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilibiliVideoModel.swift; sourceTree = "<group>"; };
+		04249AD326B0FE0400BDB65A /* tools.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
 		043B17FC2635644C006FAC93 /* Tools-Bridging-Header.h.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tools-Bridging-Header.h.h"; sourceTree = "<group>"; };
 		0444DE31264615A3001DDACA /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		0444DE3926461C35001DDACA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
@@ -104,7 +110,7 @@
 		049420A8263002FA0088ADCE /* WiFiShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiShareViewController.swift; sourceTree = "<group>"; };
 		049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExtractAudioViewController.swift; sourceTree = "<group>"; };
 		049959292635574F00B44964 /* QRCodeScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanViewController.swift; sourceTree = "<group>"; };
-		04995C462633B91C00642205 /* BilibiliViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilibiliViewController.swift; sourceTree = "<group>"; };
+		04995C462633B91C00642205 /* BilibiliCoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilibiliCoverViewController.swift; sourceTree = "<group>"; };
 		04A93DF02627E781006C9773 /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
 		04A93DF82627E9F0006C9773 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolDetailViewController.swift; sourceTree = "<group>"; };
@@ -213,11 +219,13 @@
 		04A93DFE2627F027006C9773 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04249AD326B0FE0400BDB65A /* tools.json */,
 				0451458526A805C40090AFBA /* AppModel.swift */,
 				048D599C26256CB300628F78 /* ToolModel.swift */,
 				04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */,
 				047553FC26326323001087D7 /* JuHeIPResponseModel.swift */,
 				047554022632747C001087D7 /* JuHePhoneResponseModel.swift */,
+				04249AD126B0FD1200BDB65A /* BilibiliVideoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,12 +244,13 @@
 				047553EE26325FD1001087D7 /* IPViewController.swift */,
 				047553FF2632737D001087D7 /* PhoneViewController.swift */,
 				0475540B2632C22D001087D7 /* NetworkSpeedViewController.swift */,
-				04995C462633B91C00642205 /* BilibiliViewController.swift */,
+				04995C462633B91C00642205 /* BilibiliCoverViewController.swift */,
 				049959292635574F00B44964 /* QRCodeScanViewController.swift */,
 				0403A81C2636884700876BB9 /* ShotOnViewController.swift */,
 				0403A8052636880D00876BB9 /* ScreenShotViewController.swift */,
 				0444DEA62646838B001DDACA /* UnsplashDetailViewController.swift */,
 				04D0E409264CB08400E45843 /* WebpageShotViewController.swift */,
+				04249ACF26B0FCC400BDB65A /* BilibiliVideoViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -287,6 +296,7 @@
 				048D595126251F8100628F78 /* Resources */,
 				203C2490206F008BBDD07C1A /* [CP] Embed Pods Frameworks */,
 				04240A1726AA55DC002DD8EA /* ShellScript */,
+				04D0F5AAB5E620E726D6D439 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -336,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				048D596326251F8200628F78 /* LaunchScreen.storyboard in Resources */,
+				04249AD426B0FE0400BDB65A /* tools.json in Resources */,
 				0444DE3E26461C93001DDACA /* Localizable.strings in Resources */,
 				048D596026251F8200628F78 /* Assets.xcassets in Resources */,
 				048D595E26251F8100628F78 /* Main.storyboard in Resources */,
@@ -364,6 +375,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		04D0F5AAB5E620E726D6D439 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tools/Pods-Tools-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tools/Pods-Tools-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tools/Pods-Tools-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		203C2490206F008BBDD07C1A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -430,6 +458,7 @@
 				04866EBA264E4BA900EC6E9D /* NotificationAddViewController.swift in Sources */,
 				048D599D26256CB300628F78 /* ToolModel.swift in Sources */,
 				047553F226326160001087D7 /* Config.swift in Sources */,
+				04249AD026B0FCC400BDB65A /* BilibiliVideoViewController.swift in Sources */,
 				048D595726251F8100628F78 /* AppDelegate.swift in Sources */,
 				0475540C2632C22D001087D7 /* NetworkSpeedViewController.swift in Sources */,
 				04AACAF32655EA6D003C17E7 /* String+FD.swift in Sources */,
@@ -445,13 +474,14 @@
 				048D59822625266700628F78 /* BaseViewController.swift in Sources */,
 				04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */,
 				04866EBC264E4CFF00EC6E9D /* NotificationListViewController.swift in Sources */,
+				04249AD226B0FD1200BDB65A /* BilibiliVideoModel.swift in Sources */,
 				04B1C83426296BE5005EDBCB /* ParseShortVideoController.swift in Sources */,
 				04D0E40A264CB08400E45843 /* WebpageShotViewController.swift in Sources */,
 				0499592A2635574F00B44964 /* QRCodeScanViewController.swift in Sources */,
 				04D0E40D264CB22200E45843 /* WebViewController.swift in Sources */,
 				049420A9263002FA0088ADCE /* WiFiShareViewController.swift in Sources */,
 				04B1C846262974E9005EDBCB /* FDNetwork.swift in Sources */,
-				04995C472633B91C00642205 /* BilibiliViewController.swift in Sources */,
+				04995C472633B91C00642205 /* BilibiliCoverViewController.swift in Sources */,
 				048D5979262524C600628F78 /* MyToolsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,7 +645,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210724;
+				CURRENT_PROJECT_VERSION = 20210728;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;
@@ -640,7 +670,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210724;
+				CURRENT_PROJECT_VERSION = 20210728;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;

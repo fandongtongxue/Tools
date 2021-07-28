@@ -211,7 +211,7 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             present(toolVC, animated: true, completion: nil)
             break
         case 11:
-            let toolVC = BilibiliViewController()
+            let toolVC = BilibiliCoverViewController()
             toolVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(toolVC, animated: true)
             break
@@ -249,6 +249,11 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             break
         case 18:
             let toolVC = NotificationListViewController()
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 19:
+            let toolVC = BilibiliVideoViewController()
             toolVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(toolVC, animated: true)
             break
@@ -320,7 +325,7 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             present(toolVC, animated: true, completion: nil)
             break
         case 11:
-            let toolVC = BilibiliViewController()
+            let toolVC = BilibiliCoverViewController()
             return toolVC
             toolVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(toolVC, animated: true)
@@ -364,6 +369,12 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             break
         case 18:
             let toolVC = NotificationListViewController()
+            return toolVC
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
+        case 19:
+            let toolVC = BilibiliVideoViewController()
             return toolVC
             toolVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(toolVC, animated: true)

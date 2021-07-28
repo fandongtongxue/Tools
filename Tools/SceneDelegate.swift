@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 if status == .authorized {
                     GADMobileAds.sharedInstance().start(completionHandler: nil)
                     #if DEBUG
-                    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["6099f9a9bb8c55c6764fd3ca18560d50"]
+                    GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["afeeb0826d249a98aad61f83614a5a13"]
                     #else
                     #endif
                 }

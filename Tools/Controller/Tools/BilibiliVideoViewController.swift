@@ -1,9 +1,9 @@
 //
-//  ParseShortVideoViewController.swift
+//  BilibiliVideoViewController.swift
 //  Tools
 //
-//  Created by Mac on 2021/4/16.
-//  解析短视频URL功能
+//  Created by Mac on 2021/7/28.
+//
 
 import UIKit
 import AVKit
@@ -11,16 +11,18 @@ import Toast_Swift
 import Alamofire
 import GoogleMobileAds
 
-class ParseShortVideoController: BaseViewController {
+class BilibiliVideoViewController: BaseViewController {
     
-    var model = ParseShortVideoModel()
+    var player: ZFPlayerController?
+
+    var model = BilibiliVideoModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        title = "去除短视频水印"
+        title = "哔哩哔哩视频解析下载"
         
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { (make) in
@@ -43,17 +45,30 @@ class ParseShortVideoController: BaseViewController {
             make.top.equalTo(self.textView.snp.bottom).offset(15)
             make.height.equalTo(40)
         }
+        
+        
+    }
+    
+    func setupPlayer(){
+        let playerManager = ZFIJKPlayerManager()
+        playerManager.shouldAutoPlay = true
+        player = ZFPlayerController(playerManager: playerManager, containerView: containerView)
+        player?.controlView = controlView
+        player?.pauseWhenAppResignActive = false
+        player?.allowOrentitaionRotation = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkUIPasteboard()
         NotificationCenter.default.addObserver(self, selector: #selector(checkUIPasteboard), name: UIApplication.willEnterForegroundNotification, object: nil)
+        player?.isViewControllerDisappear = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
+        player?.isViewControllerDisappear = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -62,14 +77,14 @@ class ParseShortVideoController: BaseViewController {
     }
     
     func addVideoView(){
-        if !(scrollView.layer.sublayers?.contains(playerLayer) ?? false) {
-            scrollView.layer.addSublayer(playerLayer)
-            scrollView.addSubview(playVideoBtn)
+        if !(scrollView.subviews.contains(containerView)) {
+            scrollView.addSubview(containerView)
+            containerView.frame = CGRect(x: 0, y: 150, width: FD_ScreenWidth - 30, height: (UIScreen.main.bounds.size.width - 30) * 9 / 16)
+            containerView.addSubview(playVideoBtn)
             playVideoBtn.snp.makeConstraints { (make) in
-                make.centerX.equalToSuperview()
+                make.center.equalTo(self.containerView)
                 make.width.equalTo(40)
                 make.height.equalTo(40)
-                make.top.equalTo(self.parseBtn.snp.bottom).offset(15 + (UIScreen.main.bounds.size.width - 30) * 9 / 32 - 20)
             }
             
             scrollView.addSubview(saveVideoBtn)
@@ -85,9 +100,11 @@ class ParseShortVideoController: BaseViewController {
                 make.centerX.equalToSuperview()
             }
             bannerView.load(GADRequest())
+            setupPlayer()
         }
-        let item = AVPlayerItem(url: URL(string: (model.data?.url)!)!)
-        player.replaceCurrentItem(with: item)
+        containerView.kf.setImage(with: URL(string: model.cover))
+        player?.assetURL = URL(string: model.url)!
+        controlView.showTitle(model.title, coverURLString: model.cover, fullScreenMode: .automatic)
     }
     
     @objc func parseBtnAction(){
@@ -97,12 +114,11 @@ class ParseShortVideoController: BaseViewController {
         view.endEditing(true)
         view.makeToastActivity(.center)
         let url = textView.text.getUrls().first ?? ""
-//        http://api.tools.app.xiaobingkj.com/parseVideo.php?url=http://v.douyin.com/eMKj42N/
-        FDNetwork.GET(url: "http://api.tools.app.xiaobingkj.com/parseVideo.php", param: ["url":url], success: { (result) in
-            let model = ParseShortVideoModel.deserialize(from: result) ?? ParseShortVideoModel()
+        FDNetwork.GET(url: "https://tenapi.cn/bilivideo/", param: ["url":url], success: { (result) in
+            let model = BilibiliVideoModel.deserialize(from: result) ?? BilibiliVideoModel()
             self.model = model
-            if model.code == 200 {
-                //解析成功
+            //解析成功
+            if model.code == 200{
                 self.addVideoView()
             }
             self.view.hideToastActivity()
@@ -113,7 +129,7 @@ class ParseShortVideoController: BaseViewController {
     
     @objc func playVideoBtnAction(){
         let playerVC = AVPlayerViewController()
-        let player = AVPlayer(url: URL(string: model.data?.url ?? "")!)
+        let player = AVPlayer(url: URL(string: model.url)!)
         playerVC.player = player
         player.play()
         present(playerVC, animated: true, completion: nil)
@@ -122,7 +138,7 @@ class ParseShortVideoController: BaseViewController {
     @objc func saveVideoBtnAction(sender :UIButton){
         sender.isUserInteractionEnabled = false
         view.makeToastActivity(.center)
-        AF.download(model.data?.url ?? "", to: { (url, urlResponse) -> (destinationURL: URL, options: DownloadRequest.Options) in
+        AF.download(model.url, to: { (url, urlResponse) -> (destinationURL: URL, options: DownloadRequest.Options) in
             let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
             let time = Date().timeIntervalSince1970
             let fileURL = docURL?.appendingPathComponent("\(time).mp4")
@@ -220,23 +236,24 @@ class ParseShortVideoController: BaseViewController {
         return saveVideoBtn
     }()
     
-    lazy var player : AVPlayer = {
-        let item = AVPlayerItem(url: URL(string: (model.data?.url)!)!)
-        let player = AVPlayer(playerItem: item)
-        return player
+    lazy var containerView: UIImageView = {
+        let containerView = UIImageView(frame: .zero)
+        return containerView
     }()
     
-    lazy var playerLayer : AVPlayerLayer = {
-        let playerLayer = AVPlayerLayer(player: player)
-        let width = UIScreen.main.bounds.size.width - 30
-        playerLayer.frame = CGRect(x: 0, y: self.parseBtn.frame.origin.y + self.parseBtn.frame.size.height + 15, width: width, height: width * 9 / 16)
-        playerLayer.backgroundColor = UIColor.systemGray6.cgColor
-        playerLayer.cornerRadius = 10
-        return playerLayer
+    lazy var controlView: ZFPlayerControlView = {
+        let controlView = ZFPlayerControlView(frame: .zero)
+        controlView.fastViewAnimated = true
+        controlView.autoHiddenTimeInterval = 5
+        controlView.autoFadeTimeInterval = 0.5
+        controlView.prepareShowLoading = true
+        controlView.prepareShowControlView = false
+        return controlView
     }()
 
 }
-extension ParseShortVideoController : GADBannerViewDelegate{
+
+extension BilibiliVideoViewController : GADBannerViewDelegate{
     func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
         bannerView.load(GADRequest())
     }

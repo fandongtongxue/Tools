@@ -22,5 +22,9 @@ target 'Tools' do
   pod 'Firebase/Crashlytics'
   
   pod 'Google-Mobile-Ads-SDK'
+  
+  pod 'ZFPlayer'
+  pod 'ZFPlayer/ControlView'
+  pod 'ZFPlayer/ijkplayer'
 
 end

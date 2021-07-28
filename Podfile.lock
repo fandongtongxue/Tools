@@ -101,6 +101,7 @@ PODS:
     - GoogleUtilities/Logger
   - HandyJSON (5.0.2)
   - Hue (5.0.0)
+  - IJKMediaFramework (0.1.5)
   - Kingfisher (6.3.0)
   - MarkdownView (1.7.1)
   - nanopb (2.30908.0):
@@ -114,6 +115,14 @@ PODS:
   - SwViewCapture (1.0.6)
   - Toast-Swift (5.0.1)
   - UnsplashPhotoPicker (1.1.1)
+  - ZFPlayer (4.0.1):
+    - ZFPlayer/Core (= 4.0.1)
+  - ZFPlayer/ControlView (4.0.1):
+    - ZFPlayer/Core
+  - ZFPlayer/Core (4.0.1)
+  - ZFPlayer/ijkplayer (4.0.1):
+    - IJKMediaFramework
+    - ZFPlayer/Core
 
 DEPENDENCIES:
   - Alamofire
@@ -131,6 +140,9 @@ DEPENDENCIES:
   - SwViewCapture
   - Toast-Swift (~> 5.0.1)
   - UnsplashPhotoPicker (~> 1.1.1)
+  - ZFPlayer
+  - ZFPlayer/ControlView
+  - ZFPlayer/ijkplayer
 
 SPEC REPOS:
   trunk:
@@ -150,6 +162,7 @@ SPEC REPOS:
     - GoogleUtilities
     - HandyJSON
     - Hue
+    - IJKMediaFramework
     - Kingfisher
     - MarkdownView
     - nanopb
@@ -159,6 +172,7 @@ SPEC REPOS:
     - SwViewCapture
     - Toast-Swift
     - UnsplashPhotoPicker
+    - ZFPlayer
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
@@ -177,6 +191,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
+  IJKMediaFramework: f1119f6324c96bc4654f3045a5beaa95ba0596c0
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   MarkdownView: cf30a97ab39b2bce04406adce541972c882363bd
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
@@ -186,7 +201,8 @@ SPEC CHECKSUMS:
   SwViewCapture: edf1ea74e164f47af005fbdfdc6fc18ec373ec69
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UnsplashPhotoPicker: 86520e34cfded8fb4a41910bf87afe571906b4e3
+  ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
 
-PODFILE CHECKSUM: 99446c4c352c81d3eb92b6d66d91dbf89a87c010
+PODFILE CHECKSUM: 883475a88dac2c11fbb0887ad7de86581376a2d8
 
 COCOAPODS: 1.10.1

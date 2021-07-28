@@ -1,5 +1,5 @@
 //
-//  BilibiliViewController.swift
+//  BilibiliCoverViewController.swift
 //  Tools
 //
 //  Created by Mac on 2021/4/24.
@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class BilibiliViewController: BaseViewController {
+class BilibiliCoverViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -20,4 +20,7 @@ class ToolModel: BaseModel {
     var icon = ""
     var name_en = ""
     var selected = false
+    
+    var content = ""
+    var vote = 0
 }

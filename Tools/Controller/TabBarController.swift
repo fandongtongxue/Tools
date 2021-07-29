@@ -18,12 +18,17 @@ class TabBarController: UITabBarController {
         let myItem = UITabBarItem(title: NSLocalizedString("My Tools", comment: ""), image: UIImage(systemName: "rectangle.grid.2x2.fill"), selectedImage: UIImage(systemName: "rectangle.grid.2x2.fill"))
         myNav.tabBarItem = myItem
         
+        let newVC = NewToolViewController()
+        let newNav = BaseNavigationController(rootViewController: newVC)
+        let newItem = UITabBarItem(title: NSLocalizedString("Pick New Tool", comment: ""), image: UIImage(systemName: "figure.wave"), selectedImage: UIImage(systemName: "figure.wave"))
+        newNav.tabBarItem = newItem
+        
         let toolsVC = ToolsViewController()
         let toolsNav = BaseNavigationController(rootViewController: toolsVC)
         let toolsItem = UITabBarItem(title: NSLocalizedString("Tools Center", comment: ""), image: UIImage(systemName: "square.2.stack.3d.top.fill"), selectedImage: UIImage(systemName: "square.2.stack.3d.top.fill"))
         toolsNav.tabBarItem = toolsItem
         
-        viewControllers = [myNav,toolsNav]
+        viewControllers = [myNav,newNav,toolsNav]
         
         delegate = self
     }

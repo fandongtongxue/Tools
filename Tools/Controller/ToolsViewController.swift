@@ -63,7 +63,7 @@ class ToolsViewController: BaseViewController {
     
     func requestData(){
 //        http://img.app.xiaobingkj.com/tools.json
-        FDNetwork.GET(url: "http://img.app.xiaobingkj.com/tools.json", param: nil) { result in
+        FDNetwork.GET(url: "http://api.tools.app.xiaobingkj.com/tools.json", param: nil) { result in
             self.dataArray.removeAll()
             let resultArray = result["data"] as! [[String: Any]]
             for dict in resultArray{

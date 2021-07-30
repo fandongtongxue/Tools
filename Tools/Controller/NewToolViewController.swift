@@ -87,12 +87,22 @@ extension NewToolViewController: NewToolAddViewControllerDelegate{
     func addVC(addVC: NewToolAddViewController, didSave: ToolModel) {
 //        http://api.tools.app.xiaobingkj.com/?s=App.Examples_Tool.Insert
         FDNetwork.GET(url: "http://api.tools.app.xiaobingkj.com/", param: ["s":"App.Examples_Tool.Insert","name":didSave.name,"content":didSave.content]) { result in
-            self.dataArray.append(didSave)
-            self.collectionView.reloadData()
+            self.view.makeToast(NSLocalizedString("In Review", comment: ""))
+            self.headerRefresh()
         } failure: { error in
             self.view.makeToast(error)
         }
 
+    }
+}
+
+extension NewToolViewController: NewToolItemCellDelegate{
+    func itemCell(itemCell: NewToolItemCell, didClickHandBtn: UIButton) {
+        FDNetwork.POST(url: "http://api.tools.app.xiaobingkj.com/", param: ["s":"App.Examples_Tool.Update","name":itemCell.model.name,"content":itemCell.model.content,"id":"\(itemCell.model.id)","vote":"\(itemCell.model.vote + 1)"]) { result in
+            self.headerRefresh()
+        } failure: { error in
+            self.view.makeToast(error)
+        }
     }
 }
 
@@ -110,11 +120,16 @@ extension NewToolViewController: UICollectionViewDelegate,UICollectionViewDataSo
         if indexPath.item < dataArray.count {
             cell.model = dataArray[indexPath.item]
         }
+        cell.delegate = self
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: FD_ScreenWidth - 30, height: 100)
+        let model = dataArray[indexPath.item]
+        let nameStr = model.name as NSString
+        let contentStr = model.content as NSString
+        let height = nameStr.boundingRect(with: CGSize(width: FD_ScreenWidth - 60, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .medium)], context: nil).height + contentStr.boundingRect(with: CGSize(width: FD_ScreenWidth - 60, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [.font: UIFont.systemFont(ofSize: 13)], context: nil).height + 35
+        return CGSize(width: FD_ScreenWidth - 30, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

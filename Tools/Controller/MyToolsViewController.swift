@@ -257,6 +257,11 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             toolVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(toolVC, animated: true)
             break
+        case 20:
+            let toolVC = DecibelMeterViewController()
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
         default:
             view.makeToast("未完成的功能")
             break

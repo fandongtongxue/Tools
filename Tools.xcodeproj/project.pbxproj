@@ -19,6 +19,7 @@
 		0464B17F262E7C150019ED4B /* QRCodeGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B17E262E7C150019ED4B /* QRCodeGenerateViewController.swift */; };
 		0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464B181262EA9C80019ED4B /* FDDefine.swift */; };
 		046B19332631429A00D5D475 /* OCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B19322631429A00D5D475 /* OCRViewController.swift */; };
+		0472F0F026C2759F001C9705 /* DecibelMeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472F0EF26C2759F001C9705 /* DecibelMeterViewController.swift */; };
 		047553EF26325FD1001087D7 /* IPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553EE26325FD1001087D7 /* IPViewController.swift */; };
 		047553F226326160001087D7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553F126326160001087D7 /* Config.swift */; };
 		047553FD26326323001087D7 /* JuHeIPResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047553FC26326323001087D7 /* JuHeIPResponseModel.swift */; };
@@ -81,6 +82,7 @@
 		0464B17E262E7C150019ED4B /* QRCodeGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerateViewController.swift; sourceTree = "<group>"; };
 		0464B181262EA9C80019ED4B /* FDDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDDefine.swift; sourceTree = "<group>"; };
 		046B19322631429A00D5D475 /* OCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewController.swift; sourceTree = "<group>"; };
+		0472F0EF26C2759F001C9705 /* DecibelMeterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecibelMeterViewController.swift; sourceTree = "<group>"; };
 		047553EE26325FD1001087D7 /* IPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPViewController.swift; sourceTree = "<group>"; };
 		047553F126326160001087D7 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		047553FC26326323001087D7 /* JuHeIPResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuHeIPResponseModel.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				0444DEA62646838B001DDACA /* UnsplashDetailViewController.swift */,
 				04D0E409264CB08400E45843 /* WebpageShotViewController.swift */,
 				04249ACF26B0FCC400BDB65A /* BilibiliVideoViewController.swift */,
+				0472F0EF26C2759F001C9705 /* DecibelMeterViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				049420A9263002FA0088ADCE /* WiFiShareViewController.swift in Sources */,
 				04B1C846262974E9005EDBCB /* FDNetwork.swift in Sources */,
 				04995C472633B91C00642205 /* BilibiliCoverViewController.swift in Sources */,
+				0472F0F026C2759F001C9705 /* DecibelMeterViewController.swift in Sources */,
 				048D5979262524C600628F78 /* MyToolsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

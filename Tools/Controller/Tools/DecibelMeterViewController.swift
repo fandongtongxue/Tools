@@ -30,12 +30,18 @@ class DecibelMeterViewController: BaseViewController {
                 recorder?.prepareToRecord()
                 recorder?.isMeteringEnabled = true
                 recorder?.record()
-                timer = Timer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
             }
         } catch let error {
             self.view.makeToast(error.localizedDescription)
         }
         
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer?.invalidate()
+        timer = nil
     }
     
 

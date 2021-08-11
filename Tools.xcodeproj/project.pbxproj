@@ -70,6 +70,8 @@
 		04D0E40A264CB08400E45843 /* WebpageShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0E409264CB08400E45843 /* WebpageShotViewController.swift */; };
 		04D0E40D264CB22200E45843 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0E40C264CB22200E45843 /* WebViewController.swift */; };
 		8B3A2194BDA724F19F7DC8D4 /* Pods_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7A5A17F50E9D36BED15AE2 /* Pods_Tools.framework */; };
+		CB422BE326C3F82C0090D9FA /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB422BE226C3F82C0090D9FA /* CurrencyConverterViewController.swift */; };
+		CB422BE526C3F9A70090D9FA /* CurrencyConverterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB422BE426C3F9A70090D9FA /* CurrencyConverterModel.swift */; };
 		CBA8FD9A26C16AE3002FF8F2 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = CBA8FD9926C16AE3002FF8F2 /* tools.json */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +150,8 @@
 		3A91064668C4DE3440D969AD /* Pods-Tools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.debug.xcconfig"; path = "Target Support Files/Pods-Tools/Pods-Tools.debug.xcconfig"; sourceTree = "<group>"; };
 		8E7A5A17F50E9D36BED15AE2 /* Pods_Tools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5EF2C540199B83CDEE38334 /* Pods-Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.release.xcconfig"; path = "Target Support Files/Pods-Tools/Pods-Tools.release.xcconfig"; sourceTree = "<group>"; };
+		CB422BE226C3F82C0090D9FA /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
+		CB422BE426C3F9A70090D9FA /* CurrencyConverterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterModel.swift; sourceTree = "<group>"; };
 		CBA8FD9926C16AE3002FF8F2 /* tools.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -280,6 +284,7 @@
 				047554022632747C001087D7 /* JuHePhoneResponseModel.swift */,
 				04249AD126B0FD1200BDB65A /* BilibiliVideoModel.swift */,
 				CBA8FD9926C16AE3002FF8F2 /* tools.json */,
+				CB422BE426C3F9A70090D9FA /* CurrencyConverterModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				0444DEA62646838B001DDACA /* UnsplashDetailViewController.swift */,
 				04D0E409264CB08400E45843 /* WebpageShotViewController.swift */,
 				04249ACF26B0FCC400BDB65A /* BilibiliVideoViewController.swift */,
+				CB422BE226C3F82C0090D9FA /* CurrencyConverterViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -512,6 +518,7 @@
 				048D59722625240A00628F78 /* TabBarController.swift in Sources */,
 				047554002632737D001087D7 /* PhoneViewController.swift in Sources */,
 				047553EF26325FD1001087D7 /* IPViewController.swift in Sources */,
+				CB422BE326C3F82C0090D9FA /* CurrencyConverterViewController.swift in Sources */,
 				049420BF26301FCC0088ADCE /* VideoExtractAudioViewController.swift in Sources */,
 				0444DE32264615A3001DDACA /* SetViewController.swift in Sources */,
 				04BE545626B278D100B64825 /* NewToolViewController.swift in Sources */,
@@ -521,6 +528,7 @@
 				04866EBA264E4BA900EC6E9D /* NotificationAddViewController.swift in Sources */,
 				048D599D26256CB300628F78 /* ToolModel.swift in Sources */,
 				047553F226326160001087D7 /* Config.swift in Sources */,
+				CB422BE526C3F9A70090D9FA /* CurrencyConverterModel.swift in Sources */,
 				04249AD026B0FCC400BDB65A /* BilibiliVideoViewController.swift in Sources */,
 				048D595726251F8100628F78 /* AppDelegate.swift in Sources */,
 				0475540C2632C22D001087D7 /* NetworkSpeedViewController.swift in Sources */,

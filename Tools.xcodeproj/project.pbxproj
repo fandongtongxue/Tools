@@ -27,6 +27,8 @@
 		047554032632747C001087D7 /* JuHePhoneResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047554022632747C001087D7 /* JuHePhoneResponseModel.swift */; };
 		047554062632A890001087D7 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047554052632A890001087D7 /* Dictionary.swift */; };
 		0475540C2632C22D001087D7 /* NetworkSpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0475540B2632C22D001087D7 /* NetworkSpeedViewController.swift */; };
+		04786CA126C3C7A8004EC77D /* DDSoundWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04786C9F26C3C7A8004EC77D /* DDSoundWaveView.m */; };
+		04786CA426C3C8EA004EC77D /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 04786CA326C3C8EA004EC77D /* AudioRecorder.m */; };
 		04866EBA264E4BA900EC6E9D /* NotificationAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04866EB9264E4BA900EC6E9D /* NotificationAddViewController.swift */; };
 		04866EBC264E4CFF00EC6E9D /* NotificationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04866EBB264E4CFF00EC6E9D /* NotificationListViewController.swift */; };
 		048D595726251F8100628F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595626251F8100628F78 /* AppDelegate.swift */; };
@@ -96,6 +98,10 @@
 		047554022632747C001087D7 /* JuHePhoneResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuHePhoneResponseModel.swift; sourceTree = "<group>"; };
 		047554052632A890001087D7 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		0475540B2632C22D001087D7 /* NetworkSpeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpeedViewController.swift; sourceTree = "<group>"; };
+		04786C9F26C3C7A8004EC77D /* DDSoundWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDSoundWaveView.m; sourceTree = "<group>"; };
+		04786CA026C3C7A8004EC77D /* DDSoundWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDSoundWaveView.h; sourceTree = "<group>"; };
+		04786CA226C3C8EA004EC77D /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecorder.h; sourceTree = "<group>"; };
+		04786CA326C3C8EA004EC77D /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecorder.m; sourceTree = "<group>"; };
 		04866EB9264E4BA900EC6E9D /* NotificationAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationAddViewController.swift; sourceTree = "<group>"; };
 		04866EBB264E4CFF00EC6E9D /* NotificationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationListViewController.swift; sourceTree = "<group>"; };
 		048D595326251F8100628F78 /* Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +164,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04786C9A26C3C405004EC77D /* DecibelMeter */ = {
+			isa = PBXGroup;
+			children = (
+				04786CA226C3C8EA004EC77D /* AudioRecorder.h */,
+				04786CA326C3C8EA004EC77D /* AudioRecorder.m */,
+				04786CA026C3C7A8004EC77D /* DDSoundWaveView.h */,
+				04786C9F26C3C7A8004EC77D /* DDSoundWaveView.m */,
+				0472F0EF26C2759F001C9705 /* DecibelMeterViewController.swift */,
+			);
+			path = DecibelMeter;
+			sourceTree = "<group>";
+		};
 		048D594A26251F8100628F78 = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +287,7 @@
 		04A93ED52628186B006C9773 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				04786C9A26C3C405004EC77D /* DecibelMeter */,
 				049A5DD626C359EE0023968C /* RelativeCalculator */,
 				04866EBB264E4CFF00EC6E9D /* NotificationListViewController.swift */,
 				04866EB9264E4BA900EC6E9D /* NotificationAddViewController.swift */,
@@ -288,7 +307,6 @@
 				0444DEA62646838B001DDACA /* UnsplashDetailViewController.swift */,
 				04D0E409264CB08400E45843 /* WebpageShotViewController.swift */,
 				04249ACF26B0FCC400BDB65A /* BilibiliVideoViewController.swift */,
-				0472F0EF26C2759F001C9705 /* DecibelMeterViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -499,6 +517,7 @@
 				04BE545626B278D100B64825 /* NewToolViewController.swift in Sources */,
 				047553FD26326323001087D7 /* JuHeIPResponseModel.swift in Sources */,
 				0403A81D2636884700876BB9 /* ShotOnViewController.swift in Sources */,
+				04786CA426C3C8EA004EC77D /* AudioRecorder.m in Sources */,
 				04866EBA264E4BA900EC6E9D /* NotificationAddViewController.swift in Sources */,
 				048D599D26256CB300628F78 /* ToolModel.swift in Sources */,
 				047553F226326160001087D7 /* Config.swift in Sources */,
@@ -524,6 +543,7 @@
 				04D0E40A264CB08400E45843 /* WebpageShotViewController.swift in Sources */,
 				0499592A2635574F00B44964 /* QRCodeScanViewController.swift in Sources */,
 				04BE545A26B28B1400B64825 /* NewToolAddViewController.swift in Sources */,
+				04786CA126C3C7A8004EC77D /* DDSoundWaveView.m in Sources */,
 				04D0E40D264CB22200E45843 /* WebViewController.swift in Sources */,
 				04BE545826B283AA00B64825 /* NewToolItemCell.swift in Sources */,
 				049420A9263002FA0088ADCE /* WiFiShareViewController.swift in Sources */,
@@ -693,7 +713,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210731;
+				CURRENT_PROJECT_VERSION = 20210811;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;
@@ -718,7 +738,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210731;
+				CURRENT_PROJECT_VERSION = 20210811;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;

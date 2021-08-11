@@ -12,4 +12,7 @@
 #import <ZFPlayer/ZFIJKPlayerManager.h>
 #import <ZFPlayer/ZFPlayerControlView.h>
 
+#import "DDSoundWaveView.h"
+#import "AudioRecorder.h"
+
 #endif /* Tools_Bridging_Header_h_h */

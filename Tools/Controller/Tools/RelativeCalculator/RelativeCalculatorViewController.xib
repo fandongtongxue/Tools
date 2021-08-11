@@ -47,7 +47,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="父"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapKeyAction:" destination="-1" eventType="valueChanged" id="RB2-Eq-rya"/>
+                                        <action selector="tapKeyAction:" destination="-1" eventType="touchUpInside" id="qNR-yq-w8I"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gK-CX-qUg" customClass="CalculatorButton" customModule="Tools" customModuleProvider="target">
@@ -57,7 +57,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="母"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapKeyAction:" destination="-1" eventType="valueChanged" id="H0K-jW-fLh"/>
+                                        <action selector="tapKeyAction:" destination="-1" eventType="touchUpInside" id="vS9-Jk-xxk"/>
                                     </connections>
                                 </view>
                             </subviews>
@@ -75,7 +75,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="夫"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapKeyAction:" destination="-1" eventType="valueChanged" id="kxo-mF-K0j"/>
+                                        <action selector="tapKeyAction:" destination="-1" eventType="touchUpInside" id="4qV-01-jeU"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAy-e2-a1X" customClass="CalculatorButton" customModule="Tools" customModuleProvider="target">
@@ -85,7 +85,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="妻"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapKeyAction:" destination="-1" eventType="valueChanged" id="eA5-ba-PmM"/>
+                                        <action selector="tapKeyAction:" destination="-1" eventType="touchUpInside" id="6DC-XW-eB6"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVf-iE-ZrZ" customClass="CalculatorButton" customModule="Tools" customModuleProvider="target">
@@ -95,7 +95,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="子"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapKeyAction:" destination="-1" eventType="valueChanged" id="IZU-eg-IX3"/>
+                                        <action selector="tapKeyAction:" destination="-1" eventType="touchUpInside" id="gqM-wV-Dgk"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lnI-qc-bVb" customClass="CalculatorButton" customModule="Tools" customModuleProvider="target">
@@ -105,7 +105,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="女"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapKeyAction:" destination="-1" eventType="valueChanged" id="abT-GC-Hhv"/>
+                                        <action selector="tapKeyAction:" destination="-1" eventType="touchUpInside" id="ruk-sq-cRI"/>
                                     </connections>
                                 </view>
                             </subviews>
@@ -125,7 +125,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="兄"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapKeyAction:" destination="-1" eventType="valueChanged" id="Rjn-lx-sSv"/>
+                                        <action selector="tapKeyAction:" destination="-1" eventType="touchUpInside" id="vPo-Z1-OyH"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9m-Vy-Bv8" customClass="CalculatorButton" customModule="Tools" customModuleProvider="target">
@@ -135,7 +135,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="弟"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapKeyAction:" destination="-1" eventType="valueChanged" id="VP8-8m-yuc"/>
+                                        <action selector="tapKeyAction:" destination="-1" eventType="touchUpInside" id="o91-of-Q9T"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7b-2U-iEd" customClass="CalculatorButton" customModule="Tools" customModuleProvider="target">
@@ -145,7 +145,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="姐"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapKeyAction:" destination="-1" eventType="valueChanged" id="w5f-Su-IQw"/>
+                                        <action selector="tapKeyAction:" destination="-1" eventType="touchUpInside" id="Rud-Zf-UZG"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZe-z0-2ak" customClass="CalculatorButton" customModule="Tools" customModuleProvider="target">
@@ -155,7 +155,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="妹"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapKeyAction:" destination="-1" eventType="valueChanged" id="SVz-WO-PeQ"/>
+                                        <action selector="tapKeyAction:" destination="-1" eventType="touchUpInside" id="JoA-YM-cBQ"/>
                                     </connections>
                                 </view>
                             </subviews>
@@ -175,7 +175,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="CE"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapFunctionKeyAction:" destination="-1" eventType="valueChanged" id="bZO-gK-9nN"/>
+                                        <action selector="tapFunctionKeyAction:" destination="-1" eventType="touchUpInside" id="w2f-Q9-7HZ"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbF-rg-U51" customClass="CalculatorButton" customModule="Tools" customModuleProvider="target">
@@ -185,7 +185,7 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="AC"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapFunctionKeyAction:" destination="-1" eventType="valueChanged" id="kH6-mp-1Bd"/>
+                                        <action selector="tapFunctionKeyAction:" destination="-1" eventType="touchUpInside" id="1Et-IB-1yw"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Teh-AU-Chv" customClass="CalculatorButton" customModule="Tools" customModuleProvider="target">
@@ -195,7 +195,7 @@
                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="Convert"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapFunctionKeyAction:" destination="-1" eventType="valueChanged" id="Hti-vT-cv7"/>
+                                        <action selector="tapFunctionKeyAction:" destination="-1" eventType="touchUpInside" id="faN-wy-ldV"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gd0-Mf-YJF" customClass="CalculatorButton" customModule="Tools" customModuleProvider="target">
@@ -205,7 +205,7 @@
                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="equal"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="tapFunctionKeyAction:" destination="-1" eventType="valueChanged" id="Lmb-HS-IaA"/>
+                                        <action selector="tapFunctionKeyAction:" destination="-1" eventType="touchUpInside" id="r7G-pz-J5B"/>
                                     </connections>
                                 </view>
                             </subviews>

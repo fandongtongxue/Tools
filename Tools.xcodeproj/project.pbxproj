@@ -49,6 +49,12 @@
 		049420BF26301FCC0088ADCE /* VideoExtractAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */; };
 		0499592A2635574F00B44964 /* QRCodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049959292635574F00B44964 /* QRCodeScanViewController.swift */; };
 		04995C472633B91C00642205 /* BilibiliCoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04995C462633B91C00642205 /* BilibiliCoverViewController.swift */; };
+		049A5DD226C359910023968C /* RelativeCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A5DD026C359910023968C /* RelativeCalculatorViewController.swift */; };
+		049A5DD326C359910023968C /* RelativeCalculatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049A5DD126C359910023968C /* RelativeCalculatorViewController.xib */; };
+		049A5DD526C359E50023968C /* relationship.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 049A5DD426C359E50023968C /* relationship.min.js */; };
+		049A5DDA26C35A2E0023968C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A5DD726C35A2D0023968C /* UIColor+.swift */; };
+		049A5DDB26C35A2E0023968C /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A5DD826C35A2E0023968C /* UIView+Layout.swift */; };
+		049A5DDC26C35A2E0023968C /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A5DD926C35A2E0023968C /* CalculatorButton.swift */; };
 		04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF02627E781006C9773 /* ToolItemCell.swift */; };
 		04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93DF82627E9F0006C9773 /* BaseModel.swift */; };
 		04A93ED8262818F4006C9773 /* ToolDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */; };
@@ -115,6 +121,12 @@
 		049420BE26301FCC0088ADCE /* VideoExtractAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExtractAudioViewController.swift; sourceTree = "<group>"; };
 		049959292635574F00B44964 /* QRCodeScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanViewController.swift; sourceTree = "<group>"; };
 		04995C462633B91C00642205 /* BilibiliCoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilibiliCoverViewController.swift; sourceTree = "<group>"; };
+		049A5DD026C359910023968C /* RelativeCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeCalculatorViewController.swift; sourceTree = "<group>"; };
+		049A5DD126C359910023968C /* RelativeCalculatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelativeCalculatorViewController.xib; sourceTree = "<group>"; };
+		049A5DD426C359E50023968C /* relationship.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = relationship.min.js; sourceTree = "<group>"; };
+		049A5DD726C35A2D0023968C /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		049A5DD826C35A2E0023968C /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		049A5DD926C35A2E0023968C /* CalculatorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
 		04A93DF02627E781006C9773 /* ToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolItemCell.swift; sourceTree = "<group>"; };
 		04A93DF82627E9F0006C9773 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		04A93ED7262818F4006C9773 /* ToolDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolDetailViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +202,19 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		049A5DD626C359EE0023968C /* RelativeCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				049A5DD926C35A2E0023968C /* CalculatorButton.swift */,
+				049A5DD726C35A2D0023968C /* UIColor+.swift */,
+				049A5DD826C35A2E0023968C /* UIView+Layout.swift */,
+				049A5DD426C359E50023968C /* relationship.min.js */,
+				049A5DD026C359910023968C /* RelativeCalculatorViewController.swift */,
+				049A5DD126C359910023968C /* RelativeCalculatorViewController.xib */,
+			);
+			path = RelativeCalculator;
+			sourceTree = "<group>";
+		};
 		04A93DFB2627EFE1006C9773 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +269,7 @@
 		04A93ED52628186B006C9773 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				049A5DD626C359EE0023968C /* RelativeCalculator */,
 				04866EBB264E4CFF00EC6E9D /* NotificationListViewController.swift */,
 				04866EB9264E4BA900EC6E9D /* NotificationAddViewController.swift */,
 				04B1C83326296BE5005EDBCB /* ParseShortVideoController.swift */,
@@ -359,7 +385,9 @@
 			files = (
 				048D596326251F8200628F78 /* LaunchScreen.storyboard in Resources */,
 				CBA8FD9A26C16AE3002FF8F2 /* tools.json in Resources */,
+				049A5DD526C359E50023968C /* relationship.min.js in Resources */,
 				0444DE3E26461C93001DDACA /* Localizable.strings in Resources */,
+				049A5DD326C359910023968C /* RelativeCalculatorViewController.xib in Resources */,
 				048D596026251F8200628F78 /* Assets.xcassets in Resources */,
 				048D595E26251F8100628F78 /* Main.storyboard in Resources */,
 				0462AA1A2634F10F0051995D /* GoogleService-Info.plist in Resources */,
@@ -454,12 +482,15 @@
 				0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */,
 				048D59852625272500628F78 /* BaseNavigationController.swift in Sources */,
 				04A93ED8262818F4006C9773 /* ToolDetailViewController.swift in Sources */,
+				049A5DDC26C35A2E0023968C /* CalculatorButton.swift in Sources */,
 				048D597C262524D200628F78 /* ToolsViewController.swift in Sources */,
 				048D595B26251F8100628F78 /* ViewController.swift in Sources */,
+				049A5DDB26C35A2E0023968C /* UIView+Layout.swift in Sources */,
 				04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */,
 				04B1C8492629765B005EDBCB /* ParseShortVideoModel.swift in Sources */,
 				0451458626A805C40090AFBA /* AppModel.swift in Sources */,
 				0464B17F262E7C150019ED4B /* QRCodeGenerateViewController.swift in Sources */,
+				049A5DD226C359910023968C /* RelativeCalculatorViewController.swift in Sources */,
 				048D59722625240A00628F78 /* TabBarController.swift in Sources */,
 				047554002632737D001087D7 /* PhoneViewController.swift in Sources */,
 				047553EF26325FD1001087D7 /* IPViewController.swift in Sources */,
@@ -489,6 +520,7 @@
 				04866EBC264E4CFF00EC6E9D /* NotificationListViewController.swift in Sources */,
 				04249AD226B0FD1200BDB65A /* BilibiliVideoModel.swift in Sources */,
 				04B1C83426296BE5005EDBCB /* ParseShortVideoController.swift in Sources */,
+				049A5DDA26C35A2E0023968C /* UIColor+.swift in Sources */,
 				04D0E40A264CB08400E45843 /* WebpageShotViewController.swift in Sources */,
 				0499592A2635574F00B44964 /* QRCodeScanViewController.swift in Sources */,
 				04BE545A26B28B1400B64825 /* NewToolAddViewController.swift in Sources */,

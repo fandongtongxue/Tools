@@ -15,7 +15,8 @@ class CurrencyConverterViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        title = "汇率换算"
+        requestData()
     }
     
 

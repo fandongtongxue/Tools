@@ -136,15 +136,6 @@
             "backgroundColorHex": "00aff6"
         },
         {
-            "id": 22,
-            "name": "优惠券管理",
-            "name_en": "Coupon Manage",
-            "icon": "creditcard.fill",
-            "desc_md": "",
-            "desc_en_md": "",
-            "backgroundColorHex": "00aff6"
-        },
-        {
             "id": 23,
             "name": "汇率换算",
             "name_en": "Currency Converter",
@@ -155,8 +146,8 @@
         },
         {
             "id": 24,
-            "name": "图片生成Gif",
-            "name_en": "Image To Gif",
+            "name": "视频生成Live Photo",
+            "name_en": "Video To Live Photo",
             "icon": "photo.fill",
             "desc_md": "",
             "desc_en_md": "",

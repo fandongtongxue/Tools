@@ -34,6 +34,12 @@ class DecibelMeterViewController: BaseViewController {
         waveView.frame = CGRect(x: 0, y: FD_TopHeight, width: FD_ScreenWidth, height: FD_ScreenHeight - FD_TopHeight - FD_SafeAreaBottomHeight - 40)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        AudioRecorder.shareInstance().stopRecord()
+        AudioRecorder.shareInstance().setRecorderDelegate(nil)
+    }
+    
     lazy var waveView: DDSoundWaveView = {
         let waveView = DDSoundWaveView()
         return waveView

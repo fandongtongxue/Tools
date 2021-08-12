@@ -146,54 +146,9 @@
         },
         {
             "id": 24,
-            "name": "视频生成Live Photo",
-            "name_en": "Video To Live Photo",
-            "icon": "photo.fill",
-            "desc_md": "",
-            "desc_en_md": "",
-            "backgroundColorHex": "00aff6"
-        },
-        {
-            "id": 25,
             "name": "宫格切图",
             "name_en": "Image Crop",
             "icon": "photo.fill",
-            "desc_md": "",
-            "desc_en_md": "",
-            "backgroundColorHex": "00aff6"
-        },
-        {
-            "id": 26,
-            "name": "个人所得税",
-            "name_en": "Individual Income Tax",
-            "icon": "x.squareroot",
-            "desc_md": "",
-            "desc_en_md": "",
-            "backgroundColorHex": "00aff6"
-        },
-        {
-            "id": 27,
-            "name": "拍花识名",
-            "name_en": "Identification Flower",
-            "icon": "photo.fill",
-            "desc_md": "",
-            "desc_en_md": "",
-            "backgroundColorHex": "00aff6"
-        },
-        {
-            "id": 28,
-            "name": "图片拼接",
-            "name_en": "Image Connect",
-            "icon": "photo.fill",
-            "desc_md": "",
-            "desc_en_md": "",
-            "backgroundColorHex": "00aff6"
-        },
-        {
-            "id": 29,
-            "name": "人民币大写",
-            "name_en": "RMB In Words",
-            "icon": "creditcard.fill",
             "desc_md": "",
             "desc_en_md": "",
             "backgroundColorHex": "00aff6"

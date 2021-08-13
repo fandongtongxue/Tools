@@ -102,9 +102,7 @@ class BilibiliVideoViewController: BaseViewController {
             bannerView.load(GADRequest())
             setupPlayer()
         }
-        containerView.kf.setImage(with: URL(string: model.cover))
         player?.assetURL = URL(string: model.url)!
-        controlView.showTitle(model.title, coverURLString: model.cover, fullScreenMode: .automatic)
     }
     
     @objc func parseBtnAction(){
@@ -113,12 +111,19 @@ class BilibiliVideoViewController: BaseViewController {
         }
         view.endEditing(true)
         view.makeToastActivity(.center)
+        var param = ["p":"1","q":"80","otype":"json","format":"mp4"]
         let url = textView.text.getUrls().first ?? ""
-        FDNetwork.GET(url: "https://tenapi.cn/bilivideo/", param: ["url":url], success: { (result) in
+        let avbv = url.components(separatedBy: "/").last
+        if avbv?.hasPrefix("B") ?? false || avbv?.hasPrefix("b") ?? false {
+            param["bv"] = avbv
+        }else{
+            param["av"] = avbv
+        }
+        FDNetwork.GET(url: "https://api.injahow.cn/bparse/", param: param, success: { (result) in
             let model = BilibiliVideoModel.deserialize(from: result) ?? BilibiliVideoModel()
             self.model = model
             //解析成功
-            if model.code == 200{
+            if model.code == 0{
                 self.addVideoView()
             }
             self.view.hideToastActivity()

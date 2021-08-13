@@ -8,8 +8,8 @@
 import UIKit
 
 class BilibiliVideoModel: BaseModel {
-    var code = 0
-    var cover = ""
-    var title = ""
+    var accept_quality = [Int]()
+    var code: Int = 0
+    var quality: Int = 0
     var url = ""
 }

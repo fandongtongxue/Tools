@@ -63,7 +63,12 @@ class ToolListCell: UITableViewCell {
             _model = newValue
             //设置数据
             colorBgView.backgroundColor = UIColor(hex: newValue.backgroundColorHex)
-            nameLabel.text = newValue.name
+            if Locale.preferredLanguages.first?.contains("zh") ?? false {
+                //中文
+                nameLabel.text = newValue.name
+            }else{
+                nameLabel.text = newValue.name_en
+            }
             iconImageView.image = UIImage(systemName: newValue.icon)
         }
         get{

@@ -288,86 +288,46 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
         case 1:
             let toolVC = ParseShortVideoController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 2:
             let toolVC = QRCodeGenerateViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 3:
             let toolVC = TTSViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 4:
             let toolVC = WiFiShareViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 5:
             let toolVC = VideoExtractAudioViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 6:
             let toolVC = OCRViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 7:
             let toolVC = IPViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 8:
             let toolVC = PhoneViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 9:
             let toolVC = NetworkSpeedViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 10:
             let toolVC = SFSafariViewController(url: URL(string: "https://m.tb.cn/h.4qdNE8W")!)
             return toolVC
-            present(toolVC, animated: true, completion: nil)
             break
         case 11:
             let toolVC = BilibiliCoverViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 12:
             let toolVC = QRCodeScanViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 13:
             let toolVC = ScreenShotViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 15:
             let toolVC = ShotOnViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 16:
             let configuration = UnsplashPhotoPickerConfiguration(
                 accessKey: "522f34661134a2300e6d94d344a7ab6424e028a51b31353363b7a8cce11d73b6",
@@ -377,32 +337,30 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             )
             let unsplashPhotoPicker = UnsplashPhotoPicker(configuration: configuration)
             return unsplashPhotoPicker
-            unsplashPhotoPicker.photoPickerDelegate = self
-
-            present(unsplashPhotoPicker, animated: true, completion: nil)
-            break
         case 17:
             let toolVC = WebpageShotViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 18:
             let toolVC = NotificationListViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
         case 19:
             let toolVC = BilibiliVideoViewController()
             return toolVC
-            toolVC.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(toolVC, animated: true)
-            break
+        case 20:
+            let toolVC = DecibelMeterViewController()
+            return toolVC
+        case 21:
+            let toolVC = RelativeCalculatorViewController()
+            return toolVC
+        case 23:
+            let toolVC = CurrencyConverterViewController()
+            return toolVC
+        case 24:
+            let toolVC = VideoToLivePhotoViewController()
+            return toolVC
         default:
             view.makeToast("未完成的功能")
             return UIViewController()
-            break
         }
     }
     

@@ -73,7 +73,6 @@
 		8B3A2194BDA724F19F7DC8D4 /* Pods_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7A5A17F50E9D36BED15AE2 /* Pods_Tools.framework */; };
 		CB422BE326C3F82C0090D9FA /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB422BE226C3F82C0090D9FA /* CurrencyConverterViewController.swift */; };
 		CB422BE526C3F9A70090D9FA /* CurrencyConverterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB422BE426C3F9A70090D9FA /* CurrencyConverterModel.swift */; };
-		CBA8FD9A26C16AE3002FF8F2 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = CBA8FD9926C16AE3002FF8F2 /* tools.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,7 +153,6 @@
 		A5EF2C540199B83CDEE38334 /* Pods-Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.release.xcconfig"; path = "Target Support Files/Pods-Tools/Pods-Tools.release.xcconfig"; sourceTree = "<group>"; };
 		CB422BE226C3F82C0090D9FA /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
 		CB422BE426C3F9A70090D9FA /* CurrencyConverterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterModel.swift; sourceTree = "<group>"; };
-		CBA8FD9926C16AE3002FF8F2 /* tools.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,7 +283,6 @@
 				047553FC26326323001087D7 /* JuHeIPResponseModel.swift */,
 				047554022632747C001087D7 /* JuHePhoneResponseModel.swift */,
 				04249AD126B0FD1200BDB65A /* BilibiliVideoModel.swift */,
-				CBA8FD9926C16AE3002FF8F2 /* tools.json */,
 				CB422BE426C3F9A70090D9FA /* CurrencyConverterModel.swift */,
 			);
 			path = Model;
@@ -411,7 +408,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				048D596326251F8200628F78 /* LaunchScreen.storyboard in Resources */,
-				CBA8FD9A26C16AE3002FF8F2 /* tools.json in Resources */,
 				049A5DD526C359E50023968C /* relationship.min.js in Resources */,
 				0444DE3E26461C93001DDACA /* Localizable.strings in Resources */,
 				049A5DD326C359910023968C /* RelativeCalculatorViewController.xib in Resources */,
@@ -725,7 +721,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210813;
+				CURRENT_PROJECT_VERSION = 20210814;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;
@@ -750,7 +746,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210813;
+				CURRENT_PROJECT_VERSION = 20210814;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;

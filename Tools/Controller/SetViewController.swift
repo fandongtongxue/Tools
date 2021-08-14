@@ -9,6 +9,7 @@ import UIKit
 import MessageUI
 import DeviceKit
 import StoreKit
+import SafariServices
 
 class SetViewController: UITableViewController {
     
@@ -58,7 +59,7 @@ class SetViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,6 +68,9 @@ class SetViewController: UITableViewController {
         }
         if section == 1 {
             return 3
+        }
+        if section == 3 {
+            return 2
         }
         return appArray.count
     }
@@ -106,6 +110,18 @@ class SetViewController: UITableViewController {
                 cell?.textLabel?.text = model.name
             }
             break
+        case 3:
+            switch indexPath.row {
+            case 0:
+                cell?.textLabel?.text = NSLocalizedString("Privacy", comment: "")
+                break
+            case 1:
+                cell?.textLabel?.text = NSLocalizedString("Agreement", comment: "")
+                break
+            default:
+                break
+            }
+            break
         default:
             break
         }
@@ -140,6 +156,16 @@ class SetViewController: UITableViewController {
         }else if indexPath.section == 2{
             let model = appArray[indexPath.row]
             UIApplication.shared.openURL(URL(string: model.url)!)
+        }else if indexPath.section == 3{
+            if indexPath.row == 0 {
+                //隐私政策
+                let sfVC = SFSafariViewController(url: URL(string: "http://api.tools.app.xiaobingkj.com/privacy.html")!)
+                present(sfVC, animated: true, completion: nil)
+            }else{
+                //使用手册
+                let sfVC = SFSafariViewController(url: URL(string: "http://api.tools.app.xiaobingkj.com/service.html")!)
+                present(sfVC, animated: true, completion: nil)
+            }
         }
     }
 

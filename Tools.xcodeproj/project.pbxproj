@@ -68,6 +68,13 @@
 		04BE545626B278D100B64825 /* NewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE545526B278D100B64825 /* NewToolViewController.swift */; };
 		04BE545826B283AA00B64825 /* NewToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE545726B283AA00B64825 /* NewToolItemCell.swift */; };
 		04BE545A26B28B1400B64825 /* NewToolAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE545926B28B1300B64825 /* NewToolAddViewController.swift */; };
+		04CB535526CB615A00392961 /* ChelaileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB535426CB615A00392961 /* ChelaileViewController.swift */; };
+		04CB535726CB685100392961 /* ChelaileAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB535626CB685100392961 /* ChelaileAddressModel.swift */; };
+		04CB535926CB8A2700392961 /* ChelaileHomePageInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB535826CB8A2700392961 /* ChelaileHomePageInfoModel.swift */; };
+		04CB536326CB905A00392961 /* ChelaileStationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB536226CB905A00392961 /* ChelaileStationListCell.swift */; };
+		04CB536F26CB965C00392961 /* ChelaileLineListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB536E26CB965C00392961 /* ChelaileLineListCell.swift */; };
+		04CB537126CB9D3C00392961 /* ChelaileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB537026CB9D3C00392961 /* ChelaileDetailViewController.swift */; };
+		04CB537326CBAAE700392961 /* ChelaileStationDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CB537226CBAAE700392961 /* ChelaileStationDetailModel.swift */; };
 		04D0E40A264CB08400E45843 /* WebpageShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0E409264CB08400E45843 /* WebpageShotViewController.swift */; };
 		04D0E40D264CB22200E45843 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0E40C264CB22200E45843 /* WebViewController.swift */; };
 		8B3A2194BDA724F19F7DC8D4 /* Pods_Tools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7A5A17F50E9D36BED15AE2 /* Pods_Tools.framework */; };
@@ -146,6 +153,13 @@
 		04BE545526B278D100B64825 /* NewToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewToolViewController.swift; sourceTree = "<group>"; };
 		04BE545726B283AA00B64825 /* NewToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewToolItemCell.swift; sourceTree = "<group>"; };
 		04BE545926B28B1300B64825 /* NewToolAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewToolAddViewController.swift; sourceTree = "<group>"; };
+		04CB535426CB615A00392961 /* ChelaileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChelaileViewController.swift; sourceTree = "<group>"; };
+		04CB535626CB685100392961 /* ChelaileAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChelaileAddressModel.swift; sourceTree = "<group>"; };
+		04CB535826CB8A2700392961 /* ChelaileHomePageInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChelaileHomePageInfoModel.swift; sourceTree = "<group>"; };
+		04CB536226CB905A00392961 /* ChelaileStationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChelaileStationListCell.swift; sourceTree = "<group>"; };
+		04CB536E26CB965C00392961 /* ChelaileLineListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChelaileLineListCell.swift; sourceTree = "<group>"; };
+		04CB537026CB9D3C00392961 /* ChelaileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChelaileDetailViewController.swift; sourceTree = "<group>"; };
+		04CB537226CBAAE700392961 /* ChelaileStationDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChelaileStationDetailModel.swift; sourceTree = "<group>"; };
 		04D0E409264CB08400E45843 /* WebpageShotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebpageShotViewController.swift; sourceTree = "<group>"; };
 		04D0E40C264CB22200E45843 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		3A91064668C4DE3440D969AD /* Pods-Tools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.debug.xcconfig"; path = "Target Support Files/Pods-Tools/Pods-Tools.debug.xcconfig"; sourceTree = "<group>"; };
@@ -270,6 +284,8 @@
 				048D598F26253A3600628F78 /* ToolListCell.swift */,
 				04A93DF02627E781006C9773 /* ToolItemCell.swift */,
 				04BE545726B283AA00B64825 /* NewToolItemCell.swift */,
+				04CB536226CB905A00392961 /* ChelaileStationListCell.swift */,
+				04CB536E26CB965C00392961 /* ChelaileLineListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +300,9 @@
 				047554022632747C001087D7 /* JuHePhoneResponseModel.swift */,
 				04249AD126B0FD1200BDB65A /* BilibiliVideoModel.swift */,
 				CB422BE426C3F9A70090D9FA /* CurrencyConverterModel.swift */,
+				04CB535626CB685100392961 /* ChelaileAddressModel.swift */,
+				04CB535826CB8A2700392961 /* ChelaileHomePageInfoModel.swift */,
+				04CB537226CBAAE700392961 /* ChelaileStationDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,6 +332,8 @@
 				04D0E409264CB08400E45843 /* WebpageShotViewController.swift */,
 				04249ACF26B0FCC400BDB65A /* BilibiliVideoViewController.swift */,
 				CB422BE226C3F82C0090D9FA /* CurrencyConverterViewController.swift */,
+				04CB535426CB615A00392961 /* ChelaileViewController.swift */,
+				04CB537026CB9D3C00392961 /* ChelaileDetailViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -502,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CB537126CB9D3C00392961 /* ChelaileDetailViewController.swift in Sources */,
 				0464B182262EA9C80019ED4B /* FDDefine.swift in Sources */,
 				048D59852625272500628F78 /* BaseNavigationController.swift in Sources */,
 				04A93ED8262818F4006C9773 /* ToolDetailViewController.swift in Sources */,
@@ -528,16 +550,20 @@
 				048D599D26256CB300628F78 /* ToolModel.swift in Sources */,
 				047553F226326160001087D7 /* Config.swift in Sources */,
 				CB422BE526C3F9A70090D9FA /* CurrencyConverterModel.swift in Sources */,
+				04CB536F26CB965C00392961 /* ChelaileLineListCell.swift in Sources */,
 				04249AD026B0FCC400BDB65A /* BilibiliVideoViewController.swift in Sources */,
 				048D595726251F8100628F78 /* AppDelegate.swift in Sources */,
 				0475540C2632C22D001087D7 /* NetworkSpeedViewController.swift in Sources */,
+				04CB535526CB615A00392961 /* ChelaileViewController.swift in Sources */,
 				04AACAF32655EA6D003C17E7 /* String+FD.swift in Sources */,
 				0444DEA72646838B001DDACA /* UnsplashDetailViewController.swift in Sources */,
 				046B19332631429A00D5D475 /* OCRViewController.swift in Sources */,
 				047554032632747C001087D7 /* JuHePhoneResponseModel.swift in Sources */,
 				0403A8062636880D00876BB9 /* ScreenShotViewController.swift in Sources */,
 				048D595926251F8100628F78 /* SceneDelegate.swift in Sources */,
+				04CB535726CB685100392961 /* ChelaileAddressModel.swift in Sources */,
 				049420A0262FD26A0088ADCE /* TTSViewController.swift in Sources */,
+				04CB535926CB8A2700392961 /* ChelaileHomePageInfoModel.swift in Sources */,
 				047554062632A890001087D7 /* Dictionary.swift in Sources */,
 				048D598D2625298000628F78 /* ToolsSearchResultController.swift in Sources */,
 				048D599026253A3600628F78 /* ToolListCell.swift in Sources */,
@@ -545,7 +571,9 @@
 				04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */,
 				04866EBC264E4CFF00EC6E9D /* NotificationListViewController.swift in Sources */,
 				04249AD226B0FD1200BDB65A /* BilibiliVideoModel.swift in Sources */,
+				04CB537326CBAAE700392961 /* ChelaileStationDetailModel.swift in Sources */,
 				04B1C83426296BE5005EDBCB /* ParseShortVideoController.swift in Sources */,
+				04CB536326CB905A00392961 /* ChelaileStationListCell.swift in Sources */,
 				049A5DDA26C35A2E0023968C /* UIColor+.swift in Sources */,
 				04D0E40A264CB08400E45843 /* WebpageShotViewController.swift in Sources */,
 				0450E87A26C4EAB6006AB2ED /* VideoToLivePhotoViewController.swift in Sources */,
@@ -721,7 +749,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210814;
+				CURRENT_PROJECT_VERSION = 20210818;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;
@@ -746,7 +774,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210814;
+				CURRENT_PROJECT_VERSION = 20210818;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;

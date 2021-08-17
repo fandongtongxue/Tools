@@ -75,7 +75,8 @@ class PhoneViewController: BaseViewController {
         textField.resignFirstResponder()
         view.makeToastActivity(.center)
         FDNetwork.GET(url: api_phone, param: ["key":api_phone_key,"phone":textField.text!]) { (result) in
-            self.responseModel = JuHePhoneResponseModel.deserialize(from: result) ?? JuHePhoneResponseModel()
+            let resultDict = result as! [String: Any]
+            self.responseModel = JuHePhoneResponseModel.deserialize(from: resultDict) ?? JuHePhoneResponseModel()
             if !self.scrollView.subviews.contains(self.tableView){
                 self.scrollView.addSubview(self.tableView)
                 self.tableView.snp.makeConstraints { (make) in

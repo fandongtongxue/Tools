@@ -48,7 +48,8 @@ class NewToolViewController: BaseViewController {
             if self.page == 1{
                 self.dataArray.removeAll()
             }
-            let dataDict = result["data"] as! [String:Any]
+            let resultDict = result as! [String: Any]
+            let dataDict = resultDict["data"] as! [String:Any]
             let items = dataDict["items"] as! [[String: Any]]
             for item in items{
                 let model = ToolModel.deserialize(from: item) ?? ToolModel()

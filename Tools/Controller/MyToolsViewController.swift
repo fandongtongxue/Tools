@@ -267,6 +267,11 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             toolVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(toolVC, animated: true)
             break
+        case 22:
+            let toolVC = ChelaileViewController()
+            toolVC.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(toolVC, animated: true)
+            break
         case 23:
             let toolVC = CurrencyConverterViewController()
             toolVC.hidesBottomBarWhenPushed = true
@@ -350,6 +355,9 @@ extension MyToolsViewController : UICollectionViewDelegate,UICollectionViewDataS
             let toolVC = DecibelMeterViewController()
             return toolVC
         case 21:
+            let toolVC = RelativeCalculatorViewController()
+            return toolVC
+        case 22:
             let toolVC = RelativeCalculatorViewController()
             return toolVC
         case 23:

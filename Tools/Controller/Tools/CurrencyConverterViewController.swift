@@ -23,7 +23,8 @@ class CurrencyConverterViewController: BaseViewController {
     func requestData(){
 //        https://v6.exchangerate-api.com/v6/cf8304250ab3543002479bfd/latest/CNY
         FDNetwork.GET(url: "https://v6.exchangerate-api.com/v6/cf8304250ab3543002479bfd/latest/CNY", param: [:]) { result in
-            self.model = CurrencyConverterModel.deserialize(from: result) ?? CurrencyConverterModel()
+            let resultDict = result as! [String: Any]
+            self.model = CurrencyConverterModel.deserialize(from: resultDict) ?? CurrencyConverterModel()
         } failure: { error in
             
         }

@@ -75,7 +75,8 @@ class IPViewController: BaseViewController {
         textField.resignFirstResponder()
         view.makeToastActivity(.center)
         FDNetwork.GET(url: api_ip, param: ["key":api_ip_key,"ip":textField.text!]) { (result) in
-            self.responseModel = JuHeIPResponseModel.deserialize(from: result) ?? JuHeIPResponseModel()
+            let resultDict = result as! [String: Any]
+            self.responseModel = JuHeIPResponseModel.deserialize(from: resultDict) ?? JuHeIPResponseModel()
             if !self.scrollView.subviews.contains(self.tableView){
                 self.scrollView.addSubview(self.tableView)
                 self.tableView.snp.makeConstraints { (make) in

@@ -99,7 +99,8 @@ class ParseShortVideoController: BaseViewController {
         let url = textView.text.getUrls().first ?? ""
 //        http://api.tools.app.xiaobingkj.com/parseVideo.php?url=http://v.douyin.com/eMKj42N/
         FDNetwork.GET(url: "http://api.tools.app.xiaobingkj.com/parseVideo.php", param: ["url":url], success: { (result) in
-            let model = ParseShortVideoModel.deserialize(from: result) ?? ParseShortVideoModel()
+            let resultDict = result as! [String: Any]
+            let model = ParseShortVideoModel.deserialize(from: resultDict) ?? ParseShortVideoModel()
             self.model = model
             if model.code == 200 {
                 //解析成功

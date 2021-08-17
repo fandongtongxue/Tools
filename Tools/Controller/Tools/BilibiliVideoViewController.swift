@@ -120,7 +120,8 @@ class BilibiliVideoViewController: BaseViewController {
             param["av"] = avbv
         }
         FDNetwork.GET(url: "https://api.injahow.cn/bparse/", param: param, success: { (result) in
-            let model = BilibiliVideoModel.deserialize(from: result) ?? BilibiliVideoModel()
+            let resultDict = result as! [String: Any]
+            let model = BilibiliVideoModel.deserialize(from: resultDict) ?? BilibiliVideoModel()
             self.model = model
             //解析成功
             if model.code == 0{

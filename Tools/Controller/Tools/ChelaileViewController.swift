@@ -99,6 +99,7 @@ extension ChelaileViewController: UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ChelaileStationListCell", for: indexPath) as! ChelaileStationListCell
             cell.nameLabel.text = "站点 "+infoModel.jsonr.data.nearSts[indexPath.row].sn
             cell.contentLabel.text = infoModel.jsonr.data.nearSts[indexPath.row].lineNames
+            cell.accessoryType = .detailButton
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChelaileLineListCell", for: indexPath) as! ChelaileLineListCell

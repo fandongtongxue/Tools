@@ -42,20 +42,9 @@ class ChelaileStationDetailModelLines: BaseModel {
     var nextStation = ChelaileStationDetailModelNextStation()
     var preTimeDataType: Int = 0
     var priority: Int = 0
+    var stnStates = [ChelaileStationDetailModelStnStates]()
     var targetStation = ChelaileStationDetailModelTargetStation()
     var traffic: Int = 0
-
-    
-}
-
-class ChelaileStationDetailModelTargetStation: BaseModel {
-    var couponFlag: Int = 0
-    var distanceToSp: Int = 0
-    var lat: Int = 0
-    var lng: Int = 0
-    var order: Int = 0
-    var sId = ""
-    var sn = ""
 
     
 }
@@ -101,4 +90,32 @@ class ChelaileStationDetailModelNextStation: BaseModel {
 
     
 }
+
+class ChelaileStationDetailModelStnStates: BaseModel {
+    var arrivalTime: Int = 0
+    var busId = ""
+    var distanceToDest: Int = 0
+    var licence = ""
+    var order: Int = 0
+    var pRate: Int = 0
+    var rType: Int = 0
+    var state: Int = 0
+    var travelTime: Int = 0
+    var value: Int = 0
+
+    
+}
+
+class ChelaileStationDetailModelTargetStation: BaseModel {
+    var couponFlag: Int = 0
+    var distanceToSp: Int = 0
+    var lat: Int = 0
+    var lng: Int = 0
+    var order: Int = 0
+    var sId = ""
+    var sn = ""
+
+    
+}
+
 

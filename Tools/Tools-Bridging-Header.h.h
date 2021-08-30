@@ -15,4 +15,6 @@
 #import "DDSoundWaveView.h"
 #import "AudioRecorder.h"
 
+#import <PLPlayerKit/PLPlayerKit.h>
+
 #endif /* Tools_Bridging_Header_h_h */

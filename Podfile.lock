@@ -101,6 +101,9 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - PLPlayerKit (3.4.6):
+    - PLPlayerKit/universal (= 3.4.6)
+  - PLPlayerKit/universal (3.4.6)
   - PromisesObjC (2.0.0)
   - SnapKit (5.0.1)
   - SwiftyJSON (5.0.1)
@@ -127,6 +130,7 @@ DEPENDENCIES:
   - Hue
   - Kingfisher
   - MarkdownView
+  - PLPlayerKit (from `https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec`)
   - SnapKit (~> 5.0.0)
   - SwiftyJSON
   - SwViewCapture
@@ -166,6 +170,10 @@ SPEC REPOS:
     - UnsplashPhotoPicker
     - ZFPlayer
 
+EXTERNAL SOURCES:
+  PLPlayerKit:
+    :podspec: https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec
+
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   DeviceKit: 2c5d7485a2fa10b65c0091b2952d30843a6ba06d
@@ -187,6 +195,7 @@ SPEC CHECKSUMS:
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   MarkdownView: cf30a97ab39b2bce04406adce541972c882363bd
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  PLPlayerKit: 55fffa4772be418bb655caedb82e701a9d8e2ad5
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
@@ -195,6 +204,6 @@ SPEC CHECKSUMS:
   UnsplashPhotoPicker: 86520e34cfded8fb4a41910bf87afe571906b4e3
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
 
-PODFILE CHECKSUM: 883475a88dac2c11fbb0887ad7de86581376a2d8
+PODFILE CHECKSUM: 1834954dcd9497f8a7186e537a642806be6ec3b7
 
 COCOAPODS: 1.10.1

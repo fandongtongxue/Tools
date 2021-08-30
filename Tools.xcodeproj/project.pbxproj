@@ -32,6 +32,10 @@
 		04786CA426C3C8EA004EC77D /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 04786CA326C3C8EA004EC77D /* AudioRecorder.m */; };
 		04866EBA264E4BA900EC6E9D /* NotificationAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04866EB9264E4BA900EC6E9D /* NotificationAddViewController.swift */; };
 		04866EBC264E4CFF00EC6E9D /* NotificationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04866EBB264E4CFF00EC6E9D /* NotificationListViewController.swift */; };
+		04888C0A26DCB542002B69CA /* InkeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04888C0926DCB542002B69CA /* InkeViewController.swift */; };
+		04888C0C26DCB556002B69CA /* LiveItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04888C0B26DCB556002B69CA /* LiveItemCell.swift */; };
+		04888C0E26DCB587002B69CA /* InkeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04888C0D26DCB587002B69CA /* InkeResponseModel.swift */; };
+		04888C1026DCB7B3002B69CA /* InkePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04888C0F26DCB7B3002B69CA /* InkePlayerViewController.swift */; };
 		048D595726251F8100628F78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595626251F8100628F78 /* AppDelegate.swift */; };
 		048D595926251F8100628F78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595826251F8100628F78 /* SceneDelegate.swift */; };
 		048D595B26251F8100628F78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D595A26251F8100628F78 /* ViewController.swift */; };
@@ -114,6 +118,10 @@
 		04786CA326C3C8EA004EC77D /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecorder.m; sourceTree = "<group>"; };
 		04866EB9264E4BA900EC6E9D /* NotificationAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationAddViewController.swift; sourceTree = "<group>"; };
 		04866EBB264E4CFF00EC6E9D /* NotificationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationListViewController.swift; sourceTree = "<group>"; };
+		04888C0926DCB542002B69CA /* InkeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InkeViewController.swift; sourceTree = "<group>"; };
+		04888C0B26DCB556002B69CA /* LiveItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveItemCell.swift; sourceTree = "<group>"; };
+		04888C0D26DCB587002B69CA /* InkeResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InkeResponseModel.swift; sourceTree = "<group>"; };
+		04888C0F26DCB7B3002B69CA /* InkePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkePlayerViewController.swift; sourceTree = "<group>"; };
 		048D595326251F8100628F78 /* Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048D595626251F8100628F78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		048D595826251F8100628F78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -281,6 +289,7 @@
 		04A93DFD2627F004006C9773 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04888C0B26DCB556002B69CA /* LiveItemCell.swift */,
 				048D598F26253A3600628F78 /* ToolListCell.swift */,
 				04A93DF02627E781006C9773 /* ToolItemCell.swift */,
 				04BE545726B283AA00B64825 /* NewToolItemCell.swift */,
@@ -293,6 +302,7 @@
 		04A93DFE2627F027006C9773 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04888C0D26DCB587002B69CA /* InkeResponseModel.swift */,
 				0451458526A805C40090AFBA /* AppModel.swift */,
 				048D599C26256CB300628F78 /* ToolModel.swift */,
 				04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */,
@@ -310,6 +320,7 @@
 		04A93ED52628186B006C9773 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				04888C0926DCB542002B69CA /* InkeViewController.swift */,
 				0450E87926C4EAB6006AB2ED /* VideoToLivePhotoViewController.swift */,
 				04786C9A26C3C405004EC77D /* DecibelMeter */,
 				049A5DD626C359EE0023968C /* RelativeCalculator */,
@@ -334,6 +345,7 @@
 				CB422BE226C3F82C0090D9FA /* CurrencyConverterViewController.swift */,
 				04CB535426CB615A00392961 /* ChelaileViewController.swift */,
 				04CB537026CB9D3C00392961 /* ChelaileDetailViewController.swift */,
+				04888C0F26DCB7B3002B69CA /* InkePlayerViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -531,6 +543,7 @@
 				048D597C262524D200628F78 /* ToolsViewController.swift in Sources */,
 				048D595B26251F8100628F78 /* ViewController.swift in Sources */,
 				049A5DDB26C35A2E0023968C /* UIView+Layout.swift in Sources */,
+				04888C1026DCB7B3002B69CA /* InkePlayerViewController.swift in Sources */,
 				04A93DF92627E9F0006C9773 /* BaseModel.swift in Sources */,
 				04B1C8492629765B005EDBCB /* ParseShortVideoModel.swift in Sources */,
 				0451458626A805C40090AFBA /* AppModel.swift in Sources */,
@@ -567,8 +580,10 @@
 				047554062632A890001087D7 /* Dictionary.swift in Sources */,
 				048D598D2625298000628F78 /* ToolsSearchResultController.swift in Sources */,
 				048D599026253A3600628F78 /* ToolListCell.swift in Sources */,
+				04888C0E26DCB587002B69CA /* InkeResponseModel.swift in Sources */,
 				048D59822625266700628F78 /* BaseViewController.swift in Sources */,
 				04A93DF12627E781006C9773 /* ToolItemCell.swift in Sources */,
+				04888C0C26DCB556002B69CA /* LiveItemCell.swift in Sources */,
 				04866EBC264E4CFF00EC6E9D /* NotificationListViewController.swift in Sources */,
 				04249AD226B0FD1200BDB65A /* BilibiliVideoModel.swift in Sources */,
 				04CB537326CBAAE700392961 /* ChelaileStationDetailModel.swift in Sources */,
@@ -583,6 +598,7 @@
 				04D0E40D264CB22200E45843 /* WebViewController.swift in Sources */,
 				04BE545826B283AA00B64825 /* NewToolItemCell.swift in Sources */,
 				049420A9263002FA0088ADCE /* WiFiShareViewController.swift in Sources */,
+				04888C0A26DCB542002B69CA /* InkeViewController.swift in Sources */,
 				04B1C846262974E9005EDBCB /* FDNetwork.swift in Sources */,
 				04995C472633B91C00642205 /* BilibiliCoverViewController.swift in Sources */,
 				0472F0F026C2759F001C9705 /* DecibelMeterViewController.swift in Sources */,
@@ -749,7 +765,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210819;
+				CURRENT_PROJECT_VERSION = 20210830;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;
@@ -774,7 +790,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210819;
+				CURRENT_PROJECT_VERSION = 20210830;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;

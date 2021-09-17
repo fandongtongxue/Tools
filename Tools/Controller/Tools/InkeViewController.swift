@@ -25,7 +25,7 @@ class InkeViewController: BaseViewController {
     }
     
     @objc func requestData(){
-        FDNetwork.GET(url: "http://service.inke.com/api/live/near_recommend", param: nil) { result in
+        FDNetwork.GET(url: "http://service.inke.com/api/live/near_recommend?latitude=36.132389&longitude=117.116180&uid=313054160", param: nil) { result in
             let resultDict = result as! [String: Any]
             self.model = InkeResponseModel.deserialize(from: resultDict) ?? InkeResponseModel()
             self.collectionView.reloadData()

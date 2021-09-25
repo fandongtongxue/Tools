@@ -69,6 +69,7 @@
 		04B1C83426296BE5005EDBCB /* ParseShortVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C83326296BE5005EDBCB /* ParseShortVideoController.swift */; };
 		04B1C846262974E9005EDBCB /* FDNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C845262974E9005EDBCB /* FDNetwork.swift */; };
 		04B1C8492629765B005EDBCB /* ParseShortVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */; };
+		04B2282726FEA43A007D586F /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 04B2282626FEA43A007D586F /* tools.json */; };
 		04BE545626B278D100B64825 /* NewToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE545526B278D100B64825 /* NewToolViewController.swift */; };
 		04BE545826B283AA00B64825 /* NewToolItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE545726B283AA00B64825 /* NewToolItemCell.swift */; };
 		04BE545A26B28B1400B64825 /* NewToolAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE545926B28B1300B64825 /* NewToolAddViewController.swift */; };
@@ -158,6 +159,7 @@
 		04B1C83326296BE5005EDBCB /* ParseShortVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseShortVideoController.swift; sourceTree = "<group>"; };
 		04B1C845262974E9005EDBCB /* FDNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDNetwork.swift; sourceTree = "<group>"; };
 		04B1C8482629765B005EDBCB /* ParseShortVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseShortVideoModel.swift; sourceTree = "<group>"; };
+		04B2282626FEA43A007D586F /* tools.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
 		04BE545526B278D100B64825 /* NewToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewToolViewController.swift; sourceTree = "<group>"; };
 		04BE545726B283AA00B64825 /* NewToolItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewToolItemCell.swift; sourceTree = "<group>"; };
 		04BE545926B28B1300B64825 /* NewToolAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewToolAddViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		04A93DFE2627F027006C9773 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04B2282626FEA43A007D586F /* tools.json */,
 				04888C0D26DCB587002B69CA /* InkeResponseModel.swift */,
 				0451458526A805C40090AFBA /* AppModel.swift */,
 				048D599C26256CB300628F78 /* ToolModel.swift */,
@@ -443,6 +446,7 @@
 				048D596326251F8200628F78 /* LaunchScreen.storyboard in Resources */,
 				049A5DD526C359E50023968C /* relationship.min.js in Resources */,
 				0444DE3E26461C93001DDACA /* Localizable.strings in Resources */,
+				04B2282726FEA43A007D586F /* tools.json in Resources */,
 				049A5DD326C359910023968C /* RelativeCalculatorViewController.xib in Resources */,
 				048D596026251F8200628F78 /* Assets.xcassets in Resources */,
 				048D595E26251F8100628F78 /* Main.storyboard in Resources */,
@@ -765,7 +769,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210917;
+				CURRENT_PROJECT_VERSION = 20210925;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;
@@ -790,7 +794,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Tools/Tools.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20210917;
+				CURRENT_PROJECT_VERSION = 20210925;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F9N98X7P4L;
 				INFOPLIST_FILE = Tools/Info.plist;

@@ -40,7 +40,7 @@ class ToolsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        requestData()
+        loadLocalData()
     }
     
     func loadLocalData(){

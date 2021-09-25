@@ -129,6 +129,13 @@ class SetViewController: UITableViewController {
         return cell!
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 2 {
+            return NSLocalizedString("Our apps", comment: "")
+        }
+        return ""
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 1 && indexPath.row == 1 {

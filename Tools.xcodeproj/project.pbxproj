@@ -94,8 +94,6 @@
 		04249AD126B0FD1200BDB65A /* BilibiliVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BilibiliVideoModel.swift; sourceTree = "<group>"; };
 		043B17FC2635644C006FAC93 /* Tools-Bridging-Header.h.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tools-Bridging-Header.h.h"; sourceTree = "<group>"; };
 		0444DE31264615A3001DDACA /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
-		0444DE3926461C35001DDACA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
-		0444DE3A26461C35001DDACA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		0444DE3D26461C93001DDACA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0444DE4026461C98001DDACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0444DEA62646838B001DDACA /* UnsplashDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashDetailViewController.swift; sourceTree = "<group>"; };
@@ -626,7 +624,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				048D595D26251F8100628F78 /* Base */,
-				0444DE3926461C35001DDACA /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -635,7 +632,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				048D596226251F8200628F78 /* Base */,
-				0444DE3A26461C35001DDACA /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

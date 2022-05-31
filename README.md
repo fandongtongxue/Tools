@@ -34,7 +34,7 @@
 
 #### 功能展示
 
-![功能列表](https://gitee.com/fandongtongxue/Tools/raw/master/IMG_1102.JPEG "在这里输入图片标题")
+![功能列表](/IMG_1102.JPEG "在这里输入图片标题")
 
 #### 参与贡献
 
